@@ -1,0 +1,30 @@
+{
+    "sourceFile": "js/main.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1761985112536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1761992615101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -127,5 +127,4 @@\n \r\n    \r\n \r\n })(jQuery);\r\n-\r\n"
+                },
+                {
+                    "date": 1761992662849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,15 +16,8 @@\n     new WOW().init();\r\n \r\n \r\n     // Sticky Navbar\r\n-    $(window).scroll(function () {\r\n-        if ($(this).scrollTop() > 45) {\r\n-            $('.navbar').addClass('sticky-top shadow-sm');\r\n-        } else {\r\n-            $('.navbar').removeClass('sticky-top shadow-sm');\r\n-        }\r\n-    });\r\n \r\n \r\n     // Hero Header carousel\r\n     $(\".header-carousel\").owlCarousel({\r\n"
+                },
+                {
+                    "date": 1762170641280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,11 +66,10 @@\n \r\n         $('#videoModal').on('hide.bs.modal', function (e) {\r\n             $(\"#video\").attr('src', $videoSrc);\r\n         })\r\n-    });\r\n+    });z\r\n \r\n-\r\n     // testimonial carousel\r\n     $(\".testimonial-carousel\").owlCarousel({\r\n         autoplay: true,\r\n         smartSpeed: 1000,\r\n"
+                }
+            ],
+            "date": 1761985112536,
+            "name": "Commit-0",
+            "content": "(function ($) {\r\n    \"use strict\";\r\n\r\n    // Spinner\r\n    var spinner = function () {\r\n        setTimeout(function () {\r\n            if ($('#spinner').length > 0) {\r\n                $('#spinner').removeClass('show');\r\n            }\r\n        }, 1);\r\n    };\r\n    spinner(0);\r\n    \r\n    \r\n    // Initiate the wowjs\r\n    new WOW().init();\r\n\r\n\r\n    // Sticky Navbar\r\n    $(window).scroll(function () {\r\n        if ($(this).scrollTop() > 45) {\r\n            $('.navbar').addClass('sticky-top shadow-sm');\r\n        } else {\r\n            $('.navbar').removeClass('sticky-top shadow-sm');\r\n        }\r\n    });\r\n\r\n\r\n    // Hero Header carousel\r\n    $(\".header-carousel\").owlCarousel({\r\n        animateOut: 'slideOutDown',\r\n        items: 1,\r\n        autoplay: true,\r\n        smartSpeed: 1000,\r\n        dots: false,\r\n        loop: true,\r\n        nav : true,\r\n        navText : [\r\n            '<i class=\"bi bi-arrow-left\"></i>',\r\n            '<i class=\"bi bi-arrow-right\"></i>'\r\n        ],\r\n    });\r\n\r\n\r\n    // International carousel\r\n    $(\".testimonial-carousel\").owlCarousel({\r\n        autoplay: true,\r\n        items: 1,\r\n        smartSpeed: 1500,\r\n        dots: true,\r\n        dotsData: true,\r\n        loop: true,\r\n        margin: 25,\r\n        nav : true,\r\n        navText : [\r\n            '<i class=\"bi bi-arrow-left\"></i>',\r\n            '<i class=\"bi bi-arrow-right\"></i>'\r\n        ]\r\n    });\r\n\r\n\r\n    // Modal Video\r\n    $(document).ready(function () {\r\n        var $videoSrc;\r\n        $('.btn-play').click(function () {\r\n            $videoSrc = $(this).data(\"src\");\r\n        });\r\n        console.log($videoSrc);\r\n\r\n        $('#videoModal').on('shown.bs.modal', function (e) {\r\n            $(\"#video\").attr('src', $videoSrc + \"?autoplay=1&amp;modestbranding=1&amp;showinfo=0\");\r\n        })\r\n\r\n        $('#videoModal').on('hide.bs.modal', function (e) {\r\n            $(\"#video\").attr('src', $videoSrc);\r\n        })\r\n    });\r\n\r\n\r\n    // testimonial carousel\r\n    $(\".testimonial-carousel\").owlCarousel({\r\n        autoplay: true,\r\n        smartSpeed: 1000,\r\n        center: true,\r\n        dots: true,\r\n        loop: true,\r\n        nav : true,\r\n        navText : [\r\n            '<i class=\"bi bi-arrow-left\"></i>',\r\n            '<i class=\"bi bi-arrow-right\"></i>'\r\n        ],\r\n    });\r\n\r\n    \r\n    \r\n   // Back to top button\r\n   $(window).scroll(function () {\r\n    if ($(this).scrollTop() > 300) {\r\n        $('.back-to-top').fadeIn('slow');\r\n    } else {\r\n        $('.back-to-top').fadeOut('slow');\r\n    }\r\n    });\r\n    $('.back-to-top').click(function () {\r\n        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');\r\n        return false;\r\n    });\r\n\r\n\r\n    function myMove() {\r\n        let id = null;\r\n        const elem = document.getElementById(\"animate\");   \r\n        let pos = 0;\r\n        clearInterval(id);\r\n        id = setInterval(frame, 5);\r\n        function frame() {\r\n          if (pos == 350) {\r\n            clearInterval(id);\r\n          } else {\r\n            pos++; \r\n            elem.style.top = pos + \"px\"; \r\n            elem.style.left = pos + \"px\"; \r\n          }\r\n        }\r\n      }\r\n\r\n\r\n   \r\n\r\n})(jQuery);\r\n\r\n"
+        }
+    ]
+}

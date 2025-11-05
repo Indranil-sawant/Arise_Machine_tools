@@ -1,0 +1,22 @@
+{
+    "sourceFile": "info/data.txt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1761680184037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1761900764462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n Products available \n \n-1. Milling\n+    1. Milling\n \n-Face Mill Cutter\n-Shell Mill Cutter\n-End Mills\n-Thread Milling \n-Profiling Tools\n-Profiling Milling Cutter\n-Slot Milling Cutter\n-Ball Nose Cutter\n+    Face Mill Cutter\n+    Shell Mill Cutter\n+    End Mills\n+    Thread Milling \n+    Profiling Tools\n+    Profiling Milling Cutter\n+    Slot Milling Cutter\n+    Ball Nose Cutter\n \n 2. Drilling\n \n Solid Carbide Drills\n"
+                }
+            ],
+            "date": 1761680184037,
+            "name": "Commit-0",
+            "content": "Products available \n\n1. Milling\n\nFace Mill Cutter\nShell Mill Cutter\nEnd Mills\nThread Milling \nProfiling Tools\nProfiling Milling Cutter\nSlot Milling Cutter\nBall Nose Cutter\n\n2. Drilling\n\nSolid Carbide Drills\nHigh Speed Steel Drills\nBrazed Type Drills\nIndexable Core Drills\nIndexable U Drill\n\n3. Boring\n\nRough Boring Tool\nFinish boring Tool\nDamper Boring Tool\nModuler Boring System\nCombination Boring Tool\nBoring Kits\nSolid Carbide Reamer\nBrazed Reamer \n\n4. Turning \n\nGeneral Turning Tools\nParting and Grooving Tools\nThreading Tools\nMulti Task Machining Tool\n\n5. Tool Holding System \n\nFace Mill Adapter\nShell Mill Adapter \nSide Lock Adapter \nER Type Adapter \nCKB Type Adapter \nHydro Grip Adapter \nLong Damper Adapter \n\n6. Accessories for Tool Holding System and Turning Tools\n\n7. Inserts\n\nCarbide Inserts\nInserts for Aluminium \nCBN Inserts\nPCD Inserts\n\n8. Tool Handling System\nTool Holder Fixture \nTool Trolley \nTool Holding Racks \nTool Cupboard \n\n9. Industrial Solutions \nEcho Friendly Rust Remover \nRust Preventive Oil\nCutting Oil\nOil and Grease Cleaner\nCleaning Media\nWelding Anti Spatter\nRubber Lubricant Emulsion"
+        }
+    ]
+}
