@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 14,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1761654617318,
@@ -64,6 +64,26 @@
                 {
                     "date": 1761909038970,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8343,9 +8343,9 @@\n     word-break: break-word !important\n }\n \n .text-primary {\n-    color: #f74780;\n+    color: black;\n }\n \n .text-secondary {\n     color: #6610f2 !important\n"
+                },
+                {
+                    "date": 1762419264999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     --bs-cyan: #0dcaf0;\n     --bs-white: #fff;\n     --bs-gray: #6c757d;\n     --bs-gray-dark: #343a40;\n-    --bs-primary: #4770f7;\n+    --bs-primary: #000000ff;\n     --bs-secondary: #f2c910;\n     --bs-success: #198754;\n     --bs-info: #0dcaf0;\n     --bs-warning: #ffc107;\n"
+                },
+                {
+                    "date": 1762419354216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)\n  */\n :root {\n     --bs-blue: #0d6efd;\n-    --bs-indigo: #6610f2;\n+    --bs-indigo: #000000ff;\n     --bs-purple: #6f42c1;\n     --bs-pink: #d58c0d;\n     --bs-red: #dc3545;\n     --bs-orange: #fd7e14;\n@@ -3183,10 +3183,10 @@\n }\n \n .btn-secondary {\n     color: #fff;\n-    background-color: #6610f2;\n-    border-color: #6610f2\n+    background-color: #000000ff;\n+    border-color: #000000ff\n }\n \n .btn-secondary:hover {\n     color: #fff;\n@@ -3222,10 +3222,10 @@\n \n .btn-secondary:disabled,\n .btn-secondary.disabled {\n     color: #fff;\n-    background-color: #6610f2;\n-    border-color: #6610f2\n+    background-color: #000000ff;\n+    border-color: #000000ff\n }\n \n .btn-success {\n     color: #fff;\n@@ -3537,16 +3537,16 @@\n     background-color: rgba(0, 0, 0, 0)\n }\n \n .btn-outline-secondary {\n-    color: #6610f2;\n-    border-color: #6610f2\n+    color: #000000ff;\n+    border-color: #000000ff\n }\n \n .btn-outline-secondary:hover {\n     color: #fff;\n-    background-color: #6610f2;\n-    border-color: #6610f2\n+    background-color: #000000ff;\n+    border-color: #000000ff\n }\n \n .btn-check:focus+.btn-outline-secondary,\n .btn-outline-secondary:focus {\n@@ -3558,10 +3558,10 @@\n .btn-outline-secondary:active,\n .btn-outline-secondary.active,\n .btn-outline-secondary.dropdown-toggle.show {\n     color: #fff;\n-    background-color: #6610f2;\n-    border-color: #6610f2\n+    background-color: #000000ff;\n+    border-color: #000000ff\n }\n \n .btn-check:checked+.btn-outline-secondary:focus,\n .btn-check:active+.btn-outline-secondary:focus,\n@@ -3572,9 +3572,9 @@\n }\n \n .btn-outline-secondary:disabled,\n .btn-outline-secondary.disabled {\n-    color: #6610f2;\n+    color: #000000ff;\n     background-color: rgba(0, 0, 0, 0)\n }\n \n .btn-outline-success {\n@@ -6949,9 +6949,9 @@\n     color: #f96c99\n }\n \n .link-secondary {\n-    color: #6610f2\n+    color: #000000ff\n }\n \n .link-secondary:hover,\n .link-secondary:focus {\n@@ -7370,9 +7370,9 @@\n     border-color: #f74780 !important\n }\n \n .border-secondary {\n-    border-color: #6610f2 !important\n+    border-color: #000000ff !important\n }\n \n .border-success {\n     border-color: #198754 !important\n@@ -8347,9 +8347,9 @@\n     color: black;\n }\n \n .text-secondary {\n-    color: #6610f2 !important\n+    color: #000000ff !important\n }\n \n .text-success {\n     color: #198754 !important\n@@ -8403,9 +8403,9 @@\n     background-color: #f74780 !important\n }\n \n .bg-secondary {\n-    background-color: #6610f2 !important\n+    background-color: #000000ff !important\n }\n \n .bg-success {\n     background-color: #198754 !important\n"
+                },
+                {
+                    "date": 1762419832244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3183,9 +3183,9 @@\n }\n \n .btn-secondary {\n     color: #fff;\n-    background-color: #000000ff;\n+    background-color: #eda84dff;\n     border-color: #000000ff\n }\n \n .btn-secondary:hover {\n"
+                },
+                {
+                    "date": 1762419857051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3183,9 +3183,9 @@\n }\n \n .btn-secondary {\n     color: #fff;\n-    background-color: #eda84dff;\n+    background-color: #000000ff;\n     border-color: #000000ff\n }\n \n .btn-secondary:hover {\n"
+                },
+                {
+                    "date": 1762419921273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3138,10 +3138,10 @@\n }\n \n .btn-primary {\n     color: #000;\n-    background-color: #f74780;\n-    border-color: #f74780\n+    background-color: #ffffffff;\n+    border-color: #ffffffff\n }\n \n .btn-primary:hover {\n     color: #000;\n"
                 }
             ],
             "date": 1761654617318,
