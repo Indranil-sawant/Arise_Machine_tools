@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 19,
+            "activePatchIndex": 22,
             "patches": [
                 {
                     "date": 1761654617318,
@@ -84,6 +84,18 @@
                 {
                     "date": 1762419921273,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3138,10 +3138,10 @@\n }\n \n .btn-primary {\n     color: #000;\n-    background-color: #f74780;\n-    border-color: #f74780\n+    background-color: #ffffffff;\n+    border-color: #ffffffff\n }\n \n .btn-primary:hover {\n     color: #000;\n"
+                },
+                {
+                    "date": 1762582928974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3138,9 +3138,9 @@\n }\n \n .btn-primary {\n     color: #000;\n-    background-color: #ffffffff;\n+    background-color: #000000ff;\n     border-color: #ffffffff\n }\n \n .btn-primary:hover {\n"
+                },
+                {
+                    "date": 1762592496844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -533,9 +533,9 @@\n }\n \n @media(min-width: 1200px) {\n     .display-4 {\n-        font-size: 3.5rem\n+        font-size: 3.3rem\n     }\n }\n \n .display-5 {\n"
+                },
+                {
+                    "date": 1762592505109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -533,9 +533,9 @@\n }\n \n @media(min-width: 1200px) {\n     .display-4 {\n-        font-size: 3.3rem\n+        font-size: 3.5rem\n     }\n }\n \n .display-5 {\n"
                 }
             ],
             "date": 1761654617318,

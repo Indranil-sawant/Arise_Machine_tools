@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 8,
             "patches": [
                 {
                     "date": 1761680184037,
@@ -16,6 +16,30 @@
                 {
                     "date": 1762406339304,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,12 +56,9 @@\n CBN Inserts\n PCD Inserts\n \n 8. Tool Handling System\n-Tool Holder Fixture \n-Tool Trolley \n-Tool Holding Racks \n-Tool Cupboard \n+ \n \n 9. Industrial Solutions \n Echo Friendly Rust Remover \n Rust Preventive Oil\n"
+                },
+                {
+                    "date": 1762594978280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,12 @@\n CBN Inserts\n PCD Inserts\n \n 8. Tool Handling System\n- \n+Tool Holder Fixture \n+Tool Trolley \n+Tool Holding Racks \n+Tool Cupboard \n \n 9. Industrial Solutions \n Echo Friendly Rust Remover \n Rust Preventive Oil\n"
+                },
+                {
+                    "date": 1762595594626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n Products available \n \n     1. Milling\n \n-    Face Mill Cutter\n+    Face Mill Cutter    \n     Shell Mill Cutter\n     End Mills\n     Thread Milling \n     Profiling Tools\n"
+                },
+                {
+                    "date": 1762595916530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n     Thread Milling \n     Profiling Tools\n     Profiling Milling Cutter\n     Slot Milling Cutter\n-    Ball Nose Cutter\n-\n+ \n 2. Drilling\n \n Solid Carbide Drills\n High Speed Steel Drills\n"
+                },
+                {
+                    "date": 1762599357915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n \n 7. Inserts\n \n Carbide Inserts\n-Inserts for Aluminium \n+Inserts for Aluminiu\n CBN Inserts\n PCD Inserts\n \n 8. Tool Handling System\n"
+                },
+                {
+                    "date": 1762599523610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n Shell Mill Adapter \n Side Lock Adapter \n ER Type Adapter \n CKB Type Adapter \n-Hydro Grip Adapter \n-Long Damper Adapter \n+Hydro Grip Adapter\n+Long Damper Adapter\n \n 6. Accessories for Tool Holding System and Turning Tools\n \n 7. Inserts\n"
+                },
+                {
+                    "date": 1762600380353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \n Face Mill Adapter\n Shell Mill Adapter \n Side Lock Adapter \n-ER Type Adapter \n+    ER Type Adapter \n CKB Type Adapter \n Hydro Grip Adapter\n Long Damper Adapter\n \n"
                 }
             ],
             "date": 1761680184037,
