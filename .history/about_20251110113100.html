@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Mailler - SaaS Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+            
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid p-0">
+          <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0 shadow-sm bg-light">
+  <a href="index.html" class="navbar-brand p-0">
+    <h1 class="display-6 text-primary m-0">
+      <i class="fas fa-cogs me-2"></i>Arise CNC Tools
+    </h1>
+    <!-- Uncomment if you want to use a logo image -->
+    <!-- <img src="img/logo.png" alt="Arise CNC Tools Logo"> -->
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarCollapse"
+  >
+    <span class="fa fa-bars"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-0">
+      <a href="index.html" class="nav-item nav-link active">Home</a>
+      <a href="about.html" class="nav-item nav-link">About</a>
+      <a href="products.html" class="nav-item nav-link">Products</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
+        <div class="dropdown-menu m-0">
+          <a href="infrastructure.html" class="dropdown-item">Infrastructure</a>
+          <a href="industries.html" class="dropdown-item">Industries We Serve</a>
+          <a href="gallery.html" class="dropdown-item">Gallery</a>
+          <a href="testimonial.html" class="dropdown-item">Client Testimonials</a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="nav-item nav-link">Contact</a>
+    </div>
+
+    <a
+      href="enquiry.html"
+      class="btn btn-primary rounded-pill py-2 px-4 ms-lg-3"
+      >Enquiry</a
+    >
+  </div>
+</nav>
+
+        </div>
+        <!-- Navbar & Hero End -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Arise CNC Tools</title>
+  <meta name="description" content="Arise CNC Tools — precision cutting tools, tool holding systems, inserts, and accessories for milling, drilling, boring, and turning." />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- (Optional) Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .hero {
+      position: relative;
+      background: url('assets/img/hero-cnc.jpg') center/cover no-repeat; /* replace with your image */
+      min-height: 60vh;
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25));
+    }
+    .hero > .hero-content { position: relative; z-index: 1; }
+    .section-title .bar { width: 72px; height: 4px; background: #0d6efd; border-radius: 999px; }
+    .value-card { transition: transform .2s ease, box-shadow .2s ease; }
+    .value-card:hover { transform: translateY(-4px); box-shadow: 0 1rem 2rem rgba(0,0,0,.08); }
+    .stat { font-weight: 700; font-size: clamp(1.5rem, 2.5vw, 2.25rem); }
+    .lead-slim { font-size: 1.05rem; }
+  </style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero" id="top" role="banner" aria-label="About Arise CNC Tools">
+  <div class="container hero-content text-center">
+    <span class="badge bg-primary-subtle text-primary fs-6 fw-semibold mb-3">About Us</span>
+    <h1 class="display-5 fw-bold">Precision. Performance. Perfection.</h1>
+    <p class="lead mx-auto" style="max-width: 760px;">
+      At <strong>Arise CNC Tools</strong>, we redefine machining excellence through innovation and reliability —
+      delivering world-class CNC tooling solutions for modern industries.
+    </p>
+    <div class="d-flex gap-3 justify-content-center">
+      <a href="/products" class="btn btn-primary btn-lg"><i class="bi bi-grid-3x3-gap me-2"></i>Explore Products</a>
+      <a href="#contact" class="btn btn-outline-light btn-lg"><i class="bi bi-telephone me-2"></i>Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- ====== WHO WE ARE ====== -->
+<section id="who-we-are" class="py-5 py-lg-6">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <img src="assets/img/about-shopfloor.jpg" class="img-fluid rounded-4 shadow-sm" alt="CNC tools and holders on shop floor"> <!-- replace image -->
+      </div>
+      <div class="col-lg-6">
+        <div class="section-title mb-3">
+          <h2 class="h1 fw-bold mb-2">Who We Are</h2>
+          <div class="bar"></div>
+        </div>
+        <p class="lead-slim mb-3">
+          Founded to empower the manufacturing sector, <strong>Arise CNC Tools</strong> specializes in the design,
+          development, and supply of high-performance cutting tools, tool holding systems, and machining accessories.
+        </p>
+        <p class="mb-4">
+          With decades of combined expertise, we deliver reliable solutions for CNC milling, drilling, boring, and turning
+          across automotive, aerospace, die &amp; mold, and precision engineering.
+        </p>
+
+        <!-- Quick stats -->
+        <div class="row text-center g-3">
+          <div class="col-6 col-md-3">
+            <div class="stat">10k+</div>
+            <div class="text-muted small">Tools Shipped</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat">98%</div>
+            <div class="text-muted small">On-time Delivery</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat">120+</div>
+            <div class="text-muted small">Active Clients</div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat">15+</div>
+            <div class="text-muted small">Industries Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MISSION & VISION ====== -->
+<section id="mission-vision" class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="p-4 p-lg-5 bg-white rounded-4 shadow-sm h-100">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-bullseye fs-1 text-primary me-3" aria-hidden="true"></i>
+            <h3 class="mb-0">Our Mission</h3>
+          </div>
+          <p class="mb-0">
+            To deliver superior CNC tooling solutions that enhance productivity, accuracy, and tool life —
+            while building long-term partnerships through trust, service, and continuous innovation.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="p-4 p-lg-5 bg-white rounded-4 shadow-sm h-100">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-eye fs-1 text-primary me-3" aria-hidden="true"></i>
+            <h3 class="mb-0">Our Vision</h3>
+          </div>
+          <p class="mb-0">
+            To be recognized as a global leader in CNC tooling technology — where precision meets performance
+            and innovation drives every cut.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHAT WE DO / EXPERTISE ====== -->
+<section id="expertise" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h1 fw-bold">Our Expertise</h2>
+      <p class="text-muted mb-0">End-to-end tooling for milling, drilling, boring, and turning</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-boxes fs-2 text-primary"></i>
+            <h5 class="mt-3">Milling Tools</h5>
+            <p class="text-muted mb-3">Face mills, end mills, profiling cutters for steel, aluminium, cast iron.</p>
+            <ul class="small mb-0">
+              <li>High-balance bodies &amp; advanced coatings</li>
+              <li>Geometry options for roughing &amp; finishing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-dribbble fs-2 text-primary"></i>
+            <h5 class="mt-3">Drilling Tools</h5>
+            <p class="text-muted mb-3">Solid carbide drills, indexable U drills for high penetration rates.</p>
+            <ul class="small mb-0">
+              <li>Through-coolant options</li>
+              <li>Optimized point &amp; flute geometry</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-bullseye fs-2 text-primary"></i>
+            <h5 class="mt-3">Boring &amp; Reaming</h5>
+            <p class="text-muted mb-3">Precision boring bars, damped holders, and carbide/CBN reamers.</p>
+            <ul class="small mb-0">
+              <li>µm-level adjustability</li>
+              <li>Vibration control for superior finishes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-arrow-repeat fs-2 text-primary"></i>
+            <h5 class="mt-3">Turning &amp; Threading</h5>
+            <p class="text-muted mb-3">General turning, parting &amp; grooving, threading, multi-task tools.</p>
+            <ul class="small mb-0">
+              <li>Stable clamping &amp; chip control</li>
+              <li>Grades for steel, SS, CI, non-ferrous</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-nut fs-2 text-primary"></i>
+            <h5 class="mt-3">Tool Holding Systems</h5>
+            <p class="text-muted mb-3">CAT/BT/HSK adapters, ER collets, hydraulic &amp; damped holders.</p>
+            <ul class="small mb-0">
+              <li>High runout accuracy &lt; 3 µm</li>
+              <li>Extended reach &amp; anti-vibration options</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 rounded-4 border-0 shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-diamond fs-2 text-primary"></i>
+            <h5 class="mt-3">Inserts</h5>
+            <p class="text-muted mb-3">Carbide, PCD, and CBN inserts tuned to your material &amp; operation.</p>
+            <ul class="small mb-0">
+              <li>Wear-resistant grades &amp; chipbreakers</li>
+              <li>ISO/ANSI geometries available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHY CHOOSE US ====== -->
+<section id="why-us" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h1 fw-bold">Why Choose Arise</h2>
+      <p class="text-muted mb-0">Real advantages that show up in your cycle times and finishes</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 rounded-4 h-100 bg-white shadow-sm">
+          <i class="bi bi-speedometer2 fs-2 text-primary"></i>
+          <h5 class="mt-3">Precision Engineering</h5>
+          <p class="mb-0">Balanced tool bodies, tight tolerances, and stable clamping for accuracy.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 rounded-4 h-100 bg-white shadow-sm">
+          <i class="bi bi-shield-check fs-2 text-primary"></i>
+          <h5 class="mt-3">Quality You Can Trust</h5>
+          <p class="mb-0">Strict QC to meet ISO and global machining standards.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="p-4 rounded-4 h-100 bg-white shadow-sm">
+          <i class="bi bi-people fs-2 text-primary"></i>
+          <h5 class="mt-3">Application Support</h5>
+          <p class="mb-0">Selection help, trials, and regrinding &amp; customization on request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VALUES ====== -->
+<section id="values" class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="h1 fw-bold">Our Core Values</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card p-4 rounded-4 border h-100">
+          <i class="bi bi-heart-pulse fs-2 text-primary"></i>
+          <h6 class="mt-3 mb-1">Integrity</h6>
+          <p class="text-muted small mb-0">Transparency in every commitment and delivery.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card p-4 rounded-4 border h-100">
+          <i class="bi bi-stars fs-2 text-primary"></i>
+          <h6 class="mt-3 mb-1">Excellence</h6>
+          <p class="text-muted small mb-0">Precision as a habit, not an act.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card p-4 rounded-4 border h-100">
+          <i class="bi bi-lightbulb fs-2 text-primary"></i>
+          <h6 class="mt-3 mb-1">Innovation</h6>
+          <p class="text-muted small mb-0">Continuous improvement across design and process.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="value-card p-4 rounded-4 border h-100">
+          <i class="bi bi-hand-thumbs-up fs-2 text-primary"></i>
+          <h6 class="mt-3 mb-1">Commitment</h6>
+          <p class="text-muted small mb-0">Service that stays long after the sale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section id="contact" class="py-5 bg-primary text-white">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <h2 class="fw-bold mb-2">Let’s build better parts together.</h2>
+        <p class="mb-0">Talk to our applications team for tool selection, trials, and quotations.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="/contact" class="btn btn-light btn-lg"><i class="bi bi-envelope me-2"></i>Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- (Optional) Footer snippet -->
+<footer class="py-4 border-top">
+  <div class="container small d-flex flex-column flex-md-row justify-content-between gap-2">
+    <div>© <span id="y"></span> Arise CNC Tools. All rights reserved.</div>
+    <div class="text-muted">Milling • Drilling • Boring • Turning • Tool Holding • Inserts</div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
+
+
+         <!-- Header Start -->
+     <section class="ezy__about13 light" id="ezy__about13">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+        <div class="">
+          <h1 class="ezy__about13-heading">ABOUT US</h1>
+          <hr class="ezy__about13-divider my-4" />
+          <p class="ezy__about13-sub-heading mb-2">
+            Completely network collaborative web services via user-centric initiatives. Quickly promote sticky
+            testing procedures before unique process improvements. Distinctively engineer innovative information
+            whereas revolutionary process improvements. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Quia enim omnis saepe dolor voluptatum. Natus soluta maxime ipsum nam sapiente dignissimos voluptatum
+            totam. Ratione atque dolorum nostrum a est voluptatibus.
+          </p>
+          <p class="ezy__about13-sub-heading mb-0">
+            Distinctively engineer innovative information whereas revolutionary process improvements. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit. Quia enim omnis saepe dolor voluptatum. Natus soluta
+            maxime ipsum nam sapiente dignissimos voluptatum totam.
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="ezy__about13-bg-holder"></div>
+        <div class="position-relative">
+          <img src="https://cdn.easyfrontend.com/pictures/about/about13_1.jpg" alt="" class="img-fluid" />
+          <img
+            src="https://cdn.easyfrontend.com/pictures/about/about13_2.jpg"
+            alt=""
+            class="img-fluid ezy__about13-img2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- Header End -->
+
+
+        <!-- About Start -->
+
+        <!-- About End -->
+
+
+        <!-- Feature Start -->
+        <div class="container-fluid feature overflow-hidden py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Our Feature</h4>
+                    <h1 class="display-5 mb-4">Important Features For Email Marketing</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center text-center mb-5">
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="text-center p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-envelope fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Email Marketing <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="text-center p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Email Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="text-center rounded p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Customer Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="text-center rounded p-4">
+                            <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-tasks fa-5x text-secondary"></i></div>
+                            <div class="feature-content">
+                                <a href="#" class="h4">Campaign Manager <i class="fa fa-long-arrow-alt-right"></i></a>
+                                <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="my-3">
+                            <a href="#" class="btn btn-primary d-inline rounded-pill px-5 py-3">More Features</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5 pt-5" style="margin-top: 6rem;">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="feature-img RotateMoveLeft h-100" style="object-fit: cover;">
+                            <img src="img/features-1.png" class="img-fluid w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
+                        <h4 class="text-primary">Fearutes</h4>
+                        <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                        </p>
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <i class="fas fa-newspaper fa-4x text-secondary"></i>
+                                    <div class="d-flex flex-column ms-3">
+                                        <h2 class="mb-0 fw-bold">285</h2>
+                                        <small class="text-dark">Created Projects</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex">
+                                    <i class="fas fa-users fa-4x text-secondary"></i>
+                                    <div class="d-flex flex-column ms-3">
+                                        <h2 class="mb-0 fw-bold">6560</h2>
+                                        <small class="text-dark">Happy Clients</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature End -->
+
+
+        <!-- Blog Start -->
+        <div class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Our Blog</h4>
+                    <h1 class="display-5 mb-4">Join Us For New Blog</h1>
+                    <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
+                    </p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-1.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-2.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-3.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-4.png" class="img-fluid w-100" alt="">
+                                <div class="blog-info">
+                                    <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                                    <div class="d-flex">
+                                        <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                        <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog-content text-dark border p-4 ">
+                                <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
+                                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
+                                <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-dark mb-4">Company</h4>
+                            <a href=""> Why Mailler?</a>
+                            <a href=""> Our Features</a>
+                            <a href=""> Our Portfolio</a>
+                            <a href=""> About Us</a>
+                            <a href=""> Our Blog & News</a>
+                            <a href=""> Get In Touch</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Quick Links</h4>
+                            <a href=""> About Us</a>
+                            <a href=""> Contact Us</a>
+                            <a href=""> Privacy Policy</a>
+                            <a href=""> Terms & Conditions</a>
+                            <a href=""> Our Blog & News</a>
+                            <a href=""> Our Team</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Services</h4>
+                            <a href=""> All Services</a>
+                            <a href=""> Promotional Emails</a>
+                            <a href=""> Product Updates</a>
+                            <a href=""> Email Marketing</a>
+                            <a href=""> Acquistion Emails</a>
+                            <a href=""> Retention Emails</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-dark">Contact Info</h4>
+                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
+                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-secondary me-2"></i>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-white">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    </body>
+
+</html>
