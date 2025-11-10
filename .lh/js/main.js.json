@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1761985112536,
@@ -20,6 +20,22 @@
                 {
                     "date": 1762170641280,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,11 +66,10 @@\n \r\n         $('#videoModal').on('hide.bs.modal', function (e) {\r\n             $(\"#video\").attr('src', $videoSrc);\r\n         })\r\n-    });\r\n+    });z\r\n \r\n-\r\n     // testimonial carousel\r\n     $(\".testimonial-carousel\").owlCarousel({\r\n         autoplay: true,\r\n         smartSpeed: 1000,\r\n"
+                },
+                {
+                    "date": 1762761311680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,4 +119,14 @@\n \r\n    \r\n \r\n })(jQuery);\r\n+\r\n+\r\n+document.querySelectorAll('.blog-content').forEach(blog => {\r\n+  const title = blog.querySelector('h5').textContent.trim();\r\n+  const query = encodeURIComponent(title);\r\n+  const link = blog.querySelector('a.btn');\r\n+  link.href = `https://www.google.com/search?q=${query}`;\r\n+  link.target = \"_blank\";\r\n+  link.rel = \"noopener noreferrer\";\r\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1762761423391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,5 +128,5 @@\n   const link = blog.querySelector('a.btn');\r\n   link.href = `https://www.google.com/search?q=${query}`;\r\n   link.target = \"_blank\";\r\n   link.rel = \"noopener noreferrer\";\r\n-});\n\\ No newline at end of file\n+}); \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1762773935369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -128,5 +128,25 @@\n   const link = blog.querySelector('a.btn');\r\n   link.href = `https://www.google.com/search?q=${query}`;\r\n   link.target = \"_blank\";\r\n   link.rel = \"noopener noreferrer\";\r\n-}); \n\\ No newline at end of file\n+}); \r\n+\r\n+\r\n+ $(document).ready(function () {\r\n+    const table = $('#productTable').DataTable({\r\n+      pageLength: 8,\r\n+      lengthChange: false,\r\n+      ordering: true,\r\n+      searching: true,\r\n+    });\r\n+\r\n+    // Filter by category dropdown\r\n+    $('#categoryFilter').on('change', function () {\r\n+      const category = $(this).val();\r\n+      if (category) {\r\n+        table.column(1).search(category).draw();\r\n+      } else {\r\n+        table.column(1).search('').draw();\r\n+      }\r\n+    });\r\n+  });\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1762774001149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -131,9 +131,10 @@\n   link.rel = \"noopener noreferrer\";\r\n }); \r\n \r\n \r\n- $(document).ready(function () {\r\n+\r\n+$(document).ready(function () {\r\n     const table = $('#productTable').DataTable({\r\n       pageLength: 8,\r\n       lengthChange: false,\r\n       ordering: true,\r\n"
                 }
             ],
             "date": 1761985112536,
