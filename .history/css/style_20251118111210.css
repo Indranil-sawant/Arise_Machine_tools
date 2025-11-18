@@ -1418,56 +1418,66 @@
   color: #fff !important;
 }
 
-  @media (max-width: 768px) {
-
-  /* Make cards scroll horizontally */
-  .ezy__portfolio15 .row.product-scroll {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    gap: 16px;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-snap-type: x mandatory;
-  }
-
-  /* Hide scrollbar for premium look */
-  .ezy__portfolio15 .row.product-scroll::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Each card behaves as a horizontal slide */
-  .ezy__portfolio15 .row.product-scroll .col-lg-4,
-  .ezy__portfolio15 .row.product-scroll .col-md-6,
-  .ezy__portfolio15 .row.product-scroll .col-12 {
-    flex: 0 0 70% !important;  /* ⭐ BEST SIZE: shows 1.4 cards */
-    max-width: 70% !important;
-    scroll-snap-align: start;
-  }
-
-  /* Reduce image height for mobile */
-  .ezy__portfolio15 .card-img-top {
-    height: 130px !important;
-    object-fit: contain !important;
-    padding: 10px !important;
-  }
-
-  /* Reduce card minimum height to fit layout */
-  .ezy__portfolio15 .card {
-    min-height: 320px !important;
+@media (min-width: 567px) {
+  .ezy__portfolio15-pagination .page-link {
+    padding: 10px 18px;
+    font-size: 18px;
   }
 }
 
- /* ===================================== */
-/*          ezy__header30 SECTION        */
-/* ===================================== */
+/* Circle Scroll Wrapper */
+.circle-scroll-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
 
+.circle-scroll-row::-webkit-scrollbar {
+  display: none;
+}
 
-/* ================================================= */
-/* ========== MOBILE FIX — SMOOTH SCROLL =========== */
-/* ================================================= */
+/* Item styling */
+.circle-item {
+  flex: 0 0 auto;
+  text-align: center;
+  scroll-snap-align: start;
+}
 
+.circle-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e0e0e0;
+  transition: 0.3s;
+}
 
+.circle-item img:hover {
+  transform: scale(1.05);
+}
+
+.circle-item p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000;
+}
+
+/* Mobile styling */
+@media (max-width: 600px) {
+  .circle-item img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .circle-item p {
+    font-size: 14px;
+  }
+}
 
 /* NAVBAR: always white, links dark, hover -> grey */
 .navbar,
@@ -1527,9 +1537,46 @@ nav.bg-transparent {
    ADD THIS CSS FOR YOUR NEW CARDS
 ---------------------------------- */
 
-
-
 /* Makes the card background transparent */
+
+/* Desktop - show normal grid */
+.product-scroll-wrapper {
+  overflow: hidden;
+}
+
+.product-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Mobile - horizontal scroll with 3 visible cards */
+@media (max-width: 768px) {
+  .product-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding-bottom: 10px;
+  }
+
+  .product-scroll::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+
+  .product-scroll .col-lg-4 {
+    flex: 0 0 calc(100% / 1.6); 
+    /* shows ~3 cards partially, looks like horizontal slider */
+    scroll-snap-align: start;
+  }
+
+  .product-scroll .card-img-top {
+    height: 180px;
+    object-fit: cover;
+  }
+}
+
 .ezy__header30 .card {
     background: none;
     border: none;
@@ -1542,7 +1589,7 @@ nav.bg-transparent {
     border-radius: 50%;    /* This makes it a circle */
     overflow: hidden;      /* Clips the image to the circle shape */
     aspect-ratio: 1 / 1;   /* Ensures it is a perfect circle */
-    border: 4px solid #8088f3ff; /* Optional: adds a light border */
+    border: 4px solid #ffffffff; /* Optional: adds a light border */
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.05); /* Optional: soft shadow */
 }
 
@@ -1576,64 +1623,6 @@ nav.bg-transparent {
     display: inline-block; /* Needed for <a> tag */
 }
 
-@media (max-width: 768px) {
-
-  /* enable horizontal scroll */
-  .ezy__header30-courses .carousel-inner {
-    display: flex !important;
-    overflow-x: auto !important;
-    gap: 16px !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-behavior: smooth !important;
-  }
-
-  /* hide arrows */
-  .ezy__header30-courses .carousel-control-prev,
-  .ezy__header30-courses .carousel-control-next {
-    display: none !important;
-  }
-
-  /* each carousel slide */
-  .ezy__header30-courses .carousel-item {
-    flex: 0 0 auto !important;
-    display: flex !important;
-  }
-
-  /* row inside slide */
-  .ezy__header30-courses .carousel-item .row {
-    flex-wrap: nowrap !important;
-    display: flex !important;
-    gap: 16px !important;
-  }
-
-  /* card width */
-  .ezy__header30-courses .col-12,
-  .ezy__header30-courses .col-md-3 {
-    flex: 0 0 55% !important;
-    max-width: 55% !important;
-    scroll-snap-align: start;
-  }
-
-  /* remove absolute overlay */
-  .ezy__header30-card-content {
-    position: static !important;
-    margin-top: 10px !important;
-  }
-
-  /* smaller text */
-  .ezy__header30-card-content h4 {
-    font-size: 16px !important;
-    white-space: normal !important;
-  }
-
-  /* circle image sizes */
-  .circle-img {
-    width: 85px !important;
-    height: 85px !important;
-  }
-}
-
 /* ----------------------------------
    Original Template CSS (for context)
 ---------------------------------- */
@@ -1663,6 +1652,9 @@ nav.bg-transparent {
 .ezy__header30-heading,
 .ezy__header30-sub-heading {
     color: #fff;
+}
+.ezy__header30-heading{
+   
 }
 
 

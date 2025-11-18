@@ -1576,64 +1576,6 @@ nav.bg-transparent {
     display: inline-block; /* Needed for <a> tag */
 }
 
-@media (max-width: 768px) {
-
-  /* enable horizontal scroll */
-  .ezy__header30-courses .carousel-inner {
-    display: flex !important;
-    overflow-x: auto !important;
-    gap: 16px !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-behavior: smooth !important;
-  }
-
-  /* hide arrows */
-  .ezy__header30-courses .carousel-control-prev,
-  .ezy__header30-courses .carousel-control-next {
-    display: none !important;
-  }
-
-  /* each carousel slide */
-  .ezy__header30-courses .carousel-item {
-    flex: 0 0 auto !important;
-    display: flex !important;
-  }
-
-  /* row inside slide */
-  .ezy__header30-courses .carousel-item .row {
-    flex-wrap: nowrap !important;
-    display: flex !important;
-    gap: 16px !important;
-  }
-
-  /* card width */
-  .ezy__header30-courses .col-12,
-  .ezy__header30-courses .col-md-3 {
-    flex: 0 0 55% !important;
-    max-width: 55% !important;
-    scroll-snap-align: start;
-  }
-
-  /* remove absolute overlay */
-  .ezy__header30-card-content {
-    position: static !important;
-    margin-top: 10px !important;
-  }
-
-  /* smaller text */
-  .ezy__header30-card-content h4 {
-    font-size: 16px !important;
-    white-space: normal !important;
-  }
-
-  /* circle image sizes */
-  .circle-img {
-    width: 85px !important;
-    height: 85px !important;
-  }
-}
-
 /* ----------------------------------
    Original Template CSS (for context)
 ---------------------------------- */
@@ -1663,6 +1605,9 @@ nav.bg-transparent {
 .ezy__header30-heading,
 .ezy__header30-sub-heading {
     color: #fff;
+}
+.ezy__header30-heading{
+   
 }
 
 

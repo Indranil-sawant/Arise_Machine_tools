@@ -1528,54 +1528,6 @@ nav.bg-transparent {
 ---------------------------------- */
 
 
-
-/* Makes the card background transparent */
-.ezy__header30 .card {
-    background: none;
-    border: none;
-}
-
-/* 1. This creates the centered circle for the image */
-.ezy__header30 .card-head {
-    max-width: 250px;      /* Adjust the size of the circle here */
-    margin: 0 auto 20px auto; /* Centers the circle and adds space below */
-    border-radius: 50%;    /* This makes it a circle */
-    overflow: hidden;      /* Clips the image to the circle shape */
-    aspect-ratio: 1 / 1;   /* Ensures it is a perfect circle */
-    border: 4px solid #8088f3ff; /* Optional: adds a light border */
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.05); /* Optional: soft shadow */
-}
-
-/* 2. This makes the image fill the circle perfectly */
-.ezy__header30 .card-img-top {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Scales the image to fill the space */
-}
-
-/* 3. This centers the text content below the circle */
-.ezy__header30 .card-body {
-    text-align: center;
-    padding: 0;
-}
-
-/* 4. This fixes the invisible text (from your first question) */
-.ezy__header30-card-content h4,
-.ezy__header30-card-content p {
-    color: #333333; /* A dark color for your "light" theme */
-}
-
-/* 5. This styles the "View All" button/link */
-.ezy__header30 .ezy__header30-btn {
-    background-color: #007bff; /* Example: blue */
-    color: #FFFFFF;           /* White text */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block; /* Needed for <a> tag */
-}
-
 @media (max-width: 768px) {
 
   /* enable horizontal scroll */
