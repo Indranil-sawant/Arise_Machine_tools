@@ -8,7 +8,7 @@
     /* ---- MAIN THEME COLORS ---- */
     --bs-primary: #1E90FF;      /* Light Blue */
     --bs-secondary: #F39C12;    /* Orange */
-    --bs-light: #F7F9FC;        /* Light White/Grey */
+    --bs-light: #0a0a0aff;        /* Light White/Grey */
     --bs-dark: #1A1A1A;         /* CNC Dark */
 
     /* Supporting colors */

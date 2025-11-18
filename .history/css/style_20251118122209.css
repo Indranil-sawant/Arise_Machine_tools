@@ -271,80 +271,61 @@
 }
 /*** Navbar End ***/
 
-/* SECTION BASE */
-.cnc-auto-carousel {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 100px
+.cnc-carousel-section {
+  background: #f8f9fa;
+  margin: 80px 0;
 }
 
-/* IMAGE STYLE */
-.cnc-auto-img {
-  height:580px;
-  object-fit: cover;
-  filter: brightness(85%);
-      width: 100%;
-     /* Desktop */
-    object-fit: cover;
-    object-position: center;
-    transform: scale(1.06);  
-}
-
-/* DARK OVERLAY */
-.carousel-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
-  z-index: 1;
-}
-
-/* CENTERED TEXT ON IMAGE */
-.centered-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  text-align: center;
-  width: 80%;
-}
-
-.centered-caption h2 {
-  font-size: 4.8rem;
+.cnc-heading {
+  font-size: 3.4rem;
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0px 4px 12px rgba(0,0,0,0.7);
+  color: #222;
+
 }
 
-.centered-caption p {
-  font-size: 2.2rem;
-  color: #eee;
-  margin-top: 10px;
-  text-shadow: 0px 3px 10px rgba(0,0,0,0.6);
+.cnc-subheading {
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto;
+ 
 }
 
-/* BUTTON ARROWS */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
+.cnc-slide-img {
+  height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* MOBILE OPTIMIZATION */
+/* Caption Styling */
+.carousel-caption h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Mobile Optimization */
 @media (max-width: 768px) {
-  .cnc-auto-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
-    transform: scale(1.08);
+  .cnc-slide-img {
+    height: 240px !important;
   }
-  .centered-caption h2 {
-    font-size:2.6rem;
+  
+  .carousel-caption {
+    bottom: 10px !important;
   }
-  .centered-caption p {
-    font-size: 0.95rem;
-    width: 90%;
-    margin: 0 auto;
+
+  .carousel-caption h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem !important;
   }
 }
 
