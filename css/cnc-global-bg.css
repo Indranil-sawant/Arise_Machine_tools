@@ -1,0 +1,43 @@
+/* ============================================
+   GLOBAL CNC WEBSITE BACKGROUND
+   Apply this to body or main container
+   ============================================ */
+
+/* Global dark gradient background */
+body {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f1f38 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Alternative: Apply to specific sections if needed */
+.cnc-global-bg {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f1f38 100%);
+    background-attachment: fixed;
+}
+
+/* Ensure all sections blend seamlessly */
+.cnc-section-dark {
+    background: transparent;
+}
+
+/* Optional: Add subtle texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content stays above background overlay */
+body>* {
+    position: relative;
+    z-index: 1;
+}

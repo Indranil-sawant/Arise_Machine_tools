@@ -1,0 +1,506 @@
+/* ============================================
+   PREMIUM CNC ABOUT SECTION - SCOPED STYLES
+   ============================================ */
+
+.cnc-about-wrapper {
+    position: relative;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f1f38 100%);
+    overflow: hidden;
+}
+
+.cnc-about-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ===================================
+   LEFT VISUAL AREA
+   =================================== */
+.cnc-about-visual {
+    position: relative;
+    animation: cnc-about-fade-in-left 0.8s ease-out;
+}
+
+@keyframes cnc-about-fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cnc-about-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Decorative Shapes */
+.cnc-about-shape {
+    position: absolute;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.cnc-about-shape-1 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+    top: -30px;
+    left: -30px;
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    animation: cnc-about-float-1 6s ease-in-out infinite;
+}
+
+.cnc-about-shape-2 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(238, 108, 77, 0.1) 0%, rgba(238, 108, 77, 0.05) 100%);
+    bottom: -20px;
+    right: -20px;
+    border: 2px solid rgba(238, 108, 77, 0.2);
+    animation: cnc-about-float-2 8s ease-in-out infinite;
+}
+
+@keyframes cnc-about-float-1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(10px, -10px) rotate(5deg);
+    }
+}
+
+@keyframes cnc-about-float-2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-10px, 10px) rotate(-5deg);
+    }
+}
+
+/* Image Wrapper */
+.cnc-about-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.cnc-about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cnc-about-image-wrapper:hover .cnc-about-image {
+    transform: scale(1.05);
+}
+
+/* Floating Stats Badge */
+.cnc-about-stats-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px 28px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    animation: cnc-about-badge-float 3s ease-in-out infinite;
+}
+
+@keyframes cnc-about-badge-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.cnc-about-stats-badge-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.cnc-about-stats-badge-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Quality Badge */
+.cnc-about-quality-badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    z-index: 3;
+}
+
+.cnc-about-quality-icon {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    animation: cnc-about-star-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cnc-about-star-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.cnc-about-quality-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===================================
+   RIGHT CONTENT AREA
+   =================================== */
+.cnc-about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: cnc-about-fade-in-right 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes cnc-about-fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tag */
+.cnc-about-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.cnc-about-tag-icon {
+    font-size: 8px;
+    color: #3b82f6;
+    animation: cnc-about-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cnc-about-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.cnc-about-tag-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Heading */
+.cnc-about-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.cnc-about-heading-accent {
+    display: block;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 8px;
+}
+
+/* Description */
+.cnc-about-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.cnc-about-description strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Feature Cards */
+.cnc-about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.cnc-about-feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.cnc-about-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.cnc-about-feature-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.cnc-about-feature-card:hover::before {
+    transform: scaleY(1);
+}
+
+.cnc-about-feature-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.cnc-about-feature-number {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.cnc-about-feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.cnc-about-feature-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* CTA Button */
+.cnc-about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: fit-content;
+    margin-top: 12px;
+}
+
+.cnc-about-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+    color: #ffffff;
+}
+
+.cnc-about-cta:active {
+    transform: translateY(0);
+}
+
+.cnc-about-cta-icon {
+    transition: transform 0.3s ease;
+}
+
+.cnc-about-cta:hover .cnc-about-cta-icon {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-about-wrapper {
+        padding: 80px 20px;
+    }
+
+    .cnc-about-container {
+        gap: 60px;
+    }
+
+    .cnc-about-heading {
+        font-size: 40px;
+    }
+
+    .cnc-about-description {
+        font-size: 16px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-about-wrapper {
+        padding: 60px 16px;
+    }
+
+    .cnc-about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .cnc-about-visual {
+        order: 2;
+    }
+
+    .cnc-about-content {
+        order: 1;
+    }
+
+    .cnc-about-image-frame {
+        max-width: 100%;
+    }
+
+    .cnc-about-heading {
+        font-size: 32px;
+    }
+
+    .cnc-about-description {
+        font-size: 15px;
+    }
+
+    .cnc-about-stats-badge {
+        bottom: 20px;
+        left: 20px;
+        padding: 16px 20px;
+    }
+
+    .cnc-about-stats-badge-number {
+        font-size: 28px;
+    }
+
+    .cnc-about-quality-badge {
+        top: 20px;
+        right: 20px;
+        padding: 10px 16px;
+    }
+
+    .cnc-about-shape-1,
+    .cnc-about-shape-2 {
+        display: none;
+    }
+
+    .cnc-about-cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-about-heading {
+        font-size: 28px;
+    }
+
+    .cnc-about-feature-number {
+        font-size: 24px;
+    }
+
+    .cnc-about-feature-title {
+        font-size: 16px;
+    }
+
+    .cnc-about-feature-text {
+        font-size: 14px;
+    }
+
+    .cnc-about-stats-badge-number {
+        font-size: 24px;
+    }
+}

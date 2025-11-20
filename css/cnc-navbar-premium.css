@@ -1,0 +1,412 @@
+/* ============================================
+   PREMIUM CNC NAVBAR - SCOPED STYLES
+   ============================================ */
+
+/* Main Navbar Container */
+.cnc-navbar-premium {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(11, 37, 69, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+/* Scrolled State */
+.cnc-navbar-premium.cnc-navbar-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-bottom-color: rgba(11, 37, 69, 0.12);
+}
+
+/* Inner Container */
+.cnc-navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    transition: height 0.3s ease;
+}
+
+.cnc-navbar-premium.cnc-navbar-scrolled .cnc-navbar-container {
+    height: 70px;
+}
+
+/* Brand/Logo */
+.cnc-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.cnc-navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.cnc-navbar-logo-icon {
+    font-size: 32px;
+    background: linear-gradient(135deg, #0B2545 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(11, 37, 69, 0.2));
+    transition: filter 0.3s ease;
+}
+
+.cnc-navbar-brand:hover .cnc-navbar-logo-icon {
+    filter: drop-shadow(0 4px 8px rgba(11, 37, 69, 0.3));
+}
+
+.cnc-navbar-brand-text {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0B2545;
+    letter-spacing: -0.5px;
+    margin: 0;
+    line-height: 1;
+}
+
+.cnc-navbar-brand-tagline {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* Navigation Menu */
+.cnc-navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cnc-navbar-menu-item {
+    position: relative;
+}
+
+.cnc-navbar-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.cnc-navbar-link::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 2px;
+}
+
+.cnc-navbar-link:hover {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.08);
+}
+
+.cnc-navbar-link:hover::before {
+    transform: scaleX(1);
+}
+
+.cnc-navbar-link.cnc-navbar-link-active {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.12);
+}
+
+.cnc-navbar-link.cnc-navbar-link-active::before {
+    transform: scaleX(1);
+}
+
+/* Dropdown */
+.cnc-navbar-dropdown {
+    position: relative;
+}
+
+.cnc-navbar-dropdown-toggle {
+    cursor: pointer;
+}
+
+.cnc-navbar-dropdown-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.cnc-navbar-dropdown:hover .cnc-navbar-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.cnc-navbar-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    min-width: 240px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.cnc-navbar-dropdown:hover .cnc-navbar-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.cnc-navbar-dropdown-item {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.cnc-navbar-dropdown-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    transform: translateX(4px);
+}
+
+/* CTA Button */
+.cnc-navbar-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: 16px;
+}
+
+.cnc-navbar-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+    color: #ffffff;
+}
+
+.cnc-navbar-cta:active {
+    transform: translateY(0);
+}
+
+/* Mobile Toggle */
+.cnc-navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.cnc-navbar-toggle:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.cnc-navbar-toggle-bar {
+    width: 24px;
+    height: 2px;
+    background: #0B2545;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.cnc-navbar-toggle.cnc-navbar-toggle-active .cnc-navbar-toggle-bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.cnc-navbar-toggle.cnc-navbar-toggle-active .cnc-navbar-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.cnc-navbar-toggle.cnc-navbar-toggle-active .cnc-navbar-toggle-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-navbar-container {
+        padding: 0 20px;
+    }
+
+    .cnc-navbar-menu {
+        gap: 4px;
+    }
+
+    .cnc-navbar-link {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .cnc-navbar-cta {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-left: 12px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-navbar-container {
+        height: 70px;
+    }
+
+    .cnc-navbar-toggle {
+        display: flex;
+    }
+
+    .cnc-navbar-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(11, 37, 69, 0.08);
+    }
+
+    .cnc-navbar-menu.cnc-navbar-menu-open {
+        max-height: calc(100vh - 70px);
+        opacity: 1;
+        overflow-y: auto;
+    }
+
+    .cnc-navbar-menu-item {
+        width: 100%;
+    }
+
+    .cnc-navbar-link {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+
+    .cnc-navbar-link::before {
+        display: none;
+    }
+
+    .cnc-navbar-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: rgba(59, 130, 246, 0.05);
+        margin-top: 8px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .cnc-navbar-dropdown.cnc-navbar-dropdown-open .cnc-navbar-dropdown-menu {
+        max-height: 500px;
+    }
+
+    .cnc-navbar-dropdown-item {
+        padding: 12px 20px;
+    }
+
+    .cnc-navbar-cta {
+        width: 100%;
+        justify-content: center;
+        margin: 16px 0 0 0;
+    }
+
+    .cnc-navbar-brand-text {
+        font-size: 20px;
+    }
+
+    .cnc-navbar-logo-icon {
+        font-size: 28px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-navbar-container {
+        padding: 0 16px;
+    }
+
+    .cnc-navbar-brand-text {
+        font-size: 18px;
+    }
+
+    .cnc-navbar-brand-tagline {
+        display: none;
+    }
+}
+
+/* Scroll Animation */
+@keyframes cnc-navbar-slide-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cnc-navbar-premium {
+    animation: cnc-navbar-slide-down 0.5s ease-out;
+}

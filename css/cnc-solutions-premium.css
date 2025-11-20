@@ -1,0 +1,484 @@
+/* ============================================
+   PREMIUM CNC SOLUTIONS SECTION - SCOPED STYLES
+   ============================================ */
+
+.cnc-solutions-wrapper {
+    position: relative;
+    padding: 100px 20px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.cnc-solutions-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ===================================
+   LEFT CONTENT AREA
+   =================================== */
+.cnc-solutions-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: cnc-solutions-fade-in-left 0.8s ease-out;
+}
+
+@keyframes cnc-solutions-fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tag */
+.cnc-solutions-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.cnc-solutions-tag-icon {
+    font-size: 8px;
+    color: #EE6C4D;
+    animation: cnc-solutions-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cnc-solutions-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.cnc-solutions-tag-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #EE6C4D;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Heading */
+.cnc-solutions-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.cnc-solutions-heading-accent {
+    display: block;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 8px;
+}
+
+/* Description */
+.cnc-solutions-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Product List */
+.cnc-solutions-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cnc-solutions-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.cnc-solutions-list-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+.cnc-solutions-list-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 10px;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.cnc-solutions-list-item:hover .cnc-solutions-list-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.cnc-solutions-list-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cnc-solutions-list-content strong {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+}
+
+.cnc-solutions-list-content span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* CTA Button */
+.cnc-solutions-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #EE6C4D 0%, #E29578 100%);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(238, 108, 77, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: fit-content;
+    margin-top: 12px;
+}
+
+.cnc-solutions-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(238, 108, 77, 0.6);
+    color: #ffffff;
+}
+
+.cnc-solutions-cta:active {
+    transform: translateY(0);
+}
+
+.cnc-solutions-cta-icon {
+    transition: transform 0.3s ease;
+}
+
+.cnc-solutions-cta:hover .cnc-solutions-cta-icon {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   RIGHT VISUAL AREA
+   =================================== */
+.cnc-solutions-visual {
+    position: relative;
+    animation: cnc-solutions-fade-in-right 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes cnc-solutions-fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cnc-solutions-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Glowing elements */
+.cnc-solutions-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    animation: cnc-solutions-glow-pulse 4s ease-in-out infinite;
+}
+
+.cnc-solutions-glow-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+    animation-delay: 0s;
+}
+
+.cnc-solutions-glow-2 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(238, 108, 77, 0.3) 0%, transparent 70%);
+    bottom: -50px;
+    left: -50px;
+    animation-delay: 2s;
+}
+
+@keyframes cnc-solutions-glow-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Image Wrapper */
+.cnc-solutions-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.cnc-solutions-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cnc-solutions-image-wrapper:hover .cnc-solutions-image {
+    transform: scale(1.05);
+}
+
+/* Floating Badge */
+.cnc-solutions-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    animation: cnc-solutions-badge-float 3s ease-in-out infinite;
+}
+
+@keyframes cnc-solutions-badge-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.cnc-solutions-badge-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #EE6C4D 0%, #E29578 100%);
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.cnc-solutions-badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cnc-solutions-badge-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.cnc-solutions-badge-subtitle {
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Rotating Decorative Element */
+.cnc-solutions-rotate-element {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    animation: cnc-solutions-rotate 20s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes cnc-solutions-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-solutions-wrapper {
+        padding: 80px 20px;
+    }
+
+    .cnc-solutions-container {
+        gap: 60px;
+    }
+
+    .cnc-solutions-heading {
+        font-size: 40px;
+    }
+
+    .cnc-solutions-description {
+        font-size: 16px;
+    }
+
+    .cnc-solutions-list-content strong {
+        font-size: 15px;
+    }
+
+    .cnc-solutions-list-content span {
+        font-size: 13px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-solutions-wrapper {
+        padding: 60px 16px;
+    }
+
+    .cnc-solutions-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .cnc-solutions-heading {
+        font-size: 32px;
+    }
+
+    .cnc-solutions-description {
+        font-size: 15px;
+    }
+
+    .cnc-solutions-list-item {
+        padding: 14px;
+    }
+
+    .cnc-solutions-list-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cnc-solutions-image-frame {
+        max-width: 100%;
+    }
+
+    .cnc-solutions-badge {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+    }
+
+    .cnc-solutions-badge-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cnc-solutions-rotate-element {
+        width: 80px;
+        height: 80px;
+    }
+
+    .cnc-solutions-cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-solutions-heading {
+        font-size: 28px;
+    }
+
+    .cnc-solutions-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cnc-solutions-list-content strong {
+        font-size: 14px;
+    }
+
+    .cnc-solutions-list-content span {
+        font-size: 12px;
+    }
+
+    .cnc-solutions-glow {
+        display: none;
+    }
+}
