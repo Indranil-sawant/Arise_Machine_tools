@@ -1,0 +1,319 @@
+/* ============================================
+   PREMIUM CNC FOOTER - SCOPED STYLES
+   ============================================ */
+
+.cnc-footer-wrapper {
+    position: relative;
+    background: linear-gradient(135deg, #0a1628 0%, #13274F 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 80px 20px 0;
+}
+
+.cnc-footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   FOOTER GRID
+   =================================== */
+.cnc-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    animation: cnc-footer-fade-in 0.8s ease-out;
+}
+
+@keyframes cnc-footer-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Column */
+.cnc-footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Heading */
+.cnc-footer-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.cnc-footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6 0%, transparent 100%);
+}
+
+/* Description */
+.cnc-footer-description {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 24px 0;
+}
+
+/* Social Links */
+.cnc-footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.cnc-footer-social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cnc-footer-social-link:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #3b82f6;
+    transform: translateY(-3px);
+}
+
+/* Links List */
+.cnc-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cnc-footer-link {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.cnc-footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.cnc-footer-link:hover {
+    color: #3b82f6;
+    padding-left: 8px;
+}
+
+.cnc-footer-link:hover::before {
+    width: 100%;
+}
+
+/* Contact List */
+.cnc-footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cnc-footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cnc-footer-contact-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #3b82f6;
+}
+
+.cnc-footer-contact-item a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cnc-footer-contact-item a:hover {
+    color: #3b82f6;
+}
+
+/* ===================================
+   FOOTER BOTTOM
+   =================================== */
+.cnc-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.cnc-footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cnc-footer-copyright {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cnc-footer-copyright svg {
+    flex-shrink: 0;
+}
+
+.cnc-footer-credits {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.cnc-footer-heart {
+    color: #EE6C4D;
+    animation: cnc-footer-heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes cnc-footer-heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    10%,
+    30% {
+        transform: scale(1.2);
+    }
+
+    20%,
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-footer-wrapper {
+        padding: 60px 20px 0;
+    }
+
+    .cnc-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    .cnc-footer-column:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-footer-wrapper {
+        padding: 50px 16px 0;
+    }
+
+    .cnc-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
+
+    .cnc-footer-column:first-child {
+        grid-column: 1;
+    }
+
+    .cnc-footer-heading {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .cnc-footer-description {
+        font-size: 13px;
+    }
+
+    .cnc-footer-social {
+        gap: 10px;
+    }
+
+    .cnc-footer-social-link {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cnc-footer-social-link svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .cnc-footer-link,
+    .cnc-footer-contact-item {
+        font-size: 13px;
+    }
+
+    .cnc-footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cnc-footer-copyright,
+    .cnc-footer-credits {
+        font-size: 12px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-footer-heading {
+        font-size: 15px;
+    }
+
+    .cnc-footer-description,
+    .cnc-footer-link,
+    .cnc-footer-contact-item {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,366 @@
+/* ============================================
+   PREMIUM CNC BLOG SECTION - SCOPED STYLES
+   ============================================ */
+
+.cnc-blog-wrapper {
+    position: relative;
+    padding: 100px 20px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.cnc-blog-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   SECTION HEADER
+   =================================== */
+.cnc-blog-header {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    animation: cnc-blog-fade-in 0.8s ease-out;
+}
+
+@keyframes cnc-blog-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tag */
+.cnc-blog-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.cnc-blog-tag-icon {
+    font-size: 8px;
+    color: #EE6C4D;
+    animation: cnc-blog-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cnc-blog-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.cnc-blog-tag-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #EE6C4D;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Heading */
+.cnc-blog-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.02em;
+}
+
+.cnc-blog-heading-accent {
+    display: block;
+    background: linear-gradient(135deg, #EE6C4D 0%, #E29578 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 8px;
+}
+
+/* Description */
+.cnc-blog-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.cnc-blog-description strong {
+    color: #ffffff;
+}
+
+/* ===================================
+   BLOG GRID
+   =================================== */
+.cnc-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Blog Card */
+.cnc-blog-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    animation: cnc-blog-card-fade-in 0.6s ease-out backwards;
+}
+
+@keyframes cnc-blog-card-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cnc-blog-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.cnc-blog-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cnc-blog-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.cnc-blog-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.cnc-blog-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(238, 108, 77, 0.4);
+    box-shadow: 0 20px 50px rgba(238, 108, 77, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Card Image */
+.cnc-blog-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+}
+
+.cnc-blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cnc-blog-card:hover .cnc-blog-card-image img {
+    transform: scale(1.1);
+}
+
+/* Card Overlay */
+.cnc-blog-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(11, 37, 69, 0.9) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+}
+
+.cnc-blog-card-meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cnc-blog-card-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.cnc-blog-card-date svg {
+    color: #60a5fa;
+}
+
+.cnc-blog-card-stats {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/* Card Content */
+.cnc-blog-card-content {
+    padding: 24px;
+}
+
+.cnc-blog-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+    min-height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cnc-blog-card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 66px;
+}
+
+/* Card Link */
+.cnc-blog-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #EE6C4D;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cnc-blog-card-link svg {
+    transition: transform 0.3s ease;
+}
+
+.cnc-blog-card-link:hover {
+    color: #ff7a5c;
+    gap: 10px;
+}
+
+.cnc-blog-card-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Large Desktop */
+@media (max-width: 1280px) {
+    .cnc-blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-blog-wrapper {
+        padding: 80px 20px;
+    }
+
+    .cnc-blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .cnc-blog-heading {
+        font-size: 40px;
+    }
+
+    .cnc-blog-description {
+        font-size: 16px;
+    }
+
+    .cnc-blog-card-content {
+        padding: 20px;
+    }
+
+    .cnc-blog-card-title {
+        font-size: 16px;
+        min-height: 44px;
+    }
+
+    .cnc-blog-card-text {
+        font-size: 13px;
+        min-height: 60px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-blog-wrapper {
+        padding: 60px 16px;
+    }
+
+    .cnc-blog-header {
+        margin-bottom: 40px;
+    }
+
+    .cnc-blog-heading {
+        font-size: 32px;
+    }
+
+    .cnc-blog-description {
+        font-size: 15px;
+    }
+
+    .cnc-blog-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .cnc-blog-card-content {
+        padding: 18px;
+    }
+
+    .cnc-blog-card-title {
+        font-size: 15px;
+        min-height: auto;
+    }
+
+    .cnc-blog-card-text {
+        font-size: 13px;
+        min-height: auto;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-blog-heading {
+        font-size: 28px;
+    }
+
+    .cnc-blog-card-title {
+        font-size: 14px;
+    }
+
+    .cnc-blog-card-text {
+        font-size: 12px;
+    }
+}

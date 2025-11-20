@@ -1,0 +1,420 @@
+/* ============================================
+   PREMIUM CNC FAQ SECTION - SCOPED STYLES
+   ============================================ */
+
+.cnc-faq-wrapper {
+    position: relative;
+    padding: 100px 20px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.cnc-faq-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.cnc-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ===================================
+   LEFT CONTENT - FAQ ACCORDION
+   =================================== */
+.cnc-faq-content {
+    animation: cnc-faq-fade-in-left 0.8s ease-out;
+}
+
+@keyframes cnc-faq-fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tag */
+.cnc-faq-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.cnc-faq-tag-icon {
+    font-size: 8px;
+    color: #3b82f6;
+    animation: cnc-faq-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cnc-faq-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.cnc-faq-tag-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Heading */
+.cnc-faq-heading {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 40px 0;
+    letter-spacing: -0.02em;
+}
+
+.cnc-faq-heading-accent {
+    display: block;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 8px;
+}
+
+/* Accordion */
+.cnc-faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* FAQ Item */
+.cnc-faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cnc-faq-item:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+}
+
+.cnc-faq-item-active {
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Question Button */
+.cnc-faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cnc-faq-question:hover {
+    color: #60a5fa;
+}
+
+.cnc-faq-icon {
+    flex-shrink: 0;
+    color: #60a5fa;
+    transition: transform 0.3s ease;
+}
+
+.cnc-faq-item-active .cnc-faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Answer */
+.cnc-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 24px;
+}
+
+.cnc-faq-answer-open {
+    max-height: 500px;
+    padding: 0 24px 24px 24px;
+}
+
+.cnc-faq-answer-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #60a5fa;
+    margin: 0 0 12px 0;
+}
+
+.cnc-faq-answer-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* ===================================
+   RIGHT VISUAL - IMAGE
+   =================================== */
+.cnc-faq-visual {
+    position: relative;
+    animation: cnc-faq-fade-in-right 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes cnc-faq-fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.cnc-faq-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Glowing elements */
+.cnc-faq-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    animation: cnc-faq-glow-pulse 4s ease-in-out infinite;
+}
+
+.cnc-faq-glow-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+    animation-delay: 0s;
+}
+
+.cnc-faq-glow-2 {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(238, 108, 77, 0.3) 0%, transparent 70%);
+    bottom: -50px;
+    left: -50px;
+    animation-delay: 2s;
+}
+
+@keyframes cnc-faq-glow-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Image Wrapper */
+.cnc-faq-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.cnc-faq-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cnc-faq-image-wrapper:hover .cnc-faq-image {
+    transform: scale(1.05);
+}
+
+/* Stats Badge */
+.cnc-faq-stats-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px 28px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    animation: cnc-faq-badge-float 3s ease-in-out infinite;
+}
+
+@keyframes cnc-faq-badge-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.cnc-faq-stats-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.cnc-faq-stats-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .cnc-faq-wrapper {
+        padding: 80px 20px;
+    }
+
+    .cnc-faq-grid {
+        gap: 60px;
+    }
+
+    .cnc-faq-heading {
+        font-size: 40px;
+        margin-bottom: 32px;
+    }
+
+    .cnc-faq-question {
+        font-size: 15px;
+        padding: 18px 20px;
+    }
+
+    .cnc-faq-answer-open {
+        padding: 0 20px 20px 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cnc-faq-wrapper {
+        padding: 60px 16px;
+    }
+
+    .cnc-faq-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .cnc-faq-visual {
+        order: 2;
+    }
+
+    .cnc-faq-content {
+        order: 1;
+    }
+
+    .cnc-faq-heading {
+        font-size: 32px;
+        margin-bottom: 28px;
+    }
+
+    .cnc-faq-question {
+        font-size: 14px;
+        padding: 16px 18px;
+    }
+
+    .cnc-faq-answer-title {
+        font-size: 15px;
+    }
+
+    .cnc-faq-answer-text {
+        font-size: 13px;
+    }
+
+    .cnc-faq-answer-open {
+        padding: 0 18px 18px 18px;
+    }
+
+    .cnc-faq-image-frame {
+        max-width: 100%;
+    }
+
+    .cnc-faq-stats-badge {
+        bottom: 20px;
+        left: 20px;
+        padding: 16px 20px;
+    }
+
+    .cnc-faq-stats-number {
+        font-size: 28px;
+    }
+
+    .cnc-faq-glow {
+        display: none;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .cnc-faq-heading {
+        font-size: 28px;
+    }
+
+    .cnc-faq-question {
+        font-size: 13px;
+    }
+
+    .cnc-faq-stats-number {
+        font-size: 24px;
+    }
+}
