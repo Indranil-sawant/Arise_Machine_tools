@@ -1,0 +1,252 @@
+/* ============================================
+   PREMIUM CONTACT PAGE - SCOPED STYLES
+   ============================================ */
+
+.cnc-contact-wrapper {
+    font-family: 'Inter', sans-serif;
+    background-color: #0B1120;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.cnc-contact-hero {
+    position: relative;
+    padding: 120px 20px 80px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cnc-contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cnc-contact-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.cnc-contact-hero-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #94a3b8;
+}
+
+/* --- Contact Content Grid --- */
+.cnc-contact-grid-section {
+    padding: 80px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cnc-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+}
+
+/* --- Info Cards (Left Column) --- */
+.cnc-contact-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cnc-contact-info-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cnc-contact-info-card:hover {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-5px);
+}
+
+.cnc-contact-icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.cnc-contact-info-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 8px;
+}
+
+.cnc-contact-info-content p {
+    font-size: 1rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Contact Form (Right Column) --- */
+.cnc-contact-form-wrapper {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.cnc-contact-form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 30px;
+}
+
+.cnc-contact-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.cnc-form-group {
+    margin-bottom: 20px;
+}
+
+.cnc-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.cnc-form-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.cnc-form-input,
+.cnc-form-textarea {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #f8fafc;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.cnc-form-textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.cnc-form-input:focus,
+.cnc-form-textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.cnc-form-submit-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cnc-form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* --- Map Section --- */
+.cnc-contact-map-section {
+    padding: 0 20px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cnc-contact-map-wrapper {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: grayscale(100%) invert(90%) hue-rotate(180deg);
+    /* Dark mode map effect */
+    transition: all 0.5s ease;
+}
+
+.cnc-contact-map-wrapper:hover {
+    filter: none;
+    /* Show original colors on hover */
+}
+
+.cnc-contact-map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .cnc-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cnc-contact-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .cnc-contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cnc-contact-form-wrapper {
+        padding: 30px 20px;
+    }
+}
