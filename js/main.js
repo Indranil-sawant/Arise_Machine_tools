@@ -67,7 +67,7 @@
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
         })
-    }); z
+    });
 
     // testimonial carousel
     $(".testimonial-carousel").owlCarousel({
@@ -152,3 +152,112 @@ function toggleFAQ(button) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    const navbar = document.getElementById("cncNavbar");
+    const navToggle = document.getElementById("cncNavToggle");
+    const navMenu = document.getElementById("cncNavMenu");
+
+    /* ============================
+       NAVBAR SCROLL EFFECT
+       ============================ */
+    if (navbar) {
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                navbar.classList.add("cnc-navbar-scrolled");
+            } else {
+                navbar.classList.remove("cnc-navbar-scrolled");
+            }
+        });
+    }
+
+    /* ============================
+       MOBILE MENU TOGGLE
+       ============================ */
+    if (navToggle && navMenu) {
+        navToggle.addEventListener("click", (e) => {
+            e.stopPropagation(); // don't bubble to document click
+            navToggle.classList.toggle("cnc-navbar-toggle-active");
+            navMenu.classList.toggle("cnc-navbar-menu-open");
+
+            document.body.style.overflow = navMenu.classList.contains(
+                "cnc-navbar-menu-open"
+            )
+                ? "hidden"
+                : "";
+        });
+    }
+
+    /* ============================
+       DROPDOWN TOGGLE (MOBILE)
+       ============================ */
+    const dropdown = document.getElementById("cncNavDropdown");
+    if (dropdown) {
+        const dropdownToggle = dropdown.querySelector(".cnc-navbar-dropdown-toggle");
+
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener("click", (e) => {
+                // Only prevent default and toggle on mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle("cnc-navbar-dropdown-open");
+                }
+            });
+        }
+    }
+
+    /* ============================
+       CLOSE MOBILE MENU ON OUTSIDE CLICK
+       ============================ */
+    document.addEventListener("click", (event) => {
+        if (!navToggle || !navMenu) return;
+
+        const target = event.target;
+        const clickInsideNavbar = navbar && navbar.contains(target);
+        const clickInsideMenu = navMenu && navMenu.contains(target);
+
+        if (
+            !clickInsideNavbar &&
+            !clickInsideMenu &&
+            navMenu.classList.contains("cnc-navbar-menu-open")
+        ) {
+            navToggle.classList.remove("cnc-navbar-toggle-active");
+            navMenu.classList.remove("cnc-navbar-menu-open");
+            document.body.style.overflow = "";
+        }
+    });
+
+    /* ============================
+       CLOSE MENU ON RESIZE
+       ============================ */
+    window.addEventListener("resize", () => {
+        if (!navToggle || !navMenu) return;
+
+        if (window.innerWidth > 768) {
+            navToggle.classList.remove("cnc-navbar-toggle-active");
+            navMenu.classList.remove("cnc-navbar-menu-open");
+            document.body.style.overflow = "";
+        }
+    });
+
+    /* ============================
+       ACTIVE NAV HIGHLIGHTING
+       ============================ */
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    const navLinks = document.querySelectorAll(".cnc-navbar-link");
+
+    navLinks.forEach((link) => {
+        const linkPage = link.getAttribute("href");
+        if (linkPage === currentPage) {
+            link.classList.add("cnc-navbar-link-active");
+        } else {
+            link.classList.remove("cnc-navbar-link-active");
+        }
+    });
+});

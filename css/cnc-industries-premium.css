@@ -1,0 +1,209 @@
+/* ============================================
+   PREMIUM INDUSTRIES PAGE - SCOPED STYLES
+   ============================================ */
+
+.cnc-industries-wrapper {
+    font-family: 'Inter', sans-serif;
+    background-color: #0B1120;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.cnc-industries-hero {
+    position: relative;
+    padding: 120px 20px 80px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cnc-industries-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cnc-industries-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.cnc-industries-hero-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #94a3b8;
+}
+
+/* --- Industries Grid Section --- */
+.cnc-industries-grid-section {
+    padding: 80px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cnc-industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* --- Industry Card --- */
+.cnc-industry-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    isolation: isolate;
+}
+
+.cnc-industry-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cnc-industry-image-wrapper {
+    height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cnc-industry-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.cnc-industry-card:hover .cnc-industry-image {
+    transform: scale(1.1);
+}
+
+.cnc-industry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.9) 100%);
+    z-index: 1;
+}
+
+.cnc-industry-content {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+    margin-top: -60px;
+    /* Overlap image */
+}
+
+.cnc-industry-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.cnc-industry-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 15px;
+}
+
+.cnc-industry-desc {
+    font-size: 1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.cnc-industry-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cnc-industry-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.cnc-industry-feature-item i {
+    color: #3b82f6;
+    font-size: 0.8rem;
+}
+
+/* --- CTA Section --- */
+.cnc-industries-cta {
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(30, 41, 59, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cnc-industries-cta-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 20px;
+}
+
+.cnc-industries-cta-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #ee6c4d 0%, #e65100 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cnc-industries-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(230, 81, 0, 0.3);
+    color: #ffffff;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .cnc-industries-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .cnc-industries-grid {
+        grid-template-columns: 1fr;
+    }
+}
