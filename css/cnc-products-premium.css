@@ -98,13 +98,37 @@
 }
 
 /* ===================================
-   PRODUCTS GRID
+   HORIZONTAL PRODUCTS STRIP
    =================================== */
+
 .cnc-products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+    margin-top: 40px;
     margin-bottom: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Scrollbar styling (optional) */
+.cnc-products-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cnc-products-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+
+.cnc-products-grid::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.6);
+    border-radius: 10px;
 }
 
 /* Product Card */
@@ -116,6 +140,12 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
     animation: cnc-products-card-fade-in 0.6s ease-out backwards;
+
+    /* horizontal strip behaviour */
+    flex: 0 0 320px;
+    /* width of each card on desktop */
+    scroll-snap-align: start;
+    box-sizing: border-box;
 }
 
 @keyframes cnc-products-card-fade-in {
@@ -304,17 +334,16 @@
         padding: 80px 20px;
     }
 
-    .cnc-products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
     .cnc-products-heading {
         font-size: 40px;
     }
 
     .cnc-products-description {
         font-size: 16px;
+    }
+
+    .cnc-products-card {
+        flex: 0 0 280px;
     }
 }
 
@@ -336,11 +365,6 @@
         font-size: 15px;
     }
 
-    .cnc-products-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
     .cnc-products-card-content {
         padding: 20px;
     }
@@ -352,6 +376,10 @@
     .cnc-products-view-all {
         width: 100%;
         justify-content: center;
+    }
+
+    .cnc-products-card {
+        flex: 0 0 240px;
     }
 }
 
@@ -367,5 +395,9 @@
 
     .cnc-products-card-text {
         font-size: 13px;
+    }
+
+    .cnc-products-card {
+        flex: 0 0 220px;
     }
 }

@@ -1,0 +1,173 @@
+/* ============================================
+   PREMIUM ABOUT PAGE HERO - SCOPED STYLES
+   ============================================ */
+
+.cnc-about-hero-wrapper {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f1f38 100%);
+    overflow: hidden;
+}
+
+/* Animated background elements */
+.cnc-about-hero-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -250px;
+    right: -250px;
+    animation: cnc-about-hero-float 8s ease-in-out infinite;
+}
+
+.cnc-about-hero-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(238, 108, 77, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -200px;
+    left: -200px;
+    animation: cnc-about-hero-float 10s ease-in-out infinite reverse;
+}
+
+@keyframes cnc-about-hero-float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -30px);
+    }
+}
+
+.cnc-about-hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: cnc-about-hero-fade-in 1s ease-out;
+}
+
+@keyframes cnc-about-hero-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Breadcrumb */
+.cnc-about-hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.cnc-about-hero-breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cnc-about-hero-breadcrumb a:hover {
+    color: #3b82f6;
+}
+
+.cnc-about-hero-breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.cnc-about-hero-breadcrumb-current {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+/* Heading */
+.cnc-about-hero-heading {
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Description */
+.cnc-about-hero-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1024px) {
+    .cnc-about-hero-wrapper {
+        min-height: 50vh;
+        padding: 120px 20px 60px;
+    }
+
+    .cnc-about-hero-heading {
+        font-size: 56px;
+    }
+
+    .cnc-about-hero-description {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cnc-about-hero-wrapper {
+        min-height: 40vh;
+        padding: 100px 16px 50px;
+    }
+
+    .cnc-about-hero-heading {
+        font-size: 42px;
+    }
+
+    .cnc-about-hero-description {
+        font-size: 16px;
+    }
+
+    .cnc-about-hero-breadcrumb {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cnc-about-hero-heading {
+        font-size: 36px;
+    }
+
+    .cnc-about-hero-description {
+        font-size: 15px;
+    }
+}
