@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Mailler - SaaS Website Template</title>
+  <title>About Us - Arise CNC Tools</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
   <!-- Icon Font Stylesheet -->
@@ -24,556 +24,435 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
   <!-- Customized Bootstrap Stylesheet -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Template Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
+
+  <!-- Premium Stylesheets -->
+  <link href="css/cnc-hero-premium.css" rel="stylesheet"> <!-- For Navbar -->
+  <link href="css/cnc-about-hero-premium.css" rel="stylesheet">
+  <link href="css/cnc-about-content-premium.css" rel="stylesheet">
+  <link href="css/cnc-footer-premium.css" rel="stylesheet">
+  <link href="css/cnc-navbar-premium.css" rel="stylesheet">
+  <link href="css/cnc-footer-premium.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Spinner Start -->
-  <div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-  <!-- Spinner End -->
+  <!-- Navbar Start -->
+  <nav class="cnc-navbar-premium" id="cncNavbar">
+    <div class="cnc-navbar-container">
+      <!-- Brand/Logo -->
+      <a href="index.html" class="cnc-navbar-brand">
+        <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo">
 
-
-
-
-  <!-- Navbar & Hero Start -->
-  <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0 shadow-sm bg-light">
-      <a href="index.html" class="navbar-brand p-0">
-        <h1 class="display-6 text-primary m-0">
-          <i class="fas fa-cogs me-2"></i>Arise CNC Tools
-        </h1>
-        <!-- Uncomment if you want to use a logo image -->
-        <!-- <img src="img/logo.png" alt="Arise CNC Tools Logo"> -->
+        <div>
+          <h1 class="cnc-navbar-brand-text">Arise CNC Tools</h1>
+          <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
+        </div>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="fa fa-bars"></span>
+
+      <!-- Mobile Toggle Button -->
+      <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
+        <span class="cnc-navbar-toggle-bar"></span>
+        <span class="cnc-navbar-toggle-bar"></span>
+        <span class="cnc-navbar-toggle-bar"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
-          <a href="about.html" class="nav-item nav-link">About</a>
-          <a href="products.html" class="nav-item nav-link">Products</a>
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
-            <div class="dropdown-menu m-0">
-              <a href="infrastructure.html" class="dropdown-item">Infrastructure</a>
-              <a href="industries.html" class="dropdown-item">Industries We Serve</a>
-              <a href="gallery.html" class="dropdown-item">Gallery</a>
-              <a href="testimonial.html" class="dropdown-item">Client Testimonials</a>
-            </div>
+      <!-- Navigation Menu -->
+      <ul class="cnc-navbar-menu" id="cncNavMenu">
+        <li class="cnc-navbar-menu-item">
+          <a href="index.html" class="cnc-navbar-link cnc-navbar-link-active">Home</a>
+        </li>
+
+        <li class="cnc-navbar-menu-item">
+          <a href="about.html" class="cnc-navbar-link">About</a>
+        </li>
+
+        <li class="cnc-navbar-menu-item">
+          <a href="products.html" class="cnc-navbar-link">Products</a>
+        </li>
+
+        <!-- Dropdown Menu -->
+        <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
+          <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
+            More
+            <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
+          </a>
+          <div class="cnc-navbar-dropdown-menu">
+            <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
+            <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
+            <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
+            <a href="testimonial.html" class="cnc-navbar-dropdown-item">Client Testimonials</a>
           </div>
+        </li>
 
-          <a href="contact.html" class="nav-item nav-link">Contact</a>
-        </div>
+        <li class="cnc-navbar-menu-item">
+          <a href="contact.html" class="cnc-navbar-link">Contact</a>
+        </li>
 
-        <a href="enquiry.html" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-3">Enquiry</a>
+        <!-- CTA Button -->
+        <li class="cnc-navbar-menu-item">
+          <a href="enquiry.html" class="cnc-navbar-cta">
+            <span>Enquiry</span>
+            <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Navbar End -->
+
+  <!-- Hero Start -->
+  <div class="cnc-about-hero-wrapper">
+    <div class="cnc-about-hero-container">
+      <div class="cnc-about-hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="cnc-about-hero-breadcrumb-separator">/</span>
+        <span class="cnc-about-hero-breadcrumb-current">About Us</span>
       </div>
-    </nav>
-
+      <h1 class="cnc-about-hero-heading">Engineering Excellence</h1>
+      <p class="cnc-about-hero-description">
+        Arise CNC Tools is a trusted name in precision machining solutions, delivering cutting-edge CNC tooling systems
+        designed for superior accuracy, performance, and reliability.
+      </p>
+    </div>
   </div>
-  <!-- Navbar & Hero End -->
+  <!-- Hero End -->
 
-
-  <!-- Header Start -->
-  <section class="ezy__about13 light" id="ezy__about13">
-    <div class="container">
-      <div class="row justify-content-center align-items-center">
-        <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-          <div class="">
-            <h1 class="ezy__about13-heading">ABOUT US</h1>
-            <hr class="ezy__about13-divider my-4" />
-            <p class="ezy__about13-sub-heading mb-2">
-              <strong>Arise CNC Tools</strong> is a trusted name in precision machining solutions, delivering
-              cutting-edge
-              CNC tooling systems designed for superior accuracy, performance, and reliability. We specialize in the
-              manufacturing and distribution of a wide range of tools including milling cutters, drilling systems,
-              boring
-              bars, turning inserts, and advanced tool holding systems — all engineered to meet the demanding standards
-              of
-              modern industries such as automotive, aerospace, die &amp; mold, and precision engineering.
+  <!-- Story & Stats Start -->
+  <section class="cnc-about-section cnc-about-section-dark">
+    <div class="cnc-about-container">
+      <div class="cnc-story-grid">
+        <div class="cnc-story-content">
+          <span class="cnc-story-tag">Who We Are</span>
+          <h2 class="cnc-story-heading">Precision That Drives Progress</h2>
+          <div class="cnc-story-text">
+            <p>
+              <strong>Arise CNC Tools</strong> specializes in the manufacturing and distribution of a wide range of
+              tools including milling cutters, drilling systems, boring bars, turning inserts, and advanced tool holding
+              systems.
             </p>
-
-            <p class="ezy__about13-sub-heading mb-0">
-              Guided by innovation and backed by years of engineering expertise, Arise CNC Tools focuses on improving
-              tool
-              life, machining efficiency, and surface quality through advanced materials and technology. Our mission is
-              to
-              empower manufacturers with tools that don’t just perform — they inspire progress. With a commitment to
-              excellence, customization, and timely support, we continue to shape the future of machining one precision
-              cut
-              at a time.
+            <p>
+              Guided by innovation and backed by years of engineering expertise, we focus on improving tool life,
+              machining efficiency, and surface quality through advanced materials and technology. Our mission is to
+              empower manufacturers with tools that don’t just perform — they inspire progress.
             </p>
-
           </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <div class="ezy__about13-bg-holder"></div>
-          <div class="position-relative">
-            <img src="img/section2.jpg" alt="" class="img-fluid" />
-            <img src="img/section3.jpg" alt="" class="img-fluid ezy__about13-img2" />
-          </div>
+        <div class="cnc-story-image-wrapper">
+          <img src="img/drilling_technology.jpg" alt="Arise CNC Factory" class="cnc-story-image">
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="cnc-stats-grid">
+        <div class="cnc-stat-card">
+          <i class="fas fa-trophy cnc-stat-icon"></i>
+          <span class="cnc-stat-number">1000+</span>
+          <span class="cnc-stat-label">Awards Won</span>
+        </div>
+        <div class="cnc-stat-card">
+          <i class="fas fa-users cnc-stat-icon"></i>
+          <span class="cnc-stat-number">500+</span>
+          <span class="cnc-stat-label">Trusted Clients</span>
+        </div>
+        <div class="cnc-stat-card">
+          <i class="fas fa-globe cnc-stat-icon"></i>
+          <span class="cnc-stat-number">15+</span>
+          <span class="cnc-stat-label">Countries Served</span>
         </div>
       </div>
     </div>
   </section>
-  <!-- Header End -->
+  <!-- Story & Stats End -->
 
-
-  <!-- About Start -->
-  <section class="ezy__numbers11 light">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-12 mb-4">
-          <h2 class="ezy__numbers11-heading">Awards & Achievements</h2>
-        </div>
-
-        <!-- Awards Section -->
-        <div class="col-12 col-md-4">
-          <div class="card ezy__numbers11-card border-0 mt-5">
-            <div class="mb-4">
-              <img src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png" alt="Awards Icon"
-                class="img-fluid" />
-            </div>
-            <h5 class="mb-0">Over 1000 Awards & Industry Recognitions</h5>
+  <!-- Mission & Vision Start -->
+  <section class="cnc-about-section cnc-about-section-gradient">
+    <div class="cnc-about-container">
+      <div class="cnc-mv-grid">
+        <!-- Mission -->
+        <div class="cnc-mv-card">
+          <div class="cnc-mv-icon-wrapper">
+            <i class="fas fa-bullseye fa-2x"></i>
           </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card ezy__numbers11-card border-0 mt-5">
-            <div class="mb-4">
-              <img src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png" alt="Customer Trust Icon"
-                class="img-fluid" />
-            </div>
-            <h5 class="mb-0">Trusted by top manufacturers for consistent precision and performance.</h5>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-4">
-          <div class="card ezy__numbers11-card border-0 mt-5">
-            <div class="mb-4">
-              <img src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png" alt="Excellence Icon"
-                class="img-fluid" />
-            </div>
-            <h5 class="mb-0">Recognized for engineering excellence and commitment to quality.</h5>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mission & Vision Row -->
-      <div class="row text-center mt-5">
-        <div class="col-12 mb-4">
-          <h2 class="ezy__numbers11-heading">Our Mission & Vision</h2>
-        </div>
-
-        <!-- Mission Card -->
-        <div class="col-12 col-md-6">
-          <div class="card ezy__numbers11-card border-0 mt-4">
-            <div class="mb-4">
-              <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="Mission Icon" class="img-fluid" />
-            </div>
-            <h5 class="fw-bold mb-2">Our Mission</h5>
-            <p>
-              To deliver superior CNC tooling solutions that enhance productivity, accuracy, and tool life —
-              while building long-term partnerships through innovation, trust, and excellence.
-            </p>
-          </div>
-        </div>
-
-        <!-- Vision Card -->
-        <div class="col-12 col-md-6">
-          <div class="card ezy__numbers11-card border-0 mt-4">
-            <div class="mb-4">
-              <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Vision Icon" class="img-fluid" />
-            </div>
-            <h5 class="fw-bold mb-2">Our Vision</h5>
-            <p>
-              To be recognized as a global leader in CNC tooling technology — where precision meets performance
-              and innovation drives every process.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About End -->
-
-
-  <!-- Feature Start -->
-  <div class="container-fluid feature overflow-hidden py-5">
-    <div class="container py-5">
-      <!-- Section Title -->
-      <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-        <h4 class="text-primary">Our Features</h4>
-        <h1 class="display-5 mb-4">Key Features That Define Our Precision</h1>
-        <p class="mb-0">
-          At <strong>Arise CNC Tools</strong>, precision is more than a promise — it’s engineered into every tool we
-          create. From advanced tool geometry to performance-driven coatings, our features ensure maximum efficiency,
-          accuracy, and reliability across every machining operation.
-        </p>
-      </div>
-
-      <!-- Feature Cards -->
-      <div class="row g-4 justify-content-center text-center mb-5">
-        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="text-center p-4">
-            <div class="d-inline-block rounded bg-light p-4 mb-4">
-              <i class="fas fa-cogs fa-5x text-secondary"></i>
-            </div>
-            <div class="feature-content">
-              <a href="#" class="h4">High-Precision Design <i class="fa fa-long-arrow-alt-right"></i></a>
-              <p class="mt-4 mb-0">
-                Every Arise CNC tool is crafted with micron-level precision using advanced CNC grinding technology to
-                ensure consistent performance and superior surface finish.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-          <div class="text-center p-4">
-            <div class="d-inline-block rounded bg-light p-4 mb-4">
-              <i class="fas fa-industry fa-5x text-secondary"></i>
-            </div>
-            <div class="feature-content">
-              <a href="#" class="h4">Advanced Tool Materials <i class="fa fa-long-arrow-alt-right"></i></a>
-              <p class="mt-4 mb-0">
-                Manufactured from premium carbide, PCD, and CBN materials, our tools are built for durability,
-                heat resistance, and extended tool life even in challenging environments.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-          <div class="text-center rounded p-4">
-            <div class="d-inline-block rounded bg-light p-4 mb-4">
-              <i class="fas fa-microchip fa-5x text-secondary"></i>
-            </div>
-            <div class="feature-content">
-              <a href="#" class="h4">Innovative Tool Technology <i class="fa fa-long-arrow-alt-right"></i></a>
-              <p class="mt-4 mb-0">
-                We continuously invest in R&D to develop optimized geometries, coatings, and chip-breaker designs that
-                improve machining efficiency and minimize cycle times.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-          <div class="text-center rounded p-4">
-            <div class="d-inline-block rounded bg-light p-4 mb-4">
-              <i class="fas fa-tools fa-5x text-secondary"></i>
-            </div>
-            <div class="feature-content">
-              <a href="#" class="h4">Comprehensive Tooling Range <i class="fa fa-long-arrow-alt-right"></i></a>
-              <p class="mt-4 mb-0">
-                From milling and drilling to boring and turning, Arise provides a complete tooling ecosystem that meets
-                the demands of every machining setup with precision and performance.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Button -->
-        <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="my-3">
-            <a href="#" class="btn btn-primary d-inline rounded-pill px-5 py-3">View All Features</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Image + Description Row -->
-      <div class="row g-5 pt-5" style="margin-top: 6rem;">
-        <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-          <div class="feature-img RotateMoveLeft h-100" style="object-fit: cover;">
-            <img src="img/section1.jpg" class="img-fluid w-100 h-100" alt="CNC Tooling Features" />
-          </div>
-        </div>
-
-        <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-          <h4 class="text-primary">Features</h4>
-          <h1 class="display-5 mb-4">Empowering Industries Through Precision</h1>
-          <p class="mb-4">
-            At Arise CNC Tools, every product is designed to meet the rigorous demands of modern machining. We combine
-            advanced metallurgy, precision engineering, and expert craftsmanship to produce tools that enhance speed,
-            reduce wear, and maintain accuracy over long production cycles.
+          <h3 class="cnc-mv-title">Our Mission</h3>
+          <p class="cnc-mv-text">
+            To deliver superior CNC tooling solutions that enhance productivity, accuracy, and tool life — while
+            building long-term partnerships through innovation, trust, and excellence.
           </p>
-
-          <div class="row g-4">
-            <div class="col-6">
-              <div class="d-flex">
-                <i class="fas fa-certificate fa-4x text-secondary"></i>
-                <div class="d-flex flex-column ms-3">
-                  <h2 class="mb-0 fw-bold">ISO 9001</h2>
-                  <small class="text-dark">Certified Quality Systems</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <div class="d-flex">
-                <i class="fas fa-globe fa-4x text-secondary"></i>
-                <div class="d-flex flex-column ms-3">
-                  <h2 class="mb-0 fw-bold">15+</h2>
-                  <small class="text-dark">Industries Served Worldwide</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="my-4">
-            <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Feature End -->
-
-
-  <!-- Blog Start -->
-  <section class="ezy__howitworks11 light">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex flex-column align-items-center text-center">
-            <h2 class="ezy__howitworks11-heading">Our Journey</h2>
-            <hr class="ezy__howitworks11-divider" />
-          </div>
         </div>
 
-        <div class="row position-relative mt-5 ps-5 ps-md-0">
-          <!-- Vertical timeline line -->
-          <div class="ezy__howitworks11-line">
-            <h4 class="ezy__howitworks11-end">Now</h4>
+        <!-- Vision -->
+        <div class="cnc-mv-card">
+          <div class="cnc-mv-icon-wrapper">
+            <i class="fas fa-eye fa-2x"></i>
           </div>
-
-          <!-- Step 1 -->
-          <div class="col-12">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="ezy__howitworks11-card position-relative p-4 p-md-5">
-                  <h5 class="ezy__howitworks11-count ezy__howitworks11-count-one text-center">
-                    Step <br />
-                    <span>01</span>
-                  </h5>
-                  <h4 class="ezy__howitworks11-title fw-bold mb-3">The Foundation</h4>
-                  <p class="opacity-75">
-                    Arise CNC Tools was founded with a vision to bring world-class CNC tooling technology
-                    to Indian manufacturers. We began by designing and supplying high-performance milling
-                    and drilling tools built around precision, durability, and innovation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="col-12">
-            <div class="row justify-content-end">
-              <div class="col-12 col-md-6">
-                <div class="ezy__howitworks11-card position-relative p-4 p-md-5 pt-3 pt-md-3">
-                  <h5 class="ezy__howitworks11-count ezy__howitworks11-count-two text-center">
-                    Step <br />
-                    <span>02</span>
-                  </h5>
-                  <h4 class="ezy__howitworks11-title fw-bold mb-3">Innovation & Expansion</h4>
-                  <p class="opacity-75">
-                    With continuous research and customer feedback, we expanded into turning, boring, and
-                    tool holding systems — ensuring complete CNC machining solutions. Our in-house design
-                    improvements and R&D led to longer tool life, better finish, and improved productivity
-                    for our clients.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="col-12">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="ezy__howitworks11-card position-relative p-4 p-md-5 pt-3 pt-md-3">
-                  <h5 class="ezy__howitworks11-count ezy__howitworks11-count-three text-center">
-                    Step <br />
-                    <span>03</span>
-                  </h5>
-                  <h4 class="ezy__howitworks11-title fw-bold mb-3">Global Presence & Excellence</h4>
-                  <p class="opacity-75">
-                    Today, Arise CNC Tools is a trusted partner to leading manufacturers across multiple
-                    industries — from automotive and aerospace to heavy engineering. Our commitment to
-                    precision, reliability, and customer support has positioned us as a brand known for
-                    engineering excellence and performance-driven solutions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="col-12">
-            <div class="row justify-content-end">
-              <div class="col-12 col-md-6">
-                <div class="ezy__howitworks11-card position-relative p-4 p-md-5 pt-3 pt-md-3">
-                  <h5 class="ezy__howitworks11-count ezy__howitworks11-count-two text-center">
-                    Step <br />
-                    <span>04</span>
-                  </h5>
-                  <h4 class="ezy__howitworks11-title fw-bold mb-3">The Future Ahead</h4>
-                  <p class="opacity-75">
-                    As we move forward, we continue to invest in technology, automation, and customer-centric
-                    solutions. Our goal is to redefine precision manufacturing by developing advanced CNC
-                    tooling systems that support next-generation industries worldwide.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <h3 class="cnc-mv-title">Our Vision</h3>
+          <p class="cnc-mv-text">
+            To be recognized as a global leader in CNC tooling technology — where precision meets performance and
+            innovation drives every process.
+          </p>
         </div>
       </div>
     </div>
   </section>
+  <!-- Mission & Vision End -->
 
-  <!-- Blog End -->
+  <!-- Features Start -->
+  <section class="cnc-about-section cnc-about-section-dark">
+    <div class="cnc-about-container">
+      <div class="text-center mb-5">
+        <span class="cnc-story-tag">Why Choose Us</span>
+        <h2 class="cnc-story-heading">Key Features That Define Precision</h2>
+      </div>
 
-  <section class="ezy__cta19 light">
-    <div class="ezy__cta19-shape-one position-absolute top-0 start-0">
-      <img src="https://cdn.easyfrontend.com/pictures/hero/header36-abstract1.png" alt="" />
-    </div>
-    <div class="container">
-      <div class="ezy__cta19-card position-relative p-4 p-lg-5">
-        <div class="ezy__cta19-line-one"></div>
-        <div class="ezy__cta19-line-two"></div>
-        <div class="row justify-content-between p-4 p-lg-5">
-          <div class="col-12 col-lg-6">
-            <h1 class="ezy__cta19-heading mb-4">Subscribe for CNC Insights & Product Updates</h1>
-            <div class="row">
-              <div class="col-12 col-lg-11">
-                <p class="ezy__cta19-sub-heading mb-0">
-                  Stay ahead in precision machining with the latest updates from <strong>Arise CNC Tools</strong>.
-                  Subscribe to receive exclusive information on new product launches, advanced tooling techniques,
-                  and productivity-enhancing innovations straight to your inbox.
-                </p>
-              </div>
-            </div>
+      <div class="cnc-about-features-grid">
+        <div class="cnc-about-feature-card">
+          <div class="cnc-about-feature-icon">
+            <i class="fas fa-cogs"></i>
           </div>
+          <h4 class="cnc-about-feature-title">High-Precision Design</h4>
+          <p class="cnc-about-feature-text">Crafted with micron-level precision using advanced CNC grinding technology.
+          </p>
+        </div>
 
-          <div class="col-12 col-lg-5 mt-5 mt-lg-0">
-            <form>
-              <div class="form-group mb-4 mt-3">
-                <input type="text" class="form-control ps-4" placeholder="Name" />
-              </div>
-              <div class="form-group mb-4 mt-3">
-                <input type="email" class="form-control ps-4" placeholder="Email" />
-              </div>
+        <div class="cnc-about-feature-card">
+          <div class="cnc-about-feature-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <h4 class="cnc-about-feature-title">Advanced Materials</h4>
+          <p class="cnc-about-feature-text">Manufactured from premium carbide, PCD, and CBN materials for durability.
+          </p>
+        </div>
 
-              <button type="submit" class="btn ezy__cta19-btn w-100">Sign Up</button>
-            </form>
+        <div class="cnc-about-feature-card">
+          <div class="cnc-about-feature-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h4 class="cnc-about-feature-title">Innovative Tech</h4>
+          <p class="cnc-about-feature-text">Optimized geometries and coatings that improve machining efficiency.</p>
+        </div>
+
+        <div class="cnc-about-feature-card">
+          <div class="cnc-about-feature-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h4 class="cnc-about-feature-title">Complete Range</h4>
+          <p class="cnc-about-feature-text">A complete tooling ecosystem meeting every machining setup demand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Features End -->
+
+  <!-- Timeline Start -->
+  <section class="cnc-about-section cnc-about-section-gradient">
+    <div class="cnc-about-container">
+      <div class="text-center mb-5">
+        <span class="cnc-story-tag">Our Journey</span>
+        <h2 class="cnc-story-heading">Milestones of Excellence</h2>
+      </div>
+
+      <div class="cnc-timeline-wrapper">
+        <div class="cnc-timeline-line"></div>
+
+        <!-- Step 1 -->
+        <div class="cnc-timeline-item">
+          <div class="cnc-timeline-dot"></div>
+          <div class="cnc-timeline-content">
+            <span class="cnc-timeline-year">01</span>
+            <h4 class="cnc-timeline-title">The Foundation</h4>
+            <p class="cnc-timeline-text">
+              Arise CNC Tools was founded with a vision to bring world-class CNC tooling technology to Indian
+              manufacturers. We began by designing and supplying high-performance milling and drilling tools.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="cnc-timeline-item">
+          <div class="cnc-timeline-dot"></div>
+          <div class="cnc-timeline-content">
+            <span class="cnc-timeline-year">02</span>
+            <h4 class="cnc-timeline-title">Innovation & Expansion</h4>
+            <p class="cnc-timeline-text">
+              We expanded into turning, boring, and tool holding systems. Our in-house design improvements and R&D led
+              to longer tool life and better finish for our clients.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="cnc-timeline-item">
+          <div class="cnc-timeline-dot"></div>
+          <div class="cnc-timeline-content">
+            <span class="cnc-timeline-year">03</span>
+            <h4 class="cnc-timeline-title">Global Presence</h4>
+            <p class="cnc-timeline-text">
+              Today, Arise CNC Tools is a trusted partner to leading manufacturers across multiple industries — from
+              automotive and aerospace to heavy engineering.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="cnc-timeline-item">
+          <div class="cnc-timeline-dot"></div>
+          <div class="cnc-timeline-content">
+            <span class="cnc-timeline-year">04</span>
+            <h4 class="cnc-timeline-title">The Future Ahead</h4>
+            <p class="cnc-timeline-text">
+              We continue to invest in technology and automation. Our goal is to redefine precision manufacturing by
+              developing advanced CNC tooling systems for next-gen industries.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Timeline End -->
 
+  <!-- Newsletter Start -->
+  <section class="cnc-about-section cnc-about-section-dark">
+    <div class="cnc-about-container">
+      <div class="cnc-newsletter-wrapper">
+        <div class="cnc-newsletter-bg-circle"></div>
+        <div class="cnc-newsletter-bg-circle-2"></div>
 
-  <!-- Footer Start -->
-  <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-    <div class="container py-5">
-      <div class="row g-5">
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="text-dark mb-4">Company</h4>
-            <a href=""> Why Mailler?</a>
-            <a href=""> Our Features</a>
-            <a href=""> Our Portfolio</a>
-            <a href=""> About Us</a>
-            <a href=""> Our Blog & News</a>
-            <a href=""> Get In Touch</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4 text-dark">Quick Links</h4>
-            <a href=""> About Us</a>
-            <a href=""> Contact Us</a>
-            <a href=""> Privacy Policy</a>
-            <a href=""> Terms & Conditions</a>
-            <a href=""> Our Blog & News</a>
-            <a href=""> Our Team</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4 text-dark">Services</h4>
-            <a href=""> All Services</a>
-            <a href=""> Promotional Emails</a>
-            <a href=""> Product Updates</a>
-            <a href=""> Email Marketing</a>
-            <a href=""> Acquistion Emails</a>
-            <a href=""> Retention Emails</a>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-6 col-xl-3">
-          <div class="footer-item d-flex flex-column">
-            <h4 class="mb-4 text-dark">Contact Info</h4>
-            <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
-            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-            <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
-            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
-            <div class="d-flex align-items-center">
-              <i class="fas fa-share fa-2x text-secondary me-2"></i>
-              <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-              <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-              <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-              <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
+        <div class="cnc-newsletter-content">
+          <h2 class="cnc-newsletter-heading">Subscribe for CNC Insights</h2>
+          <p class="cnc-newsletter-text">
+            Stay ahead in precision machining with the latest updates, product launches, and technical insights from
+            Arise CNC Tools.
+          </p>
+          <form class="cnc-newsletter-form">
+            <input type="text" class="cnc-newsletter-input" placeholder="Your Name">
+            <input type="email" class="cnc-newsletter-input" placeholder="Your Email Address">
+            <button type="submit" class="cnc-newsletter-btn">Subscribe Now</button>
+          </form>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- Newsletter End -->
+
+
+  <footer class="cnc-footer-wrapper">
+    <div class="cnc-footer-container">
+      <!-- Main Footer Content -->
+      <div class="cnc-footer-grid">
+        <!-- Column 1 - About -->
+        <div class="cnc-footer-column">
+          <h4 class="cnc-footer-heading">Arise Machine Tools</h4>
+          <p class="cnc-footer-description">
+            Delivering precision CNC tooling solutions and industrial services to manufacturers worldwide.
+            Excellence in every cut, reliability in every operation.
+          </p>
+          <div class="cnc-footer-social">
+            <a href="#" class="cnc-footer-social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="#" class="cnc-footer-social-link" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+              </svg>
+            </a>
+            <a href="#" class="cnc-footer-social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+              </svg>
+            </a>
+            <a href="#" class="cnc-footer-social-link" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2 - Company -->
+        <div class="cnc-footer-column">
+          <h4 class="cnc-footer-heading">Company</h4>
+          <ul class="cnc-footer-links">
+            <li><a href="about.html" class="cnc-footer-link">About Us</a></li>
+            <li><a href="products.html" class="cnc-footer-link">Our Products</a></li>
+            <li><a href="#" class="cnc-footer-link">Our Portfolio</a></li>
+            <li><a href="blog.html" class="cnc-footer-link">Blog & News</a></li>
+            <li><a href="contact.html" class="cnc-footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 - Services -->
+        <div class="cnc-footer-column">
+          <h4 class="cnc-footer-heading">Services</h4>
+          <ul class="cnc-footer-links">
+            <li><a href="#" class="cnc-footer-link">CNC Machining</a></li>
+            <li><a href="#" class="cnc-footer-link">Tool Holding Systems</a></li>
+            <li><a href="#" class="cnc-footer-link">Custom Tool Design</a></li>
+            <li><a href="#" class="cnc-footer-link">Tool Refurbishment</a></li>
+            <li><a href="#" class="cnc-footer-link">Technical Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Contact -->
+        <div class="cnc-footer-column">
+          <h4 class="cnc-footer-heading">Contact Info</h4>
+          <ul class="cnc-footer-contact">
+            <li class="cnc-footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>123 Street, New York, USA</span>
+            </li>
+            <li class="cnc-footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:info@arisecnc.com">info@arisecnc.com</a>
+            </li>
+            <li class="cnc-footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:+012345678">+012 345 67890</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="cnc-footer-bottom">
+        <div class="cnc-footer-bottom-content">
+          <p class="cnc-footer-copyright">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
+            </svg>
+            2024 Arise Machine Tools. All rights reserved.
+          </p>
+          <p class="cnc-footer-credits">
+            Designed with <span class="cnc-footer-heart">❤</span> for precision manufacturing
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- Footer End -->
-
-
-  <!-- Copyright Start -->
-  <div class="container-fluid copyright py-4">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-6 text-center text-md-start mb-md-0">
-          <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All
-            right reserved.</span>
-        </div>
-        <div class="col-md-6 text-center text-md-end text-white">
-          <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-          <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-          <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-          Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Copyright End -->
-
-
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
-
 
   <!-- JavaScript Libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -584,7 +463,6 @@
   <script src="lib/counterup/counterup.min.js"></script>
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/lightbox/js/lightbox.min.js"></script>
-
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
