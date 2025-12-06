@@ -350,14 +350,17 @@
         box-shadow: none;
         border: none;
         background: rgba(59, 130, 246, 0.05);
-        margin-top: 8px;
+        margin-top: 0;
+        padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .cnc-navbar-dropdown.cnc-navbar-dropdown-open .cnc-navbar-dropdown-menu {
         max-height: 500px;
+        margin-top: 8px;
+        padding: 8px;
     }
 
     .cnc-navbar-dropdown-item {
