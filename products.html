@@ -36,6 +36,181 @@
   <link href="css/cnc-products-content-premium.css" rel="stylesheet">
   <link href="css/cnc-footer-premium.css" rel="stylesheet">
   <link href="css/cnc-navbar-premium.css" rel="stylesheet">
+
+  <!-- Search Component Scoped CSS -->
+  <style>
+    /* Scoped Search Styles - Arise CNC */
+    .cnc-search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 10px auto 40px auto;
+      width: 100%;
+      padding: 0 15px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cnc-search-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 50px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+    }
+
+    .cnc-search-input-container:focus-within {
+      border-color: #FACC15;
+      /* Arise Yellow */
+      box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.15);
+    }
+
+    .cnc-search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 14px 24px;
+      font-size: 1rem;
+      color: #111827;
+      outline: none;
+      font-family: inherit;
+      border-radius: 50px 0 0 50px;
+    }
+
+    .cnc-search-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .cnc-search-icon-btn {
+      background: none;
+      border: none;
+      padding: 0 24px;
+      color: #6b7280;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    .cnc-search-icon-btn:hover {
+      color: #FACC15;
+    }
+
+    .cnc-search-results-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 15px;
+      right: 15px;
+      /* Match padding of wrapper */
+      background: #ffffff;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      z-index: 9999;
+      display: none;
+      /* Hidden by default */
+      border: 1px solid #f3f4f6;
+      max-height: 400px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .cnc-search-results-dropdown.active {
+      display: block;
+      animation: cncFadeIn 0.2s ease-out;
+    }
+
+    @keyframes cncFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cnc-search-result-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #f3f4f6;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .cnc-search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    .cnc-search-result-item:hover {
+      background-color: #fffbeb;
+      /* Light yellow tint on hover */
+    }
+
+    .cnc-search-result-thumb {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 16px;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+    }
+
+    .cnc-search-result-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cnc-search-result-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #111827;
+      margin-bottom: 2px;
+    }
+
+    .cnc-search-result-desc {
+      font-size: 0.85rem;
+      color: #6b7280;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .cnc-no-results {
+      padding: 24px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    /* Scrollbar styling for dropdown */
+    .cnc-search-results-dropdown::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .cnc-search-results-dropdown::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .cnc-search-results-dropdown::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 10px;
+    }
+
+    .cnc-search-results-dropdown::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+  </style>
 </head>
 
 <body>
@@ -91,6 +266,25 @@
 
         <li class="cnc-navbar-menu-item">
           <a href="contact.html" class="cnc-navbar-link">Contact</a>
+        </li>
+
+        <!-- Search Toggle -->
+        <li class="cnc-navbar-menu-item">
+          <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
+            <i class="fas fa-search"></i>
+          </a>
+          <!-- Search Dropdown Container -->
+          <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
+            <div class="cnc-navbar-search-input-wrapper">
+              <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
+              <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
+                placeholder="Search products..." autocomplete="off">
+              <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
+              <!-- Results injected via JS -->
+            </div>
+          </div>
         </li>
 
         <!-- CTA Button -->
@@ -219,6 +413,21 @@
         </p>
       </div>
 
+      <!-- Active Search Component Start -->
+      <div class="cnc-search-wrapper">
+        <div class="cnc-search-input-container">
+          <input type="text" id="cncSearchInput" class="cnc-search-input"
+            placeholder="Search for tools like 'Milling', 'Inserts'..." autocomplete="off">
+          <button class="cnc-search-icon-btn" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <div id="cncSearchResults" class="cnc-search-results-dropdown">
+          <!-- Results injected via JS -->
+        </div>
+      </div>
+      <!-- Active Search Component End -->
+
       <!-- Filter Buttons -->
       <div class="cnc-filter-container">
         <button class="cnc-filter-btn active" data-filter="all">All Products</button>
@@ -235,105 +444,350 @@
         <!-- Milling -->
         <div class="cnc-range-card filter-item milling">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/milling-face-mill.jpg" alt="Face Mill Cutter" class="cnc-range-card-image">
+            <img src="img/tools/Face_mill_cutters.jpg" alt="Face Mill Cutters" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">Face Mill Cutter</h5>
-            <p class="cnc-range-card-text">High-performance cutter for fine surface finishing.</p>
-            <a href="products/milling-face-mill.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Face Mill Cutters</h5>
+            <p class="cnc-range-card-text">High-performance face mill cutters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <div class="cnc-range-card filter-item milling">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/milling-end-mill.jpg" alt="End Mills" class="cnc-range-card-image">
+            <img src="img/tools/Face_mill_cutters1.jpg" alt="Face Mill Cutters" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">End Mills</h5>
-            <p class="cnc-range-card-text">Precision solid carbide end mills for contouring.</p>
-            <a href="products/milling-end-mills.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Face Mill Cutters</h5>
+            <p class="cnc-range-card-text">Precision face mill cutters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item milling">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Carbide_end_mill_cutters.jpg" alt="Carbide End Mill Cutters"
+              class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Carbide End Mill Cutters</h5>
+            <p class="cnc-range-card-text">Solid carbide end mills.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item milling">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/carbide_ball_nose_cutter.jpg" alt="Carbide Ball Nose Cutter"
+              class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Carbide Ball Nose Cutter</h5>
+            <p class="cnc-range-card-text">Precision ball nose cutters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item milling">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/shell_mill_cutters.jpg" alt="Shell Mill Cutters" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Shell Mill Cutters</h5>
+            <p class="cnc-range-card-text">High-quality shell mill cutters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item milling">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/index_cutters.jpg" alt="Indexable Cutters" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Indexable Cutters</h5>
+            <p class="cnc-range-card-text">Versatile indexable cutters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <!-- Drilling -->
         <div class="cnc-range-card filter-item drilling">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/drilling-carbide.jpg" alt="Solid Carbide Drill" class="cnc-range-card-image">
+            <img src="img/tools/tap.jpg" alt="Precision Taps" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">Solid Carbide Drills</h5>
-            <p class="cnc-range-card-text">Deep-hole drilling tools for precision and stability.</p>
-            <a href="products/drilling-carbide.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Precision Taps</h5>
+            <p class="cnc-range-card-text">High-quality tapping tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <div class="cnc-range-card filter-item drilling">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/drilling-indexable.jpg" alt="Indexable U Drill" class="cnc-range-card-image">
+            <img src="img/tools/tap2.jpg" alt="High Speed Taps" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">Indexable U Drill</h5>
-            <p class="cnc-range-card-text">Indexable insert drills for heavy-duty operations.</p>
-            <a href="products/drilling-indexable.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">High Speed Taps</h5>
+            <p class="cnc-range-card-text">Taps for high-speed operations.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <!-- Turning -->
         <div class="cnc-range-card filter-item turning">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/turning-general.jpg" alt="General Turning Tools" class="cnc-range-card-image">
+            <img src="img/tools/turning_tools.jpg" alt="Turning Tools" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">General Turning Tools</h5>
-            <p class="cnc-range-card-text">Versatile turning tools for all metal cutting tasks.</p>
-            <a href="products/turning-general.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Turning Tools</h5>
+            <p class="cnc-range-card-text">General purpose turning tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <div class="cnc-range-card filter-item turning">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/turning-threading.jpg" alt="Threading Tools" class="cnc-range-card-image">
+            <img src="img/tools/carbide_cutting_tools.jpg" alt="Carbide Cutting Tools" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">Threading Tools</h5>
-            <p class="cnc-range-card-text">Precision threading tools for consistent results.</p>
-            <a href="products/turning-threading.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Carbide Cutting Tools</h5>
+            <p class="cnc-range-card-text">Precision carbide cutting tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item turning">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/carbide_cutting_tools1.jpg" alt="Advanced Cutting Tools" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Advanced Cutting Tools</h5>
+            <p class="cnc-range-card-text">High-performance cutting tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <!-- Boring -->
         <div class="cnc-range-card filter-item boring">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/boring-finish.jpg" alt="Finish Boring Tool" class="cnc-range-card-image">
+            <img src="img/tools/Boring_kit.jpg" alt="Boring Kit" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">Finish Boring Tool</h5>
-            <p class="cnc-range-card-text">Precision boring tools for superior hole accuracy.</p>
-            <a href="products/boring-finish.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Boring Kit</h5>
+            <p class="cnc-range-card-text">Complete boring tool kit.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Boring_unit.jpg" alt="Boring Unit" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Boring Unit</h5>
+            <p class="cnc-range-card-text">Precision boring unit.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Combination%20boring%20bar.jpg" alt="Combination Boring Bar"
+              class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Combination Boring Bar</h5>
+            <p class="cnc-range-card-text">Versatile combination boring bar.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Micro_boring_unit.jpg" alt="Micro Boring Unit" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Micro Boring Unit</h5>
+            <p class="cnc-range-card-text">High-precision micro boring unit.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/adjustable_boring.jpg" alt="Adjustable Boring Head" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Adjustable Boring Head</h5>
+            <p class="cnc-range-card-text">Adjustable head for boring operations.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/boring_tools.jpg" alt="Boring Tools" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Boring Tools</h5>
+            <p class="cnc-range-card-text">General purpose boring tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/combi_boring_bar.jpg" alt="Combi Boring Bar" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Combi Boring Bar</h5>
+            <p class="cnc-range-card-text">Combination boring bar.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/finish_boring_head.jpg" alt="Finish Boring Head" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Finish Boring Head</h5>
+            <p class="cnc-range-card-text">Head for finish boring operations.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item boring">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/rough_boring_head.jpg" alt="Rough Boring Head" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Rough Boring Head</h5>
+            <p class="cnc-range-card-text">Head for rough boring operations.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <!-- Tool Holding -->
         <div class="cnc-range-card filter-item toolholding">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/toolholding-er.jpg" alt="ER Type Adapter" class="cnc-range-card-image">
+            <img src="img/tools/Tools_holding.jpg" alt="Tool Holding" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
-            <h5 class="cnc-range-card-title">ER Type Adapter</h5>
-            <p class="cnc-range-card-text">Precision clamping for maximum tool stability.</p>
-            <a href="products/toolholding-er.html" class="cnc-range-card-btn">View Details</a>
+            <h5 class="cnc-range-card-title">Tool Holding</h5>
+            <p class="cnc-range-card-text">Secure tool holding solutions.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item toolholding">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/adapters.jpg" alt="Adapters" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Adapters</h5>
+            <p class="cnc-range-card-text">High-quality tool adapters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item toolholding">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/adapters2.jpg" alt="Precision Adapters" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Precision Adapters</h5>
+            <p class="cnc-range-card-text">Precision tool adapters.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item toolholding">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/tooling_accessory.jpg" alt="Tooling Accessories" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Tooling Accessories</h5>
+            <p class="cnc-range-card-text">Essential tooling accessories.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item toolholding">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Tool_trolley.jpg" alt="Tool Trolley" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Tool Trolley</h5>
+            <p class="cnc-range-card-text">Organized tool storage trolley.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item toolholding">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/tools_cupboard.jpg" alt="Tools Cupboard" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Tools Cupboard</h5>
+            <p class="cnc-range-card-text">Storage cupboard for tools.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
 
         <!-- Inserts -->
         <div class="cnc-range-card filter-item inserts">
           <div class="cnc-range-card-image-wrapper">
-            <img src="img/inserts-pcd.jpg" alt="PCD Inserts" class="cnc-range-card-image">
+            <img src="img/tools/CBN_inserts.jpg" alt="CBN Inserts" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">CBN Inserts</h5>
+            <p class="cnc-range-card-text">Cubic Boron Nitride inserts.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item inserts">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Carbide_inserts.jpg" alt="Carbide Inserts" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Carbide Inserts</h5>
+            <p class="cnc-range-card-text">High-performance carbide inserts.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item inserts">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/Carbide_inserts2.jpg" alt="Carbide Inserts" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">Carbide Inserts</h5>
+            <p class="cnc-range-card-text">Durable carbide inserts.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item inserts">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/PCD_inserts.jpg" alt="PCD Inserts" class="cnc-range-card-image">
           </div>
           <div class="cnc-range-card-body">
             <h5 class="cnc-range-card-title">PCD Inserts</h5>
-            <p class="cnc-range-card-text">High precision inserts for non-ferrous materials.</p>
-            <a href="products/inserts-pcd.html" class="cnc-range-card-btn">View Details</a>
+            <p class="cnc-range-card-text">Polycrystalline Diamond inserts.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
+          </div>
+        </div>
+
+        <div class="cnc-range-card filter-item inserts">
+          <div class="cnc-range-card-image-wrapper">
+            <img src="img/tools/PCD_inserts2.jpg" alt="PCD Inserts" class="cnc-range-card-image">
+          </div>
+          <div class="cnc-range-card-body">
+            <h5 class="cnc-range-card-title">PCD Inserts</h5>
+            <p class="cnc-range-card-text">High-precision PCD inserts.</p>
+            <a href="#" class="cnc-range-card-btn">View Details</a>
           </div>
         </div>
       </div>
@@ -456,6 +910,161 @@
       });
     });
   </script>
+  <!-- Search Bar Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Elements
+      const searchInput = document.getElementById('cncSearchInput');
+      const resultsContainer = document.getElementById('cncSearchResults');
+
+      // We will pull data dynamically from the existing product grid to ensure it's always up to date.
+      // This matches the rule: "Results should be based on items I already have on the page"
+      const productCards = document.querySelectorAll('.filter-item');
+      let searchData = [];
+
+      // Build Index
+      productCards.forEach((card, index) => {
+        const titleEl = card.querySelector('.cnc-range-card-title');
+        const textEl = card.querySelector('.cnc-range-card-text');
+        const imgEl = card.querySelector('.cnc-range-card-image'); // Updated selector from class check
+        // Note: class check shows '.cnc-range-card-image' (line 238)
+
+        if (titleEl) {
+          searchData.push({
+            id: index,
+            title: titleEl.textContent.trim(),
+            desc: textEl ? textEl.textContent.trim() : '',
+            img: imgEl ? imgEl.src : '',
+            element: card
+          });
+        }
+      });
+
+      // Search Event
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        if (query.length === 0) {
+          resultsContainer.classList.remove('active');
+          return;
+        }
+
+        // Filter Data
+        const matches = searchData.filter(item => {
+          return item.title.toLowerCase().includes(query) ||
+            item.desc.toLowerCase().includes(query);
+        });
+
+        renderResults(matches);
+      });
+
+      // Render Function
+      function renderResults(results) {
+        resultsContainer.innerHTML = '';
+
+        if (results.length === 0) {
+          resultsContainer.innerHTML = '<div class="cnc-no-results">No matches found.</div>';
+        } else {
+          results.forEach(item => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'cnc-search-result-item';
+
+            // Highlight interaction
+            resultItem.onclick = () => {
+              // 1. Hide dropdown
+              resultsContainer.classList.remove('active');
+              searchInput.value = ''; // Optional: clear
+
+              // 2. Determine if the element is currently visible (filtered out?)
+              // If the main page filters are active, we might need to "reset" them or just show this one.
+              if (getComputedStyle(item.element).display === 'none') {
+                const allBtn = document.querySelector('.cnc-filter-btn[data-filter="all"]');
+                if (allBtn) allBtn.click();
+              }
+
+              // 3. Smooth scroll to the target
+              setTimeout(() => {
+                item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // 4. Temporary highlight effect
+                item.element.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                item.element.style.transform = 'scale(1.05)';
+                item.element.style.boxShadow = '0 0 0 4px #FACC15'; // Arise Yellow glow
+
+                setTimeout(() => {
+                  item.element.style.transform = '';
+                  item.element.style.boxShadow = '';
+                }, 1500);
+              }, 100);
+            };
+
+            resultItem.innerHTML = `
+              <img src="${item.img}" alt="${item.title}" class="cnc-search-result-thumb">
+              <div class="cnc-search-result-info">
+                <div class="cnc-search-result-title">${item.title}</div>
+                <div class="cnc-search-result-desc">${item.desc}</div>
+              </div>
+            `;
+            resultsContainer.appendChild(resultItem);
+          });
+        }
+
+        resultsContainer.classList.add('active');
+      }
+
+      // Close on Click Outside
+      document.addEventListener('click', (e) => {
+        if (!searchInput.contains(e.target) && !resultsContainer.contains(e.target)) {
+          resultsContainer.classList.remove('active');
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          resultsContainer.classList.remove('active');
+          searchInput.blur();
+        }
+      });
+
+      // Handle URL Search Target (from Global Navbar Search)
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetQuery = urlParams.get('search-target');
+
+      if (targetQuery) {
+        searchInput.value = targetQuery;
+
+        // Find match in searchData
+        const targetItem = searchData.find(item => item.title.toLowerCase() === targetQuery.toLowerCase());
+
+        if (targetItem) {
+          // Ensure "All" filter is active so item is visible
+          const allBtn = document.querySelector('.cnc-filter-btn[data-filter="all"]');
+          if (allBtn) allBtn.click();
+
+          // Scroll and Highlight
+          setTimeout(() => {
+            targetItem.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Active Highlight Effect
+            targetItem.element.style.transition = 'all 0.5s ease';
+            targetItem.element.style.transform = 'scale(1.05)';
+            targetItem.element.style.boxShadow = '0 0 20px rgba(250, 204, 21, 0.6)'; // Yellow Glow
+            targetItem.element.style.zIndex = '100'; // Make sure it's on top
+
+            // Remove effect after delay
+            setTimeout(() => {
+              targetItem.element.style.transform = '';
+              targetItem.element.style.boxShadow = '';
+              targetItem.element.style.zIndex = '';
+            }, 2500);
+          }, 500);
+        }
+      }
+    });
+  </script>
+  <!-- Global Navbar Search Script -->
+  <script src="js/arise-global-search.js"></script>
 </body>
 
 </html>

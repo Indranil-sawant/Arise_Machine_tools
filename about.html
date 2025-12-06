@@ -94,6 +94,25 @@
           <a href="contact.html" class="cnc-navbar-link">Contact</a>
         </li>
 
+        <!-- Search Toggle -->
+        <li class="cnc-navbar-menu-item">
+          <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
+            <i class="fas fa-search"></i>
+          </a>
+          <!-- Search Dropdown Container -->
+          <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
+            <div class="cnc-navbar-search-input-wrapper">
+              <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
+              <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
+                placeholder="Search products..." autocomplete="off">
+              <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
+              <!-- Results injected via JS -->
+            </div>
+          </div>
+        </li>
+
         <!-- CTA Button -->
         <li class="cnc-navbar-menu-item">
           <a href="enquiry.html" class="cnc-navbar-cta">
@@ -662,6 +681,8 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+  <!-- Global Navbar Search Script -->
+  <script src="js/arise-global-search.js"></script>
 </body>
 
 </html>

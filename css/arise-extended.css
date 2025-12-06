@@ -1,0 +1,348 @@
+/* 
+   Arise Machine Tools - Extended Styles 
+   Prefix: arise-extended-
+   Theme: Yellow/Gold & Dark Navy (Industrial)
+*/
+
+:root {
+    --arise-ext-primary: #0B1120;
+    /* Dark Navy */
+    --arise-ext-secondary: #1E293B;
+    /* Slate */
+    --arise-ext-accent: #F59E0B;
+    /* Gold/Yellow */
+    --arise-ext-text-light: #F8FAFC;
+    --arise-ext-text-dark: #1e293b;
+    --arise-ext-text-muted: #64748b;
+    --arise-ext-border: #e2e8f0;
+}
+
+/* --- Layout & Typography --- */
+.arise-extended-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.arise-extended-bg-light {
+    background-color: #ffffff;
+}
+
+.arise-extended-bg-dark {
+    background-color: var(--arise-ext-primary);
+    color: var(--arise-ext-text-light);
+}
+
+.arise-extended-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.arise-extended-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.arise-extended-subtitle {
+    display: inline-block;
+    color: var(--arise-ext-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.arise-extended-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 2px;
+    background: var(--arise-ext-accent);
+}
+
+.arise-extended-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.arise-extended-title span {
+    color: var(--arise-ext-accent);
+}
+
+.arise-extended-desc {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--arise-ext-text-muted);
+    line-height: 1.6;
+}
+
+.arise-extended-bg-dark .arise-extended-desc {
+    color: #94a3b8;
+}
+
+/* --- 1. Company Overview --- */
+.arise-extended-overview-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.arise-extended-overview-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: var(--arise-ext-text-muted);
+}
+
+.arise-extended-overview-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.arise-extended-stat-item {
+    border-left: 3px solid var(--arise-ext-accent);
+    padding-left: 15px;
+}
+
+.arise-extended-stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--arise-ext-primary);
+}
+
+.arise-extended-stat-label {
+    font-size: 0.9rem;
+    color: var(--arise-ext-text-muted);
+}
+
+/* --- 2. Vision & Mission --- */
+.arise-extended-vm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.arise-extended-vm-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.arise-extended-vm-card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--arise-ext-accent);
+}
+
+.arise-extended-vm-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--arise-ext-accent);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.arise-extended-vm-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--arise-ext-primary);
+}
+
+/* --- 3. Team Values --- */
+.arise-extended-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.arise-extended-value-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.arise-extended-value-title {
+    color: var(--arise-ext-text-light);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.arise-extended-value-text {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* --- 4 & 5. Quality & Safety --- */
+.arise-extended-policy-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.arise-extended-policy-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.arise-extended-policy-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    height: 100%;
+}
+
+.arise-extended-policy-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--arise-ext-border);
+}
+
+.arise-extended-policy-icon {
+    color: var(--arise-ext-accent);
+    font-size: 1.8rem;
+}
+
+.arise-extended-policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.arise-extended-policy-item {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: var(--arise-ext-text-dark);
+}
+
+.arise-extended-policy-item::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--arise-ext-accent);
+    font-size: 0.8rem;
+    top: 3px;
+}
+
+/* --- 6. Product Range Expansion --- */
+.arise-extended-prod-category {
+    margin-bottom: 60px;
+}
+
+.arise-extended-cat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--arise-ext-border);
+    padding-bottom: 10px;
+}
+
+.arise-extended-cat-title {
+    font-size: 1.8rem;
+    color: var(--arise-ext-primary);
+    margin: 0;
+}
+
+.arise-extended-prod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.arise-extended-prod-item {
+    background: #fff;
+    border: 1px solid var(--arise-ext-border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.arise-extended-prod-item:hover {
+    border-color: var(--arise-ext-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.arise-extended-prod-icon {
+    font-size: 2rem;
+    color: var(--arise-ext-text-muted);
+    margin-bottom: 15px;
+}
+
+.arise-extended-prod-name {
+    font-weight: 600;
+    color: var(--arise-ext-primary);
+    margin-bottom: 5px;
+}
+
+.arise-extended-prod-sub {
+    font-size: 0.85rem;
+    color: var(--arise-ext-text-muted);
+}
+
+/* --- 8. Contact Details --- */
+.arise-extended-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.arise-extended-contact-box {
+    background: var(--arise-ext-secondary);
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.arise-extended-contact-row {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.arise-extended-contact-label {
+    width: 100px;
+    color: var(--arise-ext-accent);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.arise-extended-contact-val {
+    color: #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .arise-extended-overview-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .arise-extended-title {
+        font-size: 2rem;
+    }
+}
