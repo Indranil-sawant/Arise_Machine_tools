@@ -36,6 +36,37 @@
     <link href="css/cnc-footer-premium.css" rel="stylesheet">
     <link href="css/cnc-navbar-premium.css" rel="stylesheet">
 </head>
+<script>
+    function handleCncSubmit() {
+        const form = document.getElementById("cnc-contact-form");
+        const btn = form.querySelector(".cnc-form-submit-btn");
+        const text = btn.querySelector(".btn-text");
+        const loader = btn.querySelector(".btn-loader");
+
+        // UI feedback only (DO NOT block submit)
+        btn.disabled = true;
+        text.style.display = "none";
+        loader.style.display = "inline";
+
+        // After submission completes in iframe
+        setTimeout(() => {
+            showCncToast();
+            form.reset();
+
+            btn.disabled = false;
+            text.style.display = "inline";
+            loader.style.display = "none";
+        }, 1500);
+
+        return true; // ✅ IMPORTANT: allow form to submit
+    }
+
+    function showCncToast() {
+        const toast = document.getElementById("cnc-toast");
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+    }
+</script>
 
 <body>
 
@@ -195,37 +226,60 @@
                 <!-- Right Column: Contact Form -->
                 <div class="cnc-contact-form-wrapper">
                     <h2 class="cnc-contact-form-title">Send Us a Message</h2>
-                    <form>
+
+                    <form id="cnc-contact-form"
+                        action="https://script.google.com/macros/s/AKfycbwhnZqBTVzkMQMtyp8gaXOOzT0zmAzJY8MZPM2FSKf70TRPfH9IcIBZzCWdTChaUK7d1g/exec"
+                        method="POST" target="hidden_iframe" onsubmit="return handleCncSubmit();">
+
                         <div class="cnc-contact-form-grid">
+
                             <div class="cnc-form-group">
-                                <label for="name" class="cnc-form-label">Your Name</label>
-                                <input type="text" id="name" class="cnc-form-input" placeholder="John Doe">
+                                <label class="cnc-form-label">Your Name</label>
+                                <input type="text" name="name" class="cnc-form-input" required>
                             </div>
+
                             <div class="cnc-form-group">
-                                <label for="email" class="cnc-form-label">Your Email</label>
-                                <input type="email" id="email" class="cnc-form-input" placeholder="john@example.com">
+                                <label class="cnc-form-label">Your Email</label>
+                                <input type="email" name="email" class="cnc-form-input" required>
                             </div>
+
                             <div class="cnc-form-group">
-                                <label for="phone" class="cnc-form-label">Phone Number</label>
-                                <input type="tel" id="phone" class="cnc-form-input" placeholder="+1 234 567 890">
+                                <label class="cnc-form-label">Phone Number</label>
+                                <input type="tel" name="phone" class="cnc-form-input">
                             </div>
+
                             <div class="cnc-form-group">
-                                <label for="subject" class="cnc-form-label">Subject</label>
-                                <input type="text" id="subject" class="cnc-form-input" placeholder="Inquiry about...">
+                                <label class="cnc-form-label">Subject</label>
+                                <input type="text" name="subject" class="cnc-form-input">
                             </div>
+
                             <div class="cnc-form-group full-width">
-                                <label for="message" class="cnc-form-label">Message</label>
-                                <textarea id="message" class="cnc-form-textarea"
-                                    placeholder="How can we help you?"></textarea>
+                                <label class="cnc-form-label">Message</label>
+                                <textarea name="message" class="cnc-form-textarea" required></textarea>
                             </div>
+
+                            <!-- Honeypot -->
+                            <input type="text" name="company" style="display:none">
+
                             <div class="cnc-form-group full-width">
                                 <button type="submit" class="cnc-form-submit-btn">
-                                    Send Message <i class="fas fa-paper-plane"></i>
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loader" style="display:none">Sending…</span>
+                                    <i class="fas fa-paper-plane"></i>
                                 </button>
                             </div>
+
                         </div>
                     </form>
+
+                    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+                    <!-- Toast -->
+                    <div id="cnc-toast" class="cnc-toast">
+                        ✅ Thank you! Your message has been sent.
+                    </div>
                 </div>
+
 
             </div>
         </section>
