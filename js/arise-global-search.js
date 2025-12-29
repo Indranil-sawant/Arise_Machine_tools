@@ -1,5 +1,5 @@
 /**
- * Arise CNC Tools - Global Search Functionality
+ * Arise Machine Tools - Global Search Functionality
  * Handles the Navbar Search Bar and Product Data
  */
 
