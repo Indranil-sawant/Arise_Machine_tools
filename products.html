@@ -1065,6 +1065,648 @@
   </script>
   <!-- Global Navbar Search Script -->
   <script src="js/arise-global-search.js"></script>
+
+  <!-- ========================================
+       BROCHURE DOWNLOAD GATE - B2B LEAD CAPTURE
+       Isolated Component - No Impact on Existing Code
+       ======================================== -->
+
+  <!-- Modal HTML -->
+  <div id="ariseBrochureModal" class="arise-brochure-modal-overlay" role="dialog" aria-labelledby="ariseModalTitle"
+    aria-hidden="true">
+    <div class="arise-brochure-modal-container">
+      <button class="arise-brochure-modal-close" aria-label="Close modal" id="ariseModalClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="arise-brochure-modal-content">
+        <!-- Icon -->
+        <div class="arise-brochure-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="url(#ariseGradient)" stroke-width="2">
+            <defs>
+              <linearGradient id="ariseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#fb923c" />
+                <stop offset="100%" style="stop-color:#f97316" />
+              </linearGradient>
+            </defs>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <line x1="9" y1="15" x2="15" y2="15" />
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <h2 id="ariseModalTitle" class="arise-brochure-modal-title">Download Product Brochure</h2>
+        <p class="arise-brochure-modal-subtitle">Get detailed specifications and technical information</p>
+
+        <!-- Product Name Display -->
+        <div class="arise-brochure-product-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 7h-9" />
+            <path d="M14 17H5" />
+            <circle cx="17" cy="17" r="3" />
+            <circle cx="7" cy="7" r="3" />
+          </svg>
+          <span id="ariseProductName" class="arise-product-name-text">Product Name</span>
+        </div>
+
+        <!-- Form -->
+        <form id="ariseBrochureForm" class="arise-brochure-form" novalidate>
+          <div class="arise-brochure-form-group">
+            <label for="ariseName" class="arise-brochure-label">Full Name <span class="arise-required">*</span></label>
+            <input type="text" id="ariseName" name="name" class="arise-brochure-input"
+              placeholder="Enter your full name" required autocomplete="name" />
+            <span class="arise-brochure-error" id="ariseNameError"></span>
+          </div>
+
+          <div class="arise-brochure-form-group">
+            <label for="ariseEmail" class="arise-brochure-label">Business Email <span
+                class="arise-required">*</span></label>
+            <input type="email" id="ariseEmail" name="email" class="arise-brochure-input"
+              placeholder="your.name@company.com" required autocomplete="email" />
+            <span class="arise-brochure-error" id="ariseEmailError"></span>
+          </div>
+
+          <!-- Privacy Notice -->
+          <p class="arise-brochure-privacy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+            <span>We respect your privacy. Your information will never be shared.</span>
+          </p>
+
+          <!-- Submit Button -->
+          <button type="submit" class="arise-brochure-submit-btn" id="ariseSubmitBtn">
+            <span class="arise-btn-text">Download Brochure</span>
+            <span class="arise-btn-loader" style="display: none;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" opacity="0.25" />
+                <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round">
+                  <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s"
+                    repeatCount="indefinite" />
+                </path>
+              </svg>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Isolated CSS Styles -->
+  <style>
+    /* ========================================
+       BROCHURE MODAL STYLES - ISOLATED
+       ======================================== */
+
+    .arise-brochure-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .arise-brochure-modal-overlay.arise-active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .arise-brochure-modal-container {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 480px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .arise-brochure-modal-overlay.arise-active .arise-brochure-modal-container {
+      transform: scale(1) translateY(0);
+    }
+
+    .arise-brochure-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #f1f5f9;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      transition: all 0.2s ease;
+      z-index: 1;
+    }
+
+    .arise-brochure-modal-close:hover {
+      background: #e2e8f0;
+      color: #334155;
+      transform: rotate(90deg);
+    }
+
+    .arise-brochure-modal-content {
+      padding: 48px 40px 40px;
+    }
+
+    .arise-brochure-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(249, 115, 22, 0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .arise-brochure-modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      text-align: center;
+      margin: 0 0 8px 0;
+    }
+
+    .arise-brochure-modal-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #64748b;
+      text-align: center;
+      margin: 0 0 24px 0;
+    }
+
+    .arise-brochure-product-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(249, 115, 22, 0.1));
+      border: 1px solid rgba(251, 146, 60, 0.3);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 0 auto 24px;
+      width: fit-content;
+      display: flex;
+    }
+
+    .arise-brochure-product-badge svg {
+      color: #fb923c;
+      flex-shrink: 0;
+    }
+
+    .arise-product-name-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f97316;
+    }
+
+
+    .arise-brochure-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .arise-brochure-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .arise-brochure-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .arise-required {
+      color: #ef4444;
+    }
+
+    .arise-brochure-input {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #0f172a;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .arise-brochure-input:focus {
+      border-color: #fb923c;
+      box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.1);
+    }
+
+    .arise-brochure-input.arise-error {
+      border-color: #ef4444;
+    }
+
+    .arise-brochure-error {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #ef4444;
+      display: none;
+      margin-top: 4px;
+    }
+
+    .arise-brochure-error.arise-show {
+      display: block;
+    }
+
+    .arise-brochure-privacy {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #64748b;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 0;
+      padding: 16px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 3px solid #22c55e;
+    }
+
+    .arise-brochure-privacy svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #22c55e;
+    }
+
+    .arise-brochure-submit-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #fb923c, #f97316);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(251, 146, 60, 0.3);
+    }
+
+    .arise-brochure-submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(251, 146, 60, 0.4);
+    }
+
+    .arise-brochure-submit-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .arise-brochure-submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .arise-brochure-modal-content {
+        padding: 40px 24px 32px;
+      }
+
+      .arise-brochure-modal-title {
+        font-size: 20px;
+      }
+
+      .arise-brochure-modal-subtitle {
+        font-size: 14px;
+      }
+    }
+  </style>
+
+  <!-- Brochure Download Gate JavaScript -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ========================================
+      // CONFIGURATION
+      // ========================================
+      const ARISE_CONFIG = {
+        modal: document.getElementById('ariseBrochureModal'),
+        form: document.getElementById('ariseBrochureForm'),
+        closeBtn: document.getElementById('ariseModalClose'),
+        submitBtn: document.getElementById('ariseSubmitBtn'),
+        nameInput: document.getElementById('ariseName'),
+        emailInput: document.getElementById('ariseEmail'),
+        nameError: document.getElementById('ariseNameError'),
+        emailError: document.getElementById('ariseEmailError'),
+        btnText: document.querySelector('.arise-btn-text'),
+        btnLoader: document.querySelector('.arise-btn-loader')
+      };
+
+      let currentBrochureUrl = '';
+      let currentProductName = '';
+
+      // ========================================
+      // VALIDATION FUNCTIONS
+      // ========================================
+      function validateName(name) {
+        const trimmed = name.trim();
+        if (trimmed.length < 2) {
+          return { valid: false, error: 'Please enter your full name' };
+        }
+        return { valid: true, error: '' };
+      }
+
+      function validateEmail(email) {
+        const trimmed = email.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!trimmed) {
+          return { valid: false, error: 'Email is required' };
+        }
+        if (!emailRegex.test(trimmed)) {
+          return { valid: false, error: 'Please enter a valid email address' };
+        }
+        return { valid: true, error: '' };
+      }
+
+      function showError(errorElement, message) {
+        errorElement.textContent = message;
+        errorElement.classList.add('arise-show');
+      }
+
+      function hideError(errorElement) {
+        errorElement.textContent = '';
+        errorElement.classList.remove('arise-show');
+      }
+
+      // ========================================
+      // MODAL FUNCTIONS
+      // ========================================
+      function openModal(brochureUrl, productName) {
+        currentBrochureUrl = brochureUrl;
+        currentProductName = productName;
+
+        // Update product name display
+        const productNameElement = document.getElementById('ariseProductName');
+        if (productNameElement) {
+          productNameElement.textContent = productName;
+        }
+
+        ARISE_CONFIG.modal.classList.add('arise-active');
+        ARISE_CONFIG.modal.setAttribute('aria-hidden', 'false');
+        ARISE_CONFIG.nameInput.focus();
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        ARISE_CONFIG.modal.classList.remove('arise-active');
+        ARISE_CONFIG.modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        // Reset form after animation
+        setTimeout(() => {
+          ARISE_CONFIG.form.reset();
+          hideError(ARISE_CONFIG.nameError);
+          hideError(ARISE_CONFIG.emailError);
+          ARISE_CONFIG.nameInput.classList.remove('arise-error');
+          ARISE_CONFIG.emailInput.classList.remove('arise-error');
+        }, 300);
+      }
+
+
+      // ========================================
+      // DOWNLOAD FUNCTION
+      // ========================================
+      function triggerDownload(url, filename) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename || 'brochure.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // ========================================
+      // GOOGLE SHEETS SUBMISSION
+      // ========================================
+      function submitToGoogleSheets(name, email, product) {
+        // ⚠️ IMPORTANT: Replace with your actual Google Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWHoBPzkr-0HtiRu15pkS-sor6PRUbGTcfjue8cqdWGm6wZUZdbfcNOBMSbQQ3oBns-A/exec';
+
+        // Create form data
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('product', product);
+        formData.append('timestamp', new Date().toISOString());
+
+        // Submit to Google Sheets
+        return fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors' // Required for Google Apps Script
+        })
+          .then(() => {
+            console.log('✅ Lead submitted to Google Sheets');
+            return true;
+          })
+          .catch((error) => {
+            console.error('❌ Error submitting to Google Sheets:', error);
+            throw error;
+          });
+      }
+
+      // ========================================
+      // FORM SUBMISSION HANDLER
+      // ========================================
+      ARISE_CONFIG.form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get values
+        const name = ARISE_CONFIG.nameInput.value;
+        const email = ARISE_CONFIG.emailInput.value;
+
+        // Validate
+        const nameValidation = validateName(name);
+        const emailValidation = validateEmail(email);
+
+        let hasError = false;
+
+        // Show/hide name errors
+        if (!nameValidation.valid) {
+          ARISE_CONFIG.nameInput.classList.add('arise-error');
+          showError(ARISE_CONFIG.nameError, nameValidation.error);
+          hasError = true;
+        } else {
+          ARISE_CONFIG.nameInput.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.nameError);
+        }
+
+        // Show/hide email errors
+        if (!emailValidation.valid) {
+          ARISE_CONFIG.emailInput.classList.add('arise-error');
+          showError(ARISE_CONFIG.emailError, emailValidation.error);
+          hasError = true;
+        } else {
+          ARISE_CONFIG.emailInput.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.emailError);
+        }
+
+        // Stop if validation failed
+        if (hasError) return;
+
+        // Show loading state
+        ARISE_CONFIG.submitBtn.disabled = true;
+        ARISE_CONFIG.btnText.style.display = 'none';
+        ARISE_CONFIG.btnLoader.style.display = 'inline-block';
+
+
+        // Submit to Google Sheets (async)
+        submitToGoogleSheets(name.trim(), email.trim(), currentProductName)
+          .then(() => {
+            // Trigger download after submission
+            triggerDownload(currentBrochureUrl, `${currentProductName.replace(/\s+/g, '_')}_Brochure.pdf`);
+
+            // Reset button
+            ARISE_CONFIG.submitBtn.disabled = false;
+            ARISE_CONFIG.btnText.style.display = 'inline';
+            ARISE_CONFIG.btnLoader.style.display = 'none';
+
+            // Close modal after short delay
+            setTimeout(() => {
+              closeModal();
+            }, 500);
+          })
+          .catch((error) => {
+            console.error('❌ Submission error:', error);
+
+            // Show error message to user
+            alert('There was an error submitting your request. Please try again or contact us directly.');
+
+            // Reset button
+            ARISE_CONFIG.submitBtn.disabled = false;
+            ARISE_CONFIG.btnText.style.display = 'inline';
+            ARISE_CONFIG.btnLoader.style.display = 'none';
+          });
+      });
+
+      // ========================================
+      // EVENT LISTENERS
+      // ========================================
+
+      // Close button
+      ARISE_CONFIG.closeBtn.addEventListener('click', closeModal);
+
+      // Click outside modal
+      ARISE_CONFIG.modal.addEventListener('click', function (e) {
+        if (e.target === ARISE_CONFIG.modal) {
+          closeModal();
+        }
+      });
+
+      // ESC key to close
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && ARISE_CONFIG.modal.classList.contains('arise-active')) {
+          closeModal();
+        }
+      });
+
+      // Real-time validation
+      ARISE_CONFIG.nameInput.addEventListener('blur', function () {
+        const validation = validateName(this.value);
+        if (!validation.valid && this.value.trim()) {
+          this.classList.add('arise-error');
+          showError(ARISE_CONFIG.nameError, validation.error);
+        }
+      });
+
+      ARISE_CONFIG.emailInput.addEventListener('blur', function () {
+        const validation = validateEmail(this.value);
+        if (!validation.valid && this.value.trim()) {
+          this.classList.add('arise-error');
+          showError(ARISE_CONFIG.emailError, validation.error);
+        }
+      });
+
+      // Clear errors on input
+      ARISE_CONFIG.nameInput.addEventListener('input', function () {
+        if (this.classList.contains('arise-error')) {
+          this.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.nameError);
+        }
+      });
+
+      ARISE_CONFIG.emailInput.addEventListener('input', function () {
+        if (this.classList.contains('arise-error')) {
+          this.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.emailError);
+        }
+      });
+
+      // ========================================
+      // ATTACH TO VIEW DETAILS BUTTONS
+      // ========================================
+      function initializeBrochureButtons() {
+        // Get all "View Details" buttons
+        const viewDetailsBtns = document.querySelectorAll('.cnc-range-card-btn');
+
+        viewDetailsBtns.forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Get product info from card
+            const card = this.closest('.cnc-range-card');
+            const productTitle = card.querySelector('.cnc-range-card-title');
+            const productName = productTitle ? productTitle.textContent.trim() : 'Product';
+
+            // Get brochure URL from data attribute or use placeholder
+            const brochureUrl = this.getAttribute('data-brochure-url') || 'brochures/sample-brochure.pdf';
+
+            // Open modal
+            openModal(brochureUrl, productName);
+          });
+        });
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeBrochureButtons);
+      } else {
+        initializeBrochureButtons();
+      }
+
+      // Expose function globally for dynamic content
+      window.ariseOpenBrochureModal = openModal;
+
+    })();
+  </script>
+
 </body>
 
 </html>
