@@ -15,6 +15,107 @@
 
 /*** Spinner End ***/
 
+/*** Gear Loader Styles ***/
+.gear-loader-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gear {
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  border: 8px dashed #555;
+  /* Creates the teeth */
+  box-sizing: border-box;
+  box-shadow: 0 0 0 4px #555;
+  /* Creates the rim */
+}
+
+/* Inner Hub */
+.gear::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 30%;
+  background: #555;
+  border-radius: 50%;
+}
+
+/* Gear Sizes & Positions */
+.gear.large {
+  width: 80px;
+  height: 80px;
+  top: 20px;
+  left: 20px;
+  border-color: #444;
+  box-shadow: 0 0 0 4px #444;
+  animation: rotateClockwise 3s linear infinite;
+}
+
+.gear.large::after {
+  background: #444;
+}
+
+.gear.medium {
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  border-color: #666;
+  box-shadow: 0 0 0 4px #666;
+  animation: rotateAntiClockwise 3s linear infinite;
+}
+
+.gear.medium::after {
+  background: #666;
+}
+
+.gear.small {
+  width: 40px;
+  height: 40px;
+  top: 25px;
+  right: 25px;
+  border-color: #888;
+  box-shadow: 0 0 0 3px #888;
+  /* Slightly thinner rim for small gear */
+  border-width: 6px;
+  /* Smaller teeth */
+  animation: rotateClockwise 2s linear infinite;
+}
+
+.gear.small::after {
+  background: #888;
+}
+
+/* Animations */
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAntiClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
 .back-to-top {
   position: fixed;
   right: 30px;
@@ -3815,4 +3916,25 @@ body {
 
 .btn-loader {
   font-size: 14px;
+}
+
+/*** Gear Spinner Animations ***/
+@keyframes gear-spin-cw {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gear-spin-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
