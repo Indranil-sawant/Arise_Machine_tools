@@ -25,7 +25,18 @@
   align-items: center;
   justify-content: center;
   transition: 0.5s;
-  z-index: 99;
+  z-index: 9999;
+  background: linear-gradient(135deg, #fb923c, #f97316) !important;
+  color: #fff !important;
+  border: 0;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+  transform: translateY(-5px);
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
 }
 
 /*** Button Start ***/

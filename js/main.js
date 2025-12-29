@@ -86,13 +86,28 @@
 
 
     // Back to top button
+    // Back to top button
+    var backToTop = $('.back-to-top');
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
+            if (!backToTop.is(':visible')) {
+                backToTop.fadeIn('slow', function () {
+                    $(this).css('display', 'flex');
+                });
+            }
         } else {
-            $('.back-to-top').fadeOut('slow');
+            if (backToTop.is(':visible')) {
+                backToTop.fadeOut('slow');
+            }
         }
     });
+
+    // Check initial position
+    if ($(window).scrollTop() <= 300) {
+        backToTop.hide();
+    }
+
     $('.back-to-top').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
