@@ -1134,6 +1134,14 @@
             <span class="arise-brochure-error" id="ariseEmailError"></span>
           </div>
 
+          <div class="arise-brochure-form-group">
+            <label for="arisePhone" class="arise-brochure-label">Phone Number <span
+                class="arise-required">*</span></label>
+            <input type="tel" id="arisePhone" name="phone" class="arise-brochure-input"
+              placeholder="Enter your phone number" required autocomplete="tel" />
+            <span class="arise-brochure-error" id="arisePhoneError"></span>
+          </div>
+
           <!-- Privacy Notice -->
           <p class="arise-brochure-privacy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -1425,8 +1433,10 @@
         submitBtn: document.getElementById('ariseSubmitBtn'),
         nameInput: document.getElementById('ariseName'),
         emailInput: document.getElementById('ariseEmail'),
+        phoneInput: document.getElementById('arisePhone'),
         nameError: document.getElementById('ariseNameError'),
         emailError: document.getElementById('ariseEmailError'),
+        phoneError: document.getElementById('arisePhoneError'),
         btnText: document.querySelector('.arise-btn-text'),
         btnLoader: document.querySelector('.arise-btn-loader')
       };
@@ -1454,6 +1464,20 @@
         }
         if (!emailRegex.test(trimmed)) {
           return { valid: false, error: 'Please enter a valid email address' };
+        }
+        return { valid: true, error: '' };
+      }
+
+      function validatePhone(phone) {
+        const trimmed = phone.trim();
+        // Allow +, -, spaces, parentheses, and numbers. Min length 10.
+        const phoneRegex = /^[0-9+\-\s()]{10,}$/;
+
+        if (!trimmed) {
+          return { valid: false, error: 'Phone number is required' };
+        }
+        if (!phoneRegex.test(trimmed)) {
+          return { valid: false, error: 'Please enter a valid phone number' };
         }
         return { valid: true, error: '' };
       }
@@ -1499,6 +1523,9 @@
           hideError(ARISE_CONFIG.emailError);
           ARISE_CONFIG.nameInput.classList.remove('arise-error');
           ARISE_CONFIG.emailInput.classList.remove('arise-error');
+          ARISE_CONFIG.phoneInput.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.phoneError);
+          // Optional: clear values if form.reset() missed logic (though reset covers it)
         }, 300);
       }
 
@@ -1519,14 +1546,15 @@
       // ========================================
       // GOOGLE SHEETS SUBMISSION
       // ========================================
-      function submitToGoogleSheets(name, email, product) {
+      function submitToGoogleSheets(name, email, phone, product) {
         // ⚠️ IMPORTANT: Replace with your actual Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxWHoBPzkr-0HtiRu15pkS-sor6PRUbGTcfjue8cqdWGm6wZUZdbfcNOBMSbQQ3oBns-A/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqLX-KktEVE7Z7lMbibbB36VHwhUw1XtvcR23SbFY_TpCOduvkLxjWpi_Gz3xrqSq79A/exec';
 
         // Create form data
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
+        formData.append('phone', phone);
         formData.append('product', product);
         formData.append('timestamp', new Date().toISOString());
 
@@ -1555,10 +1583,12 @@
         // Get values
         const name = ARISE_CONFIG.nameInput.value;
         const email = ARISE_CONFIG.emailInput.value;
+        const phone = ARISE_CONFIG.phoneInput.value;
 
         // Validate
         const nameValidation = validateName(name);
         const emailValidation = validateEmail(email);
+        const phoneValidation = validatePhone(phone);
 
         let hasError = false;
 
@@ -1578,8 +1608,17 @@
           showError(ARISE_CONFIG.emailError, emailValidation.error);
           hasError = true;
         } else {
-          ARISE_CONFIG.emailInput.classList.remove('arise-error');
           hideError(ARISE_CONFIG.emailError);
+        }
+
+        // Show/hide phone errors
+        if (!phoneValidation.valid) {
+          ARISE_CONFIG.phoneInput.classList.add('arise-error');
+          showError(ARISE_CONFIG.phoneError, phoneValidation.error);
+          hasError = true;
+        } else {
+          ARISE_CONFIG.phoneInput.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.phoneError);
         }
 
         // Stop if validation failed
@@ -1592,7 +1631,7 @@
 
 
         // Submit to Google Sheets (async)
-        submitToGoogleSheets(name.trim(), email.trim(), currentProductName)
+        submitToGoogleSheets(name.trim(), email.trim(), phone.trim(), currentProductName)
           .then(() => {
             // Trigger download after submission
             triggerDownload(currentBrochureUrl, `${currentProductName.replace(/\s+/g, '_')}_Brochure.pdf`);
@@ -1658,6 +1697,14 @@
         }
       });
 
+      ARISE_CONFIG.phoneInput.addEventListener('blur', function () {
+        const validation = validatePhone(this.value);
+        if (!validation.valid && this.value.trim()) {
+          this.classList.add('arise-error');
+          showError(ARISE_CONFIG.phoneError, validation.error);
+        }
+      });
+
       // Clear errors on input
       ARISE_CONFIG.nameInput.addEventListener('input', function () {
         if (this.classList.contains('arise-error')) {
@@ -1670,6 +1717,13 @@
         if (this.classList.contains('arise-error')) {
           this.classList.remove('arise-error');
           hideError(ARISE_CONFIG.emailError);
+        }
+      });
+
+      ARISE_CONFIG.phoneInput.addEventListener('input', function () {
+        if (this.classList.contains('arise-error')) {
+          this.classList.remove('arise-error');
+          hideError(ARISE_CONFIG.phoneError);
         }
       });
 
