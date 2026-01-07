@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Tools Cupboard", category: "Tool Holding", desc: "Storage cupboard for tools.", url: "products.html?search-target=Tools%20Cupboard" },
         { title: "CBN Inserts", category: "Inserts", desc: "Cubic Boron Nitride inserts.", url: "products.html?search-target=CBN%20Inserts" },
         { title: "Carbide Inserts", category: "Inserts", desc: "High-performance carbide inserts.", url: "products.html?search-target=Carbide%20Inserts" },
-        { title: "PCD Inserts", category: "Inserts", desc: "Polycrystalline Diamond inserts.", url: "products.html?search-target=PCD%20Inserts" }
+        { title: "PCD Inserts", category: "Inserts", desc: "Polycrystalline Diamond inserts.", url: "products.html?search-target=PCD%20Inserts" },
+        { title: "Industrial Oils", category: "Industrial Oils", desc: "Eco-friendly cutting oils and lubricants for enhanced machine performance.", url: "products.html?search-target=Industrial%20Oils" }
     ];
 
     // 2. Elements
