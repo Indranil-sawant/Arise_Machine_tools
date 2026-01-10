@@ -1,0 +1,169 @@
+/* 
+   Arise Machine Tools - Premium Optimization & Enhancements
+   Strictly additive, performance-focused, and isolated.
+*/
+
+/* =========================================
+   1. GLOBAL SMOOTH SCROLLING & SCROLLBAR
+   ========================================= */
+:root {
+    scroll-behavior: smooth;
+}
+
+/* Respect user motion preference */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        scroll-behavior: auto;
+    }
+}
+
+/* Premium Scrollbar (WebKit) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   2. PERFORMANCE & LAYOUT OPTIMIZATIONS
+   ========================================= */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    /* iOS momentum scrolling */
+}
+
+/* GPU Acceleration for media to prevent jank */
+img,
+video,
+iframe {
+    transform: translateZ(0);
+    will-change: opacity;
+    /* Only anticipate opacity changes to avoid memory overhead */
+}
+
+/* Optimize touch interactions */
+a,
+button,
+input,
+select,
+textarea,
+.btn {
+    touch-action: manipulation;
+    /* Removes 300ms delay on older devices if viewport meta fails */
+}
+
+/* Remove default iOS tap highlight */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   3. PREMIUM UI MICRO-INTERACTIONS
+   ========================================= */
+
+/* Soft transitions for interactive elements */
+a,
+button,
+.btn,
+.nav-link,
+.dropdown-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* iOS Tactile Active State for Interactables */
+a:active,
+button:active,
+.btn:active,
+.cnc-products-card:active {
+    transform: scale(0.98);
+}
+
+/* Subtle hover lift effect for cards (additive class) */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Improved Focus States for Accessibility & Premium Feel */
+:focus-visible {
+    outline: 2px solid #0056b3;
+    /* Adjust to brand color if possible, blue is safe default */
+    outline-offset: 4px;
+}
+
+/* Fade In Up Keyframes for Smooth Entrance */
+@keyframes fadeInUpSubtle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up-subtle {
+    animation: fadeInUpSubtle 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================
+   4. iOS IMPRESSIVE GLASSMORPHISM
+   ========================================= */
+.ios-glass {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Apply to sticky navbar when scrolled if JS enables it */
+.cnc-navbar-premium.cnc-navbar-scrolled {
+    background: rgba(255, 255, 255, 0.85) !important;
+    /* Override solid white */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdowns and Overlays */
+.cnc-navbar-dropdown-menu,
+.cnc-navbar-search-results-dropdown,
+.cnc-navbar-search-results {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Smoother inputs */
+input,
+textarea {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 8px;
+    /* Slightly more rounded */
+}

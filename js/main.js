@@ -146,6 +146,75 @@ document.querySelectorAll('.blog-content').forEach(blog => {
     link.rel = "noopener noreferrer";
 });
 
+/* ============================
+     Minimal UX / Performance additions (vanilla, additive)
+     - Sets lazy/async hints on media
+     - Adds rAF-throttled scroll indicator class
+     - Respects prefers-reduced-motion
+     - Non-blocking, easy to remove
+     ============================ */
+(function () {
+    'use strict';
+
+    // Respect reduced motion preference
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    try {
+        if (!prefersReduced) {
+            // Ensure native smooth scroll (non-invasive)
+            try { document.documentElement.style.scrollBehavior = 'smooth'; } catch (e) { /* ignore */ }
+        }
+
+        // Add lightweight lazy/decode hints to images to reduce main-thread work
+        var imgs = document.getElementsByTagName('img');
+        for (var i = 0; i < imgs.length; i++) {
+            var im = imgs[i];
+            if (!im.getAttribute('loading')) im.setAttribute('loading', 'lazy');
+            if (!im.getAttribute('decoding')) im.setAttribute('decoding', 'async');
+        }
+
+        // For videos: prefer metadata preload to avoid blocking; preserve explicit autoplay/muted attributes
+        var videos = document.getElementsByTagName('video');
+        for (i = 0; i < videos.length; i++) {
+            var v = videos[i];
+            if (!v.getAttribute('preload')) v.setAttribute('preload', 'metadata');
+            // small safety: if autoplay is set but muted isn't, don't change behavior
+        }
+
+        // rAF-throttled scroll indicator (non-invasive)
+        (function () {
+            var ticking = false;
+            var lastScroll = 0;
+            function onScroll() {
+                lastScroll = Date.now();
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        document.body.classList.add('ux-scrolling');
+                        // remove ux-scrolling shortly after scroll stops
+                        setTimeout(function () {
+                            var dt = Date.now() - lastScroll;
+                            if (dt >= 120) document.body.classList.remove('ux-scrolling');
+                        }, 150);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+
+        // Improve touch responsiveness: ensure passive listeners for touchstart where safe
+        try {
+            window.addEventListener('touchstart', function () { }, { passive: true });
+        } catch (e) { /* old browsers */ }
+
+    } catch (err) {
+        // Fail safe: nothing critical
+        console.error('UX enhancement script error', err);
+    }
+})();
+
+
 
 
 function toggleFAQ(button) {

@@ -399,6 +399,76 @@
 
 /*** Navbar End ***/
 
+/* ============================
+   UX & Performance Enhancements
+   Additive only — subtle transitions, smooth scroll,
+   touch optimizations, and GPU hints.
+   Respect user `prefers-reduced-motion`.
+   ============================ */
+
+:root{
+  --ux-ease: cubic-bezier(0.2,0.8,0.2,1);
+  --ux-fast: 180ms;
+  --ux-medium: 280ms;
+}
+
+/* Native smooth scrolling (respected by reduced-motion) */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* Encourage GPU compositing for imagery and subtle transforms */
+.cnc-range-card-image,
+.cnc-process-image,
+.cnc-range-card img,
+.cnc-process-container img{
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  transition: transform var(--ux-medium) var(--ux-ease), opacity var(--ux-medium) var(--ux-ease);
+}
+
+/* Soft hover/focus micro-interactions */
+.cnc-range-card,
+.cnc-process-step-card,
+.cnc-range-card-body,
+.cnc-navbar-link,
+.cnc-range-card-btn{
+  transition: transform var(--ux-fast) var(--ux-ease), box-shadow var(--ux-fast) var(--ux-ease);
+}
+
+.cnc-range-card:hover,
+.cnc-range-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(17,24,39,0.06);
+}
+
+.cnc-range-card-btn:hover,
+.cnc-range-card-btn:focus {
+  transform: translateY(-3px);
+}
+
+/* Improve tap responsiveness on mobile */
+a, button { touch-action: manipulation; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+/* Small focus-visible treatment for keyboard users */
+:focus-visible { outline: 3px solid rgba(250,204,21,0.15); outline-offset: 3px; }
+
+/* Mute button styling (non-invasive — override inline if present) */
+.cnc-video-mute-btn{ background: rgba(0,0,0,0.6); color:#fff; border:none; padding:8px 10px; border-radius:6px; }
+
+/* Prevent large layout shifts from images — keep intrinsic sizing where possible */
+img { max-width:100%; height:auto; display:block; }
+
+/* Provide a CSS hook when scrolling happens (added by JS) */
+body.ux-scrolling { --ux-scrolling: 1; }
+
+/* keep these additions lightweight and easy to remove — end UX block */
+
+
 /* SECTION BASE */
 .cnc-auto-carousel {
   width: 100%;
