@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta charset="utf-8">
   <title>Products - Arise Machine Tools</title>
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -216,6 +214,15 @@
   </style>
   <link rel="stylesheet" href="css/optimization-premium.css">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHL2PF1QJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-MPHL2PF1QJ');
+</script>
 
 <body>
 
@@ -331,10 +338,12 @@
           </p>
         </div>
         <div class="cnc-process-image-wrapper" style="position:relative;">
-            <video id="cncProcessVideo" src="img/arise_marketing.mp4" alt="CNC Tool Manufacturing Process" class="cnc-process-image" autoplay muted loop playsinline></video>
-            <button class="cnc-video-mute-btn" aria-label="Toggle mute" style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:8px 10px;border-radius:4px;cursor:pointer;z-index:3;font-size:18px;">
-              <i class="fas fa-volume-mute"></i>
-            </button>
+          <video id="cncProcessVideo" src="img/arise_marketing.mp4" alt="CNC Tool Manufacturing Process"
+            class="cnc-process-image" autoplay muted loop playsinline></video>
+          <button class="cnc-video-mute-btn" aria-label="Toggle mute"
+            style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:8px 10px;border-radius:4px;cursor:pointer;z-index:3;font-size:18px;">
+            <i class="fas fa-volume-mute"></i>
+          </button>
         </div>
       </div>
 
@@ -1784,12 +1793,12 @@
 </body>
 
 <script>
-  (function() {
+  (function () {
     var video = document.getElementById('cncProcessVideo');
     var btn = document.querySelector('.cnc-video-mute-btn');
     if (!video || !btn) return;
     var icon = btn.querySelector('i');
-    function updateIcon(){
+    function updateIcon() {
       if (video.muted) {
         icon.classList.remove('fa-volume-up');
         icon.classList.add('fa-volume-mute');
@@ -1798,7 +1807,7 @@
         icon.classList.add('fa-volume-up');
       }
     }
-    btn.addEventListener('click', function(e){
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
       video.muted = !video.muted;
       updateIcon();
@@ -1812,9 +1821,9 @@
   })();
 </script>
 
-  <script src="js/optimization-premium.js" defer></script>
+<script src="js/optimization-premium.js" defer></script>
 </body>
-  <script src="js/optimization-premium.js" defer></script>
+<script src="js/optimization-premium.js" defer></script>
 </body>
 
 </html>

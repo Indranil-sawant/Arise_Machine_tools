@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta charset="utf-8">
     <title>Contact Us - Arise Machine Tools</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -14,7 +12,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -36,8 +36,17 @@
     <link href="css/cnc-contact-premium.css" rel="stylesheet">
     <link href="css/cnc-footer-premium.css" rel="stylesheet">
     <link href="css/cnc-navbar-premium.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/optimization-premium.css">
+    <link rel="stylesheet" href="css/optimization-premium.css">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHL2PF1QJ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MPHL2PF1QJ');
+</script>
 <script>
     function handleCncSubmit() {
         const form = document.getElementById("cnc-contact-form");
@@ -74,84 +83,86 @@
 
     <!-- Navbar Start -->
     <nav class="cnc-navbar-premium" id="cncNavbar">
-    <div class="cnc-navbar-container">
-      <!-- Brand/Logo -->
-      <a href="index.html" class="cnc-navbar-brand">
-        <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo" width="46" height="50">
+        <div class="cnc-navbar-container">
+            <!-- Brand/Logo -->
+            <a href="index.html" class="cnc-navbar-brand">
+                <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo" width="46"
+                    height="50">
 
-        <div>
-          <h1 class="cnc-navbar-brand-text">Arise Machine Tools Solutions</h1>
-          <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
+                <div>
+                    <h1 class="cnc-navbar-brand-text">Arise Machine Tools Solutions</h1>
+                    <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
+                </div>
+            </a>
+
+
+            <!-- Mobile Toggle Button -->
+            <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
+                <span class="cnc-navbar-toggle-bar"></span>
+                <span class="cnc-navbar-toggle-bar"></span>
+                <span class="cnc-navbar-toggle-bar"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <ul class="cnc-navbar-menu" id="cncNavMenu">
+                <li class="cnc-navbar-menu-item">
+                    <a href="index.html" class="cnc-navbar-link">Home</a>
+                </li>
+
+                <li class="cnc-navbar-menu-item">
+                    <a href="about.html" class="cnc-navbar-link">About</a>
+                </li>
+
+                <li class="cnc-navbar-menu-item">
+                    <a href="products.html" class="cnc-navbar-link">Products</a>
+                </li>
+
+                <!-- Dropdown Menu -->
+                <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
+                    <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
+                        More
+                        <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
+                    </a>
+                    <div class="cnc-navbar-dropdown-menu">
+                        <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
+                        <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
+                        <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
+                    </div>
+                </li>
+                <li class="cnc-navbar-menu-item">
+                    <a href="contact.html" class="cnc-navbar-link cnc-navbar-link-active">Contact</a>
+                </li>
+
+                <!-- Search Toggle -->
+                <li class="cnc-navbar-menu-item">
+                    <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <!-- Search Dropdown Container -->
+                    <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
+                        <div class="cnc-navbar-search-input-wrapper">
+                            <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
+                            <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
+                                placeholder="Search products..." autocomplete="off">
+                            <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                        <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
+                            <!-- Results injected via JS -->
+                        </div>
+                    </div>
+                </li>
+
+                <!-- CTA Button -->
+                <li class="cnc-navbar-menu-item">
+                    <a href="enquiry.html" class="cnc-navbar-cta">
+                        <span>Enquiry</span>
+                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </a>
-
-
-      <!-- Mobile Toggle Button -->
-      <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
-        <span class="cnc-navbar-toggle-bar"></span>
-        <span class="cnc-navbar-toggle-bar"></span>
-        <span class="cnc-navbar-toggle-bar"></span>
-      </button>
-
-      <!-- Navigation Menu -->
-      <ul class="cnc-navbar-menu" id="cncNavMenu">
-        <li class="cnc-navbar-menu-item">
-          <a href="index.html" class="cnc-navbar-link">Home</a>
-        </li>
-
-        <li class="cnc-navbar-menu-item">
-          <a href="about.html" class="cnc-navbar-link">About</a>
-        </li>
-
-        <li class="cnc-navbar-menu-item">
-          <a href="products.html" class="cnc-navbar-link">Products</a>
-        </li>
-
-        <!-- Dropdown Menu -->
-        <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
-          <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
-            More
-            <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
-          </a>
-          <div class="cnc-navbar-dropdown-menu">
-            <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
-            <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
-            <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
-          </div>
-        </li>
-        <li class="cnc-navbar-menu-item">
-          <a href="contact.html" class="cnc-navbar-link cnc-navbar-link-active">Contact</a>
-        </li>
-
-        <!-- Search Toggle -->
-        <li class="cnc-navbar-menu-item">
-          <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
-            <i class="fas fa-search"></i>
-          </a>
-          <!-- Search Dropdown Container -->
-          <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
-            <div class="cnc-navbar-search-input-wrapper">
-              <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
-              <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
-                placeholder="Search products..." autocomplete="off">
-              <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
-              <!-- Results injected via JS -->
-            </div>
-          </div>
-        </li>
-
-        <!-- CTA Button -->
-        <li class="cnc-navbar-menu-item">
-          <a href="enquiry.html" class="cnc-navbar-cta">
-            <span>Enquiry</span>
-            <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
     <!-- Navbar End -->
 
     <div class="cnc-contact-wrapper">
@@ -364,9 +375,11 @@
                         <li class="cnc-footer-contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                <strong>Work:</strong> GAT NO 1403, LATE SHREE KASHINATH INDUSTRIAL ESTATE, SHOP NO 02/03, CHIKHALI-SONWANE WASTI ROAD, TALAWADE, PUNE - 411062, MAHARASHTRA, INDIA<br>
-                <strong>Office:</strong> E 605, SAI EXOTIQUE, GAT NO 1660/1, BAG VASTI, PATIL NAGAR, CHIKHALI, PUNE - 411062, MAHARASHTRA, INDIA
-              </div>
+                                <strong>Work:</strong> GAT NO 1403, LATE SHREE KASHINATH INDUSTRIAL ESTATE, SHOP NO
+                                02/03, CHIKHALI-SONWANE WASTI ROAD, TALAWADE, PUNE - 411062, MAHARASHTRA, INDIA<br>
+                                <strong>Office:</strong> E 605, SAI EXOTIQUE, GAT NO 1660/1, BAG VASTI, PATIL NAGAR,
+                                CHIKHALI, PUNE - 411062, MAHARASHTRA, INDIA
+                            </div>
                         </li>
                         <li class="cnc-footer-contact-item">
                             <i class="fas fa-envelope"></i>
@@ -408,7 +421,7 @@
     <script src="js/main.js"></script>
     <!-- Global Navbar Search Script -->
     <script src="js/arise-global-search.js"></script>
-  <script src="js/optimization-premium.js" defer></script>
+    <script src="js/optimization-premium.js" defer></script>
 </body>
 
 </html>
