@@ -1,0 +1,118 @@
+/* ==========================================================================
+   ANTI-GRAVITY SCROLL SYSTEM (PREMIUM ADD-ON)
+   ==========================================================================
+   Author: Arise AI
+   Description: Enhances native scrolling with GPU optimizations and
+                ultra-smooth interactions. No layout shifts.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CORE SCROLL BEHAVIOR
+   -------------------------------------------------------------------------- */
+html {
+    /* Enables native smooth scrolling for anchor links and programmatic scrolls */
+    scroll-behavior: smooth;
+
+    /* Hardware acceleration hint */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* On mobile, we rely 100% on native momentum */
+@media (max-width: 1024px) {
+    html {
+        scroll-behavior: auto;
+        /* Revert to instant for touch responsiveness if needed */
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. SCROLLBAR STYLING (Webkit - Chrome/Safari/Edge)
+   Gives a premium, slim, floating look
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 6px;
+    /* Slim vertical */
+    height: 6px;
+    /* Slim horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.5);
+    /* Neutral slate */
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff6b00;
+    /* Arise Brand Orange Accent on hover */
+}
+
+/* --------------------------------------------------------------------------
+   3. PERFORMANCE MODE (The "Anti-Gravity" Feel)
+   These classes are toggled by JS to debounce hover effects while scrolling.
+   This drastically reduces paint costs and maintains 60fps.
+   -------------------------------------------------------------------------- */
+
+body.is-scrolling {
+    /* Disable mouse events on standard elements while scrolling 
+       to prevent expensive hover calculations */
+    pointer-events: none;
+}
+
+/* Keep pointer events on critical fixed elements even during scroll */
+body.is-scrolling .fixed-top,
+body.is-scrolling .cnc-navbar-premium,
+body.is-scrolling .floating-whatsapp {
+    pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. GPU LAYERS & OPTIMIZATIONS
+   Apply .antigravity-layer to heavy image sections manually if needed
+   -------------------------------------------------------------------------- */
+.antigravity-layer {
+    transform: translate3d(0, 0, 0);
+    /* Force GPU Layer */
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize images */
+img {
+    /* Prevents layout shift during painting in some browsers */
+    content-visibility: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. PREMIUM HIGHLIGHTS
+   -------------------------------------------------------------------------- */
+::selection {
+    background: rgba(255, 107, 0, 0.2);
+    /* Brand Orange, transparent */
+    color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   6. ACCESSIBILITY OVERRIDES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
