@@ -118,11 +118,15 @@
     height: 100%;
     background: rgba(15, 23, 42, 0.7);
     display: flex;
+    flex-direction: column;
+    /* Stack vertically */
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
     backdrop-filter: blur(2px);
+    text-decoration: none;
+    /* Remove underline */
 }
 
 .cnc-gallery-item:hover .cnc-gallery-overlay {
@@ -145,6 +149,28 @@
 
 .cnc-gallery-item:hover .cnc-gallery-icon {
     transform: translateY(0);
+}
+
+/* Added Caption Styles */
+.cnc-gallery-caption {
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+    /* Slight delay */
+    padding: 0 10px;
+}
+
+.cnc-gallery-item:hover .cnc-gallery-caption {
+    transform: translateY(0);
+}
+
+.cnc-gallery-caption h6 {
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
+    color: white;
 }
 
 /* --- Responsive Adjustments --- */
