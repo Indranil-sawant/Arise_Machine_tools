@@ -394,11 +394,17 @@
 /* Small Mobile */
 @media (max-width: 480px) {
     .cnc-navbar-container {
-        padding: 0 16px;
+        padding: 0 12px;
     }
 
     .cnc-navbar-brand-text {
-        font-size: 18px;
+        font-size: 13px;
+        padding-top: 0;
+        white-space: nowrap;
+    }
+
+    .cnc-navbar-brand {
+        gap: 8px;
     }
 
     .cnc-navbar-brand-tagline {
