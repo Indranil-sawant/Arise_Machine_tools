@@ -327,11 +327,11 @@
             for every machining solution we deliver.
           </p>
         </div>
-        <div class="cnc-process-image-wrapper">
-          <div class="cnc-process-play-btn">
-            <i class="fas fa-play"></i>
-          </div>
-            <video src="img/arise_marketing.mp4" alt="CNC Tool Manufacturing Process" class="cnc-process-image" controls autoplay muted loop></video>
+        <div class="cnc-process-image-wrapper" style="position:relative;">
+            <video id="cncProcessVideo" src="img/arise_marketing.mp4" alt="CNC Tool Manufacturing Process" class="cnc-process-image" autoplay muted loop playsinline></video>
+            <button class="cnc-video-mute-btn" aria-label="Toggle mute" style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,0.6);color:#fff;border:none;padding:8px 10px;border-radius:4px;cursor:pointer;z-index:3;font-size:18px;">
+              <i class="fas fa-volume-mute"></i>
+            </button>
         </div>
       </div>
 
@@ -1777,7 +1777,38 @@
 
     })();
   </script>
+</body>
 
+<script>
+  (function() {
+    var video = document.getElementById('cncProcessVideo');
+    var btn = document.querySelector('.cnc-video-mute-btn');
+    if (!video || !btn) return;
+    var icon = btn.querySelector('i');
+    function updateIcon(){
+      if (video.muted) {
+        icon.classList.remove('fa-volume-up');
+        icon.classList.add('fa-volume-mute');
+      } else {
+        icon.classList.remove('fa-volume-mute');
+        icon.classList.add('fa-volume-up');
+      }
+    }
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      video.muted = !video.muted;
+      updateIcon();
+    });
+    // Ensure icon reflects initial state
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateIcon);
+    } else {
+      updateIcon();
+    }
+  })();
+</script>
+
+</body>
 </body>
 
 </html>
