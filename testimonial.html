@@ -52,12 +52,14 @@
     <div class="cnc-navbar-container">
       <!-- Brand/Logo -->
       <a href="index.html" class="cnc-navbar-brand">
-        <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo">
+        <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo" width="46" height="50">
+
         <div>
-          <h1 class="cnc-navbar-brand-text">Arise Machine Tools</h1>
+          <h1 class="cnc-navbar-brand-text">Arise Machine Tools Solutions</h1>
           <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
         </div>
       </a>
+
 
       <!-- Mobile Toggle Button -->
       <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
@@ -71,12 +73,16 @@
         <li class="cnc-navbar-menu-item">
           <a href="index.html" class="cnc-navbar-link">Home</a>
         </li>
+
         <li class="cnc-navbar-menu-item">
           <a href="about.html" class="cnc-navbar-link">About</a>
         </li>
+
         <li class="cnc-navbar-menu-item">
           <a href="products.html" class="cnc-navbar-link">Products</a>
         </li>
+
+        <!-- Dropdown Menu -->
         <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
           <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
             More
@@ -86,7 +92,6 @@
             <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
             <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
             <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
-            <a href="testimonial.html" class="cnc-navbar-dropdown-item">Client Testimonials</a>
           </div>
         </li>
         <li class="cnc-navbar-menu-item">
@@ -98,6 +103,7 @@
           <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
             <i class="fas fa-search"></i>
           </a>
+          <!-- Search Dropdown Container -->
           <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
             <div class="cnc-navbar-search-input-wrapper">
               <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
@@ -105,7 +111,9 @@
                 placeholder="Search products..." autocomplete="off">
               <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i class="fas fa-times"></i></button>
             </div>
-            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults"></div>
+            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
+              <!-- Results injected via JS -->
+            </div>
           </div>
         </li>
 
