@@ -213,6 +213,70 @@
     transform: translateX(4px);
 }
 
+/* ====================================
+   MEGA MENU STYLES
+   ==================================== */
+.cnc-navbar-dropdown-menu.cnc-mega-menu {
+    min-width: 900px;
+    left: -200px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    border-top: 3px solid #3b82f6;
+}
+
+.cnc-mega-category {
+    margin-bottom: 0;
+}
+
+.cnc-mega-category-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0F172A;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cnc-mega-category-title i {
+    color: #3b82f6;
+    font-size: 14px;
+}
+
+.cnc-mega-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cnc-mega-list-item {
+    margin-bottom: 6px;
+}
+
+.cnc-mega-link {
+    font-size: 14px;
+    color: #64748b;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    line-height: 1.4;
+}
+
+.cnc-mega-link:hover {
+    color: #2563eb;
+    background: rgba(59, 130, 246, 0.05);
+    transform: translateX(4px);
+}
+
+
 /* CTA Button */
 .cnc-navbar-cta {
     display: inline-flex;
@@ -287,19 +351,11 @@
         padding: 0 20px;
     }
 
-    .cnc-navbar-menu {
-        gap: 4px;
-    }
-
-    .cnc-navbar-link {
-        padding: 8px 14px;
-        font-size: 15px;
-    }
-
-    .cnc-navbar-cta {
-        padding: 10px 20px;
-        font-size: 14px;
-        margin-left: 12px;
+    .cnc-navbar-dropdown-menu.cnc-mega-menu {
+        min-width: 700px;
+        left: -150px;
+        padding: 20px;
+        gap: 20px;
     }
 }
 
@@ -367,9 +423,24 @@
     }
 
     .cnc-navbar-dropdown.cnc-navbar-dropdown-open .cnc-navbar-dropdown-menu {
-        max-height: 500px;
+        max-height: 2000px;
+        /* Increased for Mega Menu */
         margin-top: 8px;
         padding: 8px;
+    }
+
+    /* Mobile Mega Menu */
+    .cnc-navbar-dropdown-menu.cnc-mega-menu {
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px;
+    }
+
+    .cnc-mega-category-title {
+        color: #3b82f6;
+        border-bottom-color: rgba(59, 130, 246, 0.2);
     }
 
     .cnc-navbar-dropdown-item {
