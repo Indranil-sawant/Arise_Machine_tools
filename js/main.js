@@ -278,8 +278,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ============================
        DROPDOWN TOGGLE (MOBILE)
        ============================ */
-    const dropdown = document.getElementById("cncNavDropdown");
-    if (dropdown) {
+    /* ============================
+       DROPDOWN TOGGLE (MOBILE)
+       ============================ */
+    const dropdowns = document.querySelectorAll(".cnc-navbar-dropdown");
+
+    dropdowns.forEach((dropdown) => {
         const dropdownToggle = dropdown.querySelector(".cnc-navbar-dropdown-toggle");
 
         if (dropdownToggle) {
@@ -288,11 +292,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     e.stopPropagation();
+
+                    // Close other open dropdowns (optional, but good UX)
+                    dropdowns.forEach((otherDropdown) => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove("cnc-navbar-dropdown-open");
+                        }
+                    });
+
                     dropdown.classList.toggle("cnc-navbar-dropdown-open");
                 }
             });
         }
-    }
+    });
 
     /* ============================
        CLOSE MOBILE MENU ON OUTSIDE CLICK
