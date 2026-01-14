@@ -58,7 +58,6 @@
         $('.btn-play').click(function () {
             $videoSrc = $(this).data("src");
         });
-        console.log($videoSrc);
 
         $('#videoModal').on('shown.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
@@ -85,12 +84,12 @@
 
 
 
-    // Back to top button
-    // Back to top button
+    // Back to top button (optimized for scroll performance)
     var backToTop = $('.back-to-top');
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
+    // Use passive listener for scroll performance
+    window.addEventListener('scroll', function () {
+        if (window.pageYOffset > 300) {
             if (!backToTop.is(':visible')) {
                 backToTop.fadeIn('slow', function () {
                     $(this).css('display', 'flex');
@@ -101,7 +100,7 @@
                 backToTop.fadeOut('slow');
             }
         }
-    });
+    }, { passive: true });
 
     // Check initial position
     if ($(window).scrollTop() <= 300) {
@@ -244,18 +243,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu = document.getElementById("cncNavMenu");
 
     /* ============================
-       NAVBAR SCROLL EFFECT
+       NAVBAR SCROLL EFFECT (Optimized with RAF)
        ============================ */
     if (navbar) {
+        let ticking = false;
         window.addEventListener("scroll", () => {
-            const currentScroll = window.pageYOffset;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const currentScroll = window.pageYOffset;
 
-            if (currentScroll > 50) {
-                navbar.classList.add("cnc-navbar-scrolled");
-            } else {
-                navbar.classList.remove("cnc-navbar-scrolled");
+                    if (currentScroll > 50) {
+                        navbar.classList.add("cnc-navbar-scrolled");
+                    } else {
+                        navbar.classList.remove("cnc-navbar-scrolled");
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
     }
 
     /* ============================

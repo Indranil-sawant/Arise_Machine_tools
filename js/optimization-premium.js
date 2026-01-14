@@ -16,7 +16,7 @@
     };
 
     const initOptimizations = () => {
-        console.log('Arise Premium Optimizations: Initializing...');
+        // Arise Premium Optimizations: Silent initialization
 
         // 1. Lazy Load Iframes
         const iframes = document.getElementsByTagName('iframe');
