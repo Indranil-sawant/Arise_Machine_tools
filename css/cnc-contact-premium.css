@@ -238,15 +238,73 @@
 }
 
 @media (max-width: 768px) {
+    .cnc-contact-hero {
+        padding: 100px 20px 60px;
+    }
+
     .cnc-contact-hero-title {
         font-size: 2.5rem;
     }
 
+    .cnc-contact-hero-text {
+        font-size: 1rem;
+    }
+
+    .cnc-contact-grid-section {
+        padding: 60px 20px;
+    }
+
+    /* Fix form grid for mobile */
     .cnc-contact-form-grid {
         grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    /* Remove double margin on mobile */
+    .cnc-form-group {
+        margin-bottom: 0;
     }
 
     .cnc-contact-form-wrapper {
         padding: 30px 20px;
+    }
+
+    .cnc-contact-form-title {
+        font-size: 1.75rem;
+        margin-bottom: 24px;
+    }
+
+    .cnc-contact-map-wrapper {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cnc-contact-hero-title {
+        font-size: 2rem;
+    }
+
+    .cnc-contact-hero {
+        padding: 90px 16px 50px;
+    }
+
+    .cnc-contact-form-wrapper {
+        padding: 24px 16px;
+    }
+
+    .cnc-contact-info-card {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .cnc-contact-icon-box {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .cnc-form-submit-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
