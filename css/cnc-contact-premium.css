@@ -7,6 +7,8 @@
     background-color: #0B1120;
     color: #e2e8f0;
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
 }
 
 /* --- Hero Section --- */
@@ -54,12 +56,16 @@
     padding: 80px 20px;
     max-width: 1400px;
     margin: 0 auto;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .cnc-contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 60px;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 /* --- Info Cards (Left Column) --- */
@@ -79,6 +85,8 @@
     gap: 20px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .cnc-contact-info-card:hover {
@@ -100,6 +108,13 @@
     flex-shrink: 0;
 }
 
+.cnc-contact-info-content {
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
 .cnc-contact-info-content h4 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
@@ -113,6 +128,10 @@
     color: #cbd5e1;
     line-height: 1.5;
     margin: 0;
+    /* Fix long email addresses being cut off */
+    word-break: break-word;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* --- Contact Form (Right Column) --- */
