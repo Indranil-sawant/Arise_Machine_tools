@@ -2,25 +2,28 @@
 <html lang="en">
 
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHL2PF1QJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHL2PF1QJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-MPHL2PF1QJ');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KL6Q4VC8');</script>
-<!-- End Google Tag Manager -->
+        gtag('config', 'G-MPHL2PF1QJ');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KL6Q4VC8');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
-    <title>Mailler - SaaS Website Template</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Features - Arise Machine Tools</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -49,14 +52,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link href="css/style.css" rel="stylesheet">
     <!-- Premium Stylesheets -->
     <link href="css/cnc-navbar-premium.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/optimization-premium.css">
+    <link href="css/cnc-footer-premium.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/optimization-premium.css">
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL6Q4VC8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL6Q4VC8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Spinner Start -->
     <div id="spinner"
@@ -70,188 +74,206 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Navbar Start -->
     <nav class="cnc-navbar-premium" id="cncNavbar">
-    <div class="cnc-navbar-container">
-      <!-- Brand/Logo -->
-      <a href="index.html" class="cnc-navbar-brand">
-        <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo" width="46" height="50">
+        <div class="cnc-navbar-container">
+            <!-- Brand/Logo -->
+            <a href="index.html" class="cnc-navbar-brand">
+                <img src="img/arise-logo-removebg.png" alt="Arise CNC Logo" class="cnc-navbar-logo" width="46"
+                    height="50">
 
-        <div>
-          <h1 class="cnc-navbar-brand-text">Arise Machine Tools Solutions</h1>
-          <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
+                <div>
+                    <h1 class="cnc-navbar-brand-text">Arise Machine Tools Solutions</h1>
+                    <p class="cnc-navbar-brand-tagline">Precision Engineering</p>
+                </div>
+            </a>
+
+
+            <!-- Mobile Toggle Button -->
+            <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
+                <span class="cnc-navbar-toggle-bar"></span>
+                <span class="cnc-navbar-toggle-bar"></span>
+                <span class="cnc-navbar-toggle-bar"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <ul class="cnc-navbar-menu" id="cncNavMenu">
+                <li class="cnc-navbar-menu-item">
+                    <a href="index.html" class="cnc-navbar-link">Home</a>
+                </li>
+
+                <li class="cnc-navbar-menu-item">
+                    <a href="about.html" class="cnc-navbar-link">About</a>
+                </li>
+
+                <li class="cnc-navbar-menu-item cnc-navbar-dropdown">
+                    <a href="products.html" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
+                        Products
+                        <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
+                    </a>
+                    <div class="cnc-navbar-dropdown-menu cnc-mega-menu">
+                        <!-- 1. Milling -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-cogs"></i> Milling</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Face Mill Cutter</a></li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Shell Mill Cutter</a></li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">End Mills</a></li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Thread Milling</a></li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Profiling Tools</a></li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Slot Milling Cutter</a>
+                                </li>
+                                <li><a href="products.html?cat=milling" class="cnc-mega-link">Ball Nose Cutter</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 2. Drilling -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-bullseye"></i> Drilling</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=drilling" class="cnc-mega-link">Solid Carbide Drills</a>
+                                </li>
+                                <li><a href="products.html?cat=drilling" class="cnc-mega-link">High Speed Steel
+                                        Drills</a></li>
+                                <li><a href="products.html?cat=drilling" class="cnc-mega-link">Brazed Type Drills</a>
+                                </li>
+                                <li><a href="products.html?cat=drilling" class="cnc-mega-link">Indexable Core Drills</a>
+                                </li>
+                                <li><a href="products.html?cat=drilling" class="cnc-mega-link">Indexable U Drill</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. Boring -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-ring"></i> Boring</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=boring" class="cnc-mega-link">Rough & Finish Boring</a>
+                                </li>
+                                <li><a href="products.html?cat=boring" class="cnc-mega-link">Modular Systems</a></li>
+                                <li><a href="products.html?cat=boring" class="cnc-mega-link">Boring Kits</a></li>
+                                <li><a href="products.html?cat=boring" class="cnc-mega-link">Reamers</a></li>
+                                <li><a href="products.html?cat=boring" class="cnc-mega-link">Anti Vibration Bars</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. Turning -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-sync-alt"></i> Turning</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=turning" class="cnc-mega-link">General Turning Tools</a>
+                                </li>
+                                <li><a href="products.html?cat=turning" class="cnc-mega-link">Parting & Grooving</a>
+                                </li>
+                                <li><a href="products.html?cat=turning" class="cnc-mega-link">Threading Tools</a></li>
+                                <li><a href="products.html?cat=turning" class="cnc-mega-link">Tool Holders</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 5. Tool Holding -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-hand-holding"></i> Tool Holding</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Mill Adapters</a></li>
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Collets & ER Types</a>
+                                </li>
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Hydro Grip</a></li>
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Side Lock Adapters</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 6. Inserts -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-shapes"></i> Inserts</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=inserts" class="cnc-mega-link">Carbide Inserts</a></li>
+                                <li><a href="products.html?cat=inserts" class="cnc-mega-link">Aluminum Inserts</a></li>
+                                <li><a href="products.html?cat=inserts" class="cnc-mega-link">CBN & PCD Inserts</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 7. Tool Handling -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-tools"></i> Handling</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Trolleys & Racks</a>
+                                </li>
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Cupboards</a></li>
+                                <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Fixtures</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 8. Industrial Solutions -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-flask"></i> Chemicals</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Rust Removers</a>
+                                </li>
+                                <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Cutting Oils</a>
+                                </li>
+                                <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Cleaners &
+                                        Sprays</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- 9. Services -->
+                        <div class="cnc-mega-category">
+                            <h5 class="cnc-mega-category-title"><i class="fas fa-wrench"></i> Services</h5>
+                            <ul class="cnc-mega-list">
+                                <li><a href="products.html" class="cnc-mega-link">Accessories</a></li>
+                                <li><a href="products.html" class="cnc-mega-link">Repair & Reconditioning</a></li>
+                                <li><a href="products.html" class="cnc-mega-link">Critical Machining</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Dropdown Menu -->
+                <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
+                    <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
+                        More
+                        <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
+                    </a>
+                    <div class="cnc-navbar-dropdown-menu">
+                        <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
+                        <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
+                        <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
+                    </div>
+                </li>
+                <li class="cnc-navbar-menu-item">
+                    <a href="contact.html" class="cnc-navbar-link">Contact</a>
+                </li>
+
+                <!-- Search Toggle -->
+                <li class="cnc-navbar-menu-item">
+                    <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <!-- Search Dropdown Container -->
+                    <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
+                        <div class="cnc-navbar-search-input-wrapper">
+                            <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
+                            <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
+                                placeholder="Search products..." autocomplete="off">
+                            <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i
+                                    class="fas fa-times"></i></button>
+                        </div>
+                        <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
+                            <!-- Results injected via JS -->
+                        </div>
+                    </div>
+                </li>
+
+                <!-- CTA Button -->
+                <li class="cnc-navbar-menu-item">
+                    <a href="enquiry.html" class="cnc-navbar-cta">
+                        <span>Enquiry</span>
+                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </a>
-
-
-      <!-- Mobile Toggle Button -->
-      <button class="cnc-navbar-toggle" id="cncNavToggle" aria-label="Toggle navigation">
-        <span class="cnc-navbar-toggle-bar"></span>
-        <span class="cnc-navbar-toggle-bar"></span>
-        <span class="cnc-navbar-toggle-bar"></span>
-      </button>
-
-      <!-- Navigation Menu -->
-      <ul class="cnc-navbar-menu" id="cncNavMenu">
-        <li class="cnc-navbar-menu-item">
-          <a href="index.html" class="cnc-navbar-link">Home</a>
-        </li>
-
-        <li class="cnc-navbar-menu-item">
-          <a href="about.html" class="cnc-navbar-link">About</a>
-        </li>
-
-        <li class="cnc-navbar-menu-item cnc-navbar-dropdown">
-          <a href="products.html" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
-            Products
-            <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
-          </a>
-          <div class="cnc-navbar-dropdown-menu cnc-mega-menu">
-            <!-- 1. Milling -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-cogs"></i> Milling</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Face Mill Cutter</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Shell Mill Cutter</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">End Mills</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Thread Milling</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Profiling Tools</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Slot Milling Cutter</a></li>
-                    <li><a href="products.html?cat=milling" class="cnc-mega-link">Ball Nose Cutter</a></li>
-                </ul>
-            </div>
-
-            <!-- 2. Drilling -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-bullseye"></i> Drilling</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=drilling" class="cnc-mega-link">Solid Carbide Drills</a></li>
-                    <li><a href="products.html?cat=drilling" class="cnc-mega-link">High Speed Steel Drills</a></li>
-                    <li><a href="products.html?cat=drilling" class="cnc-mega-link">Brazed Type Drills</a></li>
-                    <li><a href="products.html?cat=drilling" class="cnc-mega-link">Indexable Core Drills</a></li>
-                    <li><a href="products.html?cat=drilling" class="cnc-mega-link">Indexable U Drill</a></li>
-                </ul>
-            </div>
-
-            <!-- 3. Boring -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-ring"></i> Boring</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=boring" class="cnc-mega-link">Rough & Finish Boring</a></li>
-                    <li><a href="products.html?cat=boring" class="cnc-mega-link">Modular Systems</a></li>
-                    <li><a href="products.html?cat=boring" class="cnc-mega-link">Boring Kits</a></li>
-                    <li><a href="products.html?cat=boring" class="cnc-mega-link">Reamers</a></li>
-                    <li><a href="products.html?cat=boring" class="cnc-mega-link">Anti Vibration Bars</a></li>
-                </ul>
-            </div>
-
-            <!-- 4. Turning -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-sync-alt"></i> Turning</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=turning" class="cnc-mega-link">General Turning Tools</a></li>
-                    <li><a href="products.html?cat=turning" class="cnc-mega-link">Parting & Grooving</a></li>
-                    <li><a href="products.html?cat=turning" class="cnc-mega-link">Threading Tools</a></li>
-                    <li><a href="products.html?cat=turning" class="cnc-mega-link">Tool Holders</a></li>
-                </ul>
-            </div>
-
-            <!-- 5. Tool Holding -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-hand-holding"></i> Tool Holding</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Mill Adapters</a></li>
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Collets & ER Types</a></li>
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Hydro Grip</a></li>
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Side Lock Adapters</a></li>
-                </ul>
-            </div>
-
-            <!-- 6. Inserts -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-shapes"></i> Inserts</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=inserts" class="cnc-mega-link">Carbide Inserts</a></li>
-                    <li><a href="products.html?cat=inserts" class="cnc-mega-link">Aluminum Inserts</a></li>
-                    <li><a href="products.html?cat=inserts" class="cnc-mega-link">CBN & PCD Inserts</a></li>
-                </ul>
-            </div>
-            
-            <!-- 7. Tool Handling -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-tools"></i> Handling</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Trolleys & Racks</a></li>
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Cupboards</a></li>
-                    <li><a href="products.html?cat=toolholding" class="cnc-mega-link">Fixtures</a></li>
-                </ul>
-            </div>
-
-            <!-- 8. Industrial Solutions -->
-            <div class="cnc-mega-category">
-                <h5 class="cnc-mega-category-title"><i class="fas fa-flask"></i> Chemicals</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Rust Removers</a></li>
-                    <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Cutting Oils</a></li>
-                    <li><a href="products.html?cat=industrial-oils" class="cnc-mega-link">Cleaners & Sprays</a></li>
-                </ul>
-            </div>
-            
-            <!-- 9. Services -->
-            <div class="cnc-mega-category">
-                 <h5 class="cnc-mega-category-title"><i class="fas fa-wrench"></i> Services</h5>
-                <ul class="cnc-mega-list">
-                    <li><a href="products.html" class="cnc-mega-link">Accessories</a></li>
-                    <li><a href="products.html" class="cnc-mega-link">Repair & Reconditioning</a></li>
-                    <li><a href="products.html" class="cnc-mega-link">Critical Machining</a></li>
-                </ul>
-            </div>
-          </div>
-        </li>
-
-        <!-- Dropdown Menu -->
-        <li class="cnc-navbar-menu-item cnc-navbar-dropdown" id="cncNavDropdown">
-          <a href="#" class="cnc-navbar-link cnc-navbar-dropdown-toggle">
-            More
-            <i class="fas fa-chevron-down cnc-navbar-dropdown-icon"></i>
-          </a>
-          <div class="cnc-navbar-dropdown-menu">
-            <a href="infrastructure.html" class="cnc-navbar-dropdown-item">Infrastructure</a>
-            <a href="industries.html" class="cnc-navbar-dropdown-item">Industries We Serve</a>
-            <a href="gallery.html" class="cnc-navbar-dropdown-item">Gallery</a>
-          </div>
-        </li>
-        <li class="cnc-navbar-menu-item">
-          <a href="contact.html" class="cnc-navbar-link">Contact</a>
-        </li>
-
-        <!-- Search Toggle -->
-        <li class="cnc-navbar-menu-item">
-          <a href="#" class="cnc-navbar-search-toggle" id="cncNavbarSearchToggle">
-            <i class="fas fa-search"></i>
-          </a>
-          <!-- Search Dropdown Container -->
-          <div class="cnc-navbar-search-container" id="cncNavbarSearchContainer">
-            <div class="cnc-navbar-search-input-wrapper">
-              <i class="fas fa-search" style="color: #94a3b8; margin-right: 8px;"></i>
-              <input type="text" class="cnc-navbar-search-input" id="cncNavbarSearchInput"
-                placeholder="Search products..." autocomplete="off">
-              <button class="cnc-navbar-search-close" id="cncNavbarSearchClose"><i class="fas fa-times"></i></button>
-            </div>
-            <div class="cnc-navbar-search-results" id="cncNavbarSearchResults">
-              <!-- Results injected via JS -->
-            </div>
-          </div>
-        </li>
-
-        <!-- CTA Button -->
-        <li class="cnc-navbar-menu-item">
-          <a href="enquiry.html" class="cnc-navbar-cta">
-            <span>Enquiry</span>
-            <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
     <!-- Navbar End -->
 
 
@@ -298,7 +320,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="d-inline-block rounded bg-light p-4 mb-4"><i
                                 class="fas fa-envelope fa-5x text-secondary"></i></div>
                         <div class="feature-content">
-                            <a href="#" class="h4">Email Marketing <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <a href="#" class="h4" aria-disabled="true" role="button" onclick="return false;">Email
+                                Marketing <i class="fa fa-long-arrow-alt-right"></i></a>
                             <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur
                                 adipisicing elit
                             </p>
@@ -310,7 +333,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="d-inline-block rounded bg-light p-4 mb-4"><i
                                 class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
                         <div class="feature-content">
-                            <a href="#" class="h4">Email Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <a href="#" class="h4" aria-disabled="true" role="button" onclick="return false;">Email
+                                Builder <i class="fa fa-long-arrow-alt-right"></i></a>
                             <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur
                                 adipisicing elit
                             </p>
@@ -322,7 +346,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="d-inline-block rounded bg-light p-4 mb-4"><i
                                 class="fas fa-sitemap fa-5x text-secondary"></i></div>
                         <div class="feature-content">
-                            <a href="#" class="h4">Customer Builder <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <a href="#" class="h4" aria-disabled="true" role="button" onclick="return false;">Customer
+                                Builder <i class="fa fa-long-arrow-alt-right"></i></a>
                             <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur
                                 adipisicing elit
                             </p>
@@ -334,7 +359,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="d-inline-block rounded bg-light p-4 mb-4"><i
                                 class="fas fa-tasks fa-5x text-secondary"></i></div>
                         <div class="feature-content">
-                            <a href="#" class="h4">Campaign Manager <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <a href="#" class="h4" aria-disabled="true" role="button" onclick="return false;">Campaign
+                                Manager <i class="fa fa-long-arrow-alt-right"></i></a>
                             <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur
                                 adipisicing elit
                             </p>
@@ -472,65 +498,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Footer Start -->
-    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="text-dark mb-4">Company</h4>
-                        <a href=""> Why Mailler?</a>
-                        <a href=""> Our Features</a>
-                        <a href=""> Our Portfolio</a>
-                        <a href=""> About Us</a>
-                        <a href=""> Our Blog & News</a>
-                        <a href=""> Get In Touch</a>
+    <footer class="cnc-footer-wrapper">
+        <div class="cnc-footer-container">
+            <div class="cnc-footer-grid">
+                <!-- Column 1: About -->
+                <div class="cnc-footer-column">
+                    <h4 class="cnc-footer-heading">Arise CNC</h4>
+                    <p class="cnc-footer-description">
+                        Delivering precision-engineered CNC tooling solutions for modern manufacturing. Quality,
+                        durability, and performance in every cut.
+                    </p>
+                    <div class="cnc-footer-social">
+                        <a href="#" class="cnc-footer-social-link" aria-disabled="true" role="button"
+                            onclick="return false;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="cnc-footer-social-link" aria-disabled="true" role="button"
+                            onclick="return false;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="cnc-footer-social-link" aria-disabled="true" role="button"
+                            onclick="return false;"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="cnc-footer-social-link" aria-disabled="true" role="button"
+                            onclick="return false;"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-dark">Quick Links</h4>
-                        <a href=""> About Us</a>
-                        <a href=""> Contact Us</a>
-                        <a href=""> Privacy Policy</a>
-                        <a href=""> Terms & Conditions</a>
-                        <a href=""> Our Blog & News</a>
-                        <a href=""> Our Team</a>
-                    </div>
+
+                <!-- Column 2: Company -->
+                <div class="cnc-footer-column">
+                    <h4 class="cnc-footer-heading">Company</h4>
+                    <ul class="cnc-footer-links">
+                        <li><a href="about.html" class="cnc-footer-link">About Us</a></li>
+                        <li><a href="products.html" class="cnc-footer-link">Our Products</a></li>
+                        <li><a href="infrastructure.html" class="cnc-footer-link">Infrastructure</a></li>
+                        <li><a href="gallery.html" class="cnc-footer-link">Gallery</a></li>
+                        <li><a href="contact.html" class="cnc-footer-link">Contact Us</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-dark">Services</h4>
-                        <a href=""> All Services</a>
-                        <a href=""> Promotional Emails</a>
-                        <a href=""> Product Updates</a>
-                        <a href=""> Email Marketing</a>
-                        <a href=""> Acquistion Emails</a>
-                        <a href=""> Retention Emails</a>
-                    </div>
+
+                <!-- Column 3: Services -->
+                <div class="cnc-footer-column">
+                    <h4 class="cnc-footer-heading">Services</h4>
+                    <ul class="cnc-footer-links">
+                        <li><a href="contact.html" class="cnc-footer-link">CNC Consultation</a></li>
+                        <li><a href="contact.html" class="cnc-footer-link">Tool Customization</a></li>
+                        <li><a href="contact.html" class="cnc-footer-link">Technical Support</a></li>
+                        <li><a href="contact.html" class="cnc-footer-link">Maintenance</a></li>
+                        <li><a href="contact.html" class="cnc-footer-link">Training</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-dark">Contact Info</h4>
-                        <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
-                        <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                        <a href="tel:+918862065495"><i class="fas fa-phone me-2"></i> +91 88620 65495</a>
-                        <a href="tel:+918862065495" class="mb-3"><i class="fas fa-print me-2"></i> +91 88620 65495</a>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-share fa-2x text-secondary me-2"></i>
-                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                            <a class="btn-square btn btn-primary rounded-circle mx-1" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
+
+                <!-- Column 4: Contact -->
+                <div class="cnc-footer-column">
+                    <h4 class="cnc-footer-heading">Contact Info</h4>
+                    <ul class="cnc-footer-contact">
+                        <li class="cnc-footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Work:</strong> GAT NO 1403, LATE SHREE KASHINATH INDUSTRIAL ESTATE, SHOP NO
+                                02/03, CHIKHALI-SONWANE WASTI ROAD, TALAWADE, PUNE - 411062, MAHARASHTRA, INDIA<br>
+                                <strong>Office:</strong> E 605, SAI EXOTIQUE, GAT NO 1660/1, BAG VASTI, PATIL NAGAR,
+                                CHIKHALI, PUNE - 411062, MAHARASHTRA, INDIA
+                            </div>
+                        </li>
+                        <li class="cnc-footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>helpdeskarisemachinetools@gmail.com</span>
+                        </li>
+                        <li class="cnc-footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 88620 65495</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cnc-footer-bottom">
+                <div class="cnc-footer-bottom-content">
+                    <div class="cnc-footer-copyright">
+                        &copy; 2025 <strong>Arise Machine Tools</strong>. All Rights Reserved.
+                    </div>
+                    <div class="cnc-footer-credits">
+                        Designed by <a href="#" class="text-white-50" aria-disabled="true" role="button"
+                            onclick="return false;">Aisync Software Solutions</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
     <!-- Footer End -->
 
 
@@ -571,7 +621,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-  <script src="js/optimization-premium.js" defer></script>
+    <script src="js/optimization-premium.js" defer></script>
 </body>
 <!-- Global Navbar Search Script -->
 <script src="js/arise-global-search.js"></script>
