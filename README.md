@@ -184,7 +184,7 @@ http-server -p 8000
 
 ### Current Hosting
 - **Platform:** GitHub Pages / Hostinger
-- **Domain:** [Your production domain]
+- **Domain:** www.arisemachinetools.com
 - **SSL/HTTPS:** Enabled
 - **CDN:** Cloudflare (if applicable)
 
