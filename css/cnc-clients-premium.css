@@ -1,0 +1,415 @@
+/* ============================================================
+   CNC CLIENTS — FULL-COVER BRAND SHOWCASE
+   Each brand gets its own full-height card with the image
+   dominating the entire surface. Dark gradient overlay +
+   brand name anchored bottom-left. Premium SaaS feel.
+   ============================================================ */
+
+/* ── Section Wrapper ── */
+.cnc-clients-wrapper {
+    position: relative;
+    background: linear-gradient(160deg, #0d1b2e 0%, #111f35 55%, #0a1628 100%);
+    padding: 96px 0 104px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Hairline accent lines top & bottom */
+.cnc-clients-wrapper::before,
+.cnc-clients-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(96,165,250,0.22) 30%,
+        rgba(249,115,22,0.22) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+.cnc-clients-wrapper::before { top: 0; }
+.cnc-clients-wrapper::after  { bottom: 0; }
+
+/* Ambient glow blobs */
+.cnc-clients-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+.cnc-clients-glow-1 {
+    width: 520px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(59,130,246,0.10) 0%, transparent 70%);
+    top: -100px;
+    left: -120px;
+}
+.cnc-clients-glow-2 {
+    width: 440px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%);
+    bottom: -80px;
+    right: -100px;
+}
+
+/* ── Inner Container ── */
+.cnc-clients-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ── Section Header ── */
+.cnc-clients-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.cnc-clients-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #f97316;
+    margin-bottom: 18px;
+}
+
+.cnc-clients-tag-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f97316;
+    box-shadow: 0 0 10px rgba(249,115,22,0.7);
+    animation: cnc-clients-pulse 2.2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes cnc-clients-pulse {
+    0%, 100% { transform: scale(1);   opacity: 1; }
+    50%       { transform: scale(1.6); opacity: 0.55; }
+}
+
+.cnc-clients-heading {
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.12;
+    margin: 0 0 14px;
+    letter-spacing: -0.025em;
+}
+
+.cnc-clients-heading-accent {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 55%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cnc-clients-subtext {
+    font-size: 16px;
+    color: rgba(255,255,255,0.48);
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.65;
+}
+
+/* ── Stats Strip ── */
+.cnc-clients-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 36px;
+}
+
+.cnc-clients-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 44px;
+    position: relative;
+}
+
+.cnc-clients-stat + .cnc-clients-stat::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: rgba(255,255,255,0.12);
+}
+
+.cnc-clients-stat-number {
+    font-size: 34px;
+    font-weight: 800;
+    color: #60a5fa;
+    line-height: 1;
+}
+
+.cnc-clients-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.42);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 6px;
+}
+
+/* ════════════════════════════════════════════════
+   BRAND SHOWCASE GRID
+   3 cards stacked vertically — each full-cover
+   ════════════════════════════════════════════════ */
+.cnc-clients-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* ── Full-Cover Brand Card ── */
+.cnc-clients-logo-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 380px;
+    cursor: default;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    transition:
+        box-shadow 0.38s ease,
+        transform  0.38s cubic-bezier(0.34, 1.26, 0.64, 1);
+}
+
+.cnc-clients-logo-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 24px 60px rgba(59,130,246,0.18),
+        0 8px 24px rgba(0,0,0,0.45);
+    border-color: rgba(96,165,250,0.20);
+}
+
+/* Full-cover brand image */
+.cnc-clients-brand-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.cnc-clients-logo-card:hover .cnc-clients-brand-img {
+    transform: scale(1.06);
+}
+
+/* Logos on white bg — blend the white into the dark navy card */
+.cnc-clients-brand-img.cnc-img-light-bg {
+    background: #0d1b2e;               /* card bg shows through transparent areas */
+    object-fit: contain;               /* show the full logo without cropping */
+    padding: 48px 80px;                /* breathing room around the logo */
+    box-sizing: border-box;
+}
+
+/* ── Dark gradient overlay ── */
+.cnc-clients-card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Standard overlay: bottom-heavy dark gradient */
+.cnc-clients-card-overlay.cnc-overlay-standard {
+    background: linear-gradient(
+        to top,
+        rgba(6, 15, 30, 0.92) 0%,
+        rgba(6, 15, 30, 0.55) 38%,
+        rgba(6, 15, 30, 0.18) 72%,
+        rgba(6, 15, 30, 0.04) 100%
+    );
+}
+
+/* Light-bg logo overlay: deeper navy tint that frames the logo */
+.cnc-clients-card-overlay.cnc-overlay-navy {
+    background: linear-gradient(
+        160deg,
+        rgba(6, 15, 30, 0.78) 0%,
+        rgba(6, 15, 30, 0.40) 50%,
+        rgba(6, 15, 30, 0.78) 100%
+    );
+}
+
+/* ── Brand label content (bottom-left) ── */
+.cnc-clients-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 40px;
+    z-index: 2;
+}
+
+.cnc-clients-brand-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+}
+
+.cnc-clients-brand-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.60);
+    margin: 7px 0 0;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* Thin blue accent bar left of text */
+.cnc-clients-brand-name::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 22px;
+    background: linear-gradient(180deg, #60a5fa, #3b82f6);
+    border-radius: 2px;
+    margin-right: 14px;
+    vertical-align: middle;
+    box-shadow: 0 0 10px rgba(96,165,250,0.5);
+}
+
+/* ── Scroll-reveal animation ── */
+.cnc-clients-wrapper.cnc-clients-hidden {
+    opacity: 0;
+    transform: translateY(28px);
+}
+.cnc-clients-wrapper.cnc-clients-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* ── Bottom CTA ── */
+.cnc-clients-footer {
+    text-align: center;
+    margin-top: 56px;
+}
+
+.cnc-clients-footer-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    margin: 0 0 20px;
+    letter-spacing: 0.2px;
+}
+
+.cnc-clients-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 34px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(59,130,246,0.14);
+    border: 1px solid rgba(59,130,246,0.30);
+    backdrop-filter: blur(10px);
+    transition:
+        background   0.28s ease,
+        border-color 0.28s ease,
+        box-shadow   0.28s ease,
+        transform    0.28s ease;
+}
+
+.cnc-clients-cta:hover {
+    background: rgba(59,130,246,0.26);
+    border-color: rgba(59,130,246,0.55);
+    box-shadow: 0 8px 28px rgba(59,130,246,0.22);
+    transform: translateY(-2px);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cnc-clients-cta svg { transition: transform 0.28s ease; }
+.cnc-clients-cta:hover svg { transform: translateX(4px); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .cnc-clients-logo-card {
+        height: 300px;
+    }
+    .cnc-clients-brand-img.cnc-img-light-bg {
+        padding: 36px 56px;
+    }
+    .cnc-clients-brand-name {
+        font-size: 22px;
+    }
+    .cnc-clients-card-content {
+        padding: 26px 30px;
+    }
+    .cnc-clients-stat {
+        padding: 0 28px;
+    }
+    .cnc-clients-stat-number {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cnc-clients-wrapper {
+        padding: 70px 0 80px;
+    }
+    .cnc-clients-container {
+        padding: 0 16px;
+    }
+    .cnc-clients-logo-card {
+        height: 260px;
+        border-radius: 14px;
+    }
+    .cnc-clients-brand-img.cnc-img-light-bg {
+        padding: 28px 36px;
+    }
+    .cnc-clients-brand-name {
+        font-size: 20px;
+    }
+    .cnc-clients-brand-tagline {
+        font-size: 13px;
+    }
+    .cnc-clients-card-content {
+        padding: 22px 22px;
+    }
+    .cnc-clients-stat {
+        padding: 0 18px;
+    }
+    .cnc-clients-stat + .cnc-clients-stat::before {
+        display: none;
+    }
+    .cnc-clients-grid {
+        gap: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cnc-clients-brand-img,
+    .cnc-clients-logo-card {
+        transition: none !important;
+        animation: none !important;
+    }
+}

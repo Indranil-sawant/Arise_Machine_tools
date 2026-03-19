@@ -1,22 +1,22 @@
-/* 
+/*
    Arise Machine Tools - Premium Optimization Logic
    Non-blocking, Isolated, Performance-First
+   v2.1 - Production Safe (white-section bug fixed)
 */
 
 (function () {
     'use strict';
 
-    // Helper: Defer execution
+    // Helper: Defer execution to idle time
     const defer = (fn) => {
         if (window.requestIdleCallback) {
-            window.requestIdleCallback(fn);
+            window.requestIdleCallback(fn, { timeout: 2000 });
         } else {
-            setTimeout(fn, 1);
+            setTimeout(fn, 200);
         }
     };
 
     const initOptimizations = () => {
-        // Arise Premium Optimizations: Silent initialization
 
         // 1. Lazy Load Iframes
         const iframes = document.getElementsByTagName('iframe');
@@ -27,7 +27,6 @@
         }
 
         // 2. Add Premium Hover Effects to Cards (Dynamic Enhancement)
-        // Targeting common card classes found in the project
         const cardSelectors = [
             '.card',
             '.service-item',
@@ -46,56 +45,65 @@
         const cards = document.querySelectorAll(cardSelectors.join(','));
         cards.forEach(card => {
             card.classList.add('hover-lift');
-            // Ensure they have the transition base from CSS
-            card.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease';
         });
 
-        // 3. Smooth Anchor Scrolling (Polyfill/Enhancement for complex cases)
+        // 3. Smooth Anchor Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // 4. Reveal Animations on Scroll (Intersection Observer)
-        // Adds 'fade-in-up-subtle' to sections as they appear
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+        // 4. ✅ SAFE Reveal Animations on Scroll (IntersectionObserver)
+        // CRITICAL FIX: Do NOT set opacity:0 on sections directly in JS.
+        // That caused sections to permanently stay invisible if the observer
+        // misfired (slow devices, rapid scroll, tab switch, etc.).
+        // Instead: use CSS class 'cnc-reveal-ready' as the initial hidden state,
+        // and add 'cnc-revealed' when intersecting.
+        // A CSS fallback ensures content is ALWAYS visible if JS fails.
 
-        const scrollObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Add animation class
-                    entry.target.classList.add('fade-in-up-subtle');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -40px 0px', // Trigger slightly before fully in view
+                threshold: 0.05  // Lower threshold = more reliable triggering
+            };
 
-        // Target major sections for reveal
-        const sections = document.querySelectorAll('section, header, footer, .cnc-hero-content');
-        sections.forEach(section => {
-            // Only apply if not already animated by WOW.js or similar
-            // We'll check if it has 'wow' class.
-            if (!section.classList.contains('wow')) {
-                section.style.opacity = '0'; // Set initial state
-                section.style.animationFillMode = 'forwards';
-                scrollObserver.observe(section);
+            const scrollObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('cnc-revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Respect reduced motion
+            const prefersReduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!prefersReduced) {
+                // Only observe sections NOT already animated by WOW.js
+                const sections = document.querySelectorAll(
+                    'section:not(.wow), .cnc-products-card, .cnc-services-card, .cnc-about-feature-card'
+                );
+                sections.forEach(section => {
+                    // Safety: only add reveal class if not the hero or above-fold
+                    const rect = section.getBoundingClientRect();
+                    const isAboveFold = rect.top < window.innerHeight;
+                    if (!isAboveFold) {
+                        section.classList.add('cnc-reveal-ready');
+                        scrollObserver.observe(section);
+                    }
+                });
             }
-        });
+        }
 
     };
 

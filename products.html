@@ -24,12 +24,61 @@
   <meta charset="utf-8">
   <title>Industrial CNC Tools & Inserts Catalog | Arise Machine Tools Solution</title>
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta
-    content="Explore our comprehensive range of CNC milling cutters, drills, boring bars, inserts, and tool holding systems. High-performance tooling for precision machining."
-    name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords"
+    content="CNC tools, milling cutters, boring bars, carbide inserts, face mill cutter, end mills, drilling tools, turning tools, tool holding, PCD inserts, CBN inserts, precision machining, Arise Machine Tools, Pune CNC tools">
+  <meta name="description"
+    content="Explore our comprehensive range of CNC milling cutters, drills, boring bars, inserts, and tool holding systems. High-performance tooling for precision machining.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Arise Machine Tools Solution">
   <link rel="canonical" href="https://arisemachinetools.com/products.html">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arisemachinetools.com/products.html">
+  <meta property="og:title" content="Industrial CNC Tools & Inserts Catalog | Arise Machine Tools Solution">
+  <meta property="og:description"
+    content="Explore our comprehensive range of CNC milling cutters, drills, boring bars, inserts, and tool holding systems. High-performance tooling for precision machining.">
+  <meta property="og:image" content="https://arisemachinetools.com/img/arise-logo-removebg.png">
+  <meta property="og:site_name" content="Arise Machine Tools Solution">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Industrial CNC Tools & Inserts Catalog | Arise Machine Tools Solution">
+  <meta name="twitter:description"
+    content="Explore our comprehensive range of CNC milling cutters, drills, boring bars, inserts, and tool holding systems.">
+  <meta name="twitter:image" content="https://arisemachinetools.com/img/arise-logo-removebg.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "CNC Tools & Inserts Product Catalog",
+    "description": "Comprehensive range of CNC milling cutters, drills, boring bars, inserts, and tool holding systems by Arise Machine Tools Solution.",
+    "url": "https://arisemachinetools.com/products.html",
+    "provider": {
+      "@type": "Organization",
+      "name": "Arise Machine Tools Solution",
+      "url": "https://arisemachinetools.com",
+      "logo": "https://arisemachinetools.com/img/arise-logo-removebg.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-88620-65495",
+        "contactType": "Customer Service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "GAT NO 1403, Chikhali-Sonwane Wasti Road, Talawade",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "411062",
+        "addressCountry": "IN"
+      }
+    }
+  }
+  </script>
 
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1928,41 +1977,36 @@
 
     })();
   </script>
-  <script src="js/optimization-premium.js" defer></script>
-</body>
-
-<script>
-  (function () {
-    var video = document.getElementById('cncProcessVideo');
-    var btn = document.querySelector('.cnc-video-mute-btn');
-    if (!video || !btn) return;
-    var icon = btn.querySelector('i');
-    function updateIcon() {
-      if (video.muted) {
-        icon.classList.remove('fa-volume-up');
-        icon.classList.add('fa-volume-mute');
-      } else {
-        icon.classList.remove('fa-volume-mute');
-        icon.classList.add('fa-volume-up');
+  <!-- Video Mute Button Script -->
+  <script>
+    (function () {
+      var video = document.getElementById('cncProcessVideo');
+      var btn = document.querySelector('.cnc-video-mute-btn');
+      if (!video || !btn) return;
+      var icon = btn.querySelector('i');
+      function updateIcon() {
+        if (video.muted) {
+          icon.classList.remove('fa-volume-up');
+          icon.classList.add('fa-volume-mute');
+        } else {
+          icon.classList.remove('fa-volume-mute');
+          icon.classList.add('fa-volume-up');
+        }
       }
-    }
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      video.muted = !video.muted;
-      updateIcon();
-    });
-    // Ensure icon reflects initial state
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', updateIcon);
-    } else {
-      updateIcon();
-    }
-  })();
-</script>
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        video.muted = !video.muted;
+        updateIcon();
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateIcon);
+      } else {
+        updateIcon();
+      }
+    })();
+  </script>
 
-<script src="js/optimization-premium.js" defer></script>
-</body>
-<script src="js/optimization-premium.js" defer></script>
+  <script src="js/optimization-premium.js" defer></script>
 </body>
 
 </html>

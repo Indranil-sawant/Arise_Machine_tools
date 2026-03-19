@@ -1,3 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /.history/
+Disallow: /scss/
+Disallow: /info/
+Crawl-delay: 1
+
 Sitemap: https://arisemachinetools.com/arise.xml

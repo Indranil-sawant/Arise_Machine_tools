@@ -1,13 +1,13 @@
 (function ($) {
     "use strict";
 
-    // Spinner
+    // Spinner - reduced to 800ms for faster perceived load
     var spinner = function () {
         setTimeout(function () {
             if ($('#spinner').length > 0) {
                 $('#spinner').removeClass('show');
             }
-        }, 1500);
+        }, 800);
     };
     spinner(0);
 
@@ -35,44 +35,12 @@
     });
 
 
-    // International carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        items: 1,
-        smartSpeed: 1500,
-        dots: true,
-        dotsData: true,
-        loop: true,
-        margin: 25,
-        nav: true,
-        navText: [
-            '<i class="bi bi-arrow-left"></i>',
-            '<i class="bi bi-arrow-right"></i>'
-        ]
-    });
-
-
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
-
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
-    });
-
-    // testimonial carousel
+    // Testimonial carousel (single init)
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1000,
         center: true,
+        items: 1,
         dots: true,
         loop: true,
         nav: true,
@@ -111,26 +79,6 @@
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
-
-
-    function myMove() {
-        let id = null;
-        const elem = document.getElementById("animate");
-        let pos = 0;
-        clearInterval(id);
-        id = setInterval(frame, 5);
-        function frame() {
-            if (pos == 350) {
-                clearInterval(id);
-            } else {
-                pos++;
-                elem.style.top = pos + "px";
-                elem.style.left = pos + "px";
-            }
-        }
-    }
-
-
 
 
 })(jQuery);
