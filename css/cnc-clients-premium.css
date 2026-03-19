@@ -252,6 +252,25 @@
     );
 }
 
+/* Lumipro overlay: very light top, solid only at the very bottom for text legibility */
+.cnc-clients-card-overlay.cnc-overlay-lumipro {
+    background: linear-gradient(
+        to top,
+        rgba(4, 10, 22, 0.90) 0%,
+        rgba(4, 10, 22, 0.40) 28%,
+        rgba(4, 10, 22, 0.06) 60%,
+        rgba(4, 10, 22, 0.00) 100%
+    );
+}
+
+/* Lumipro card: cyan-tinted hover glow to match the beam */
+.cnc-card-lumipro:hover {
+    box-shadow:
+        0 24px 60px rgba(0, 200, 255, 0.22),
+        0 8px 24px rgba(0, 0, 0, 0.50);
+    border-color: rgba(0, 200, 255, 0.25);
+}
+
 /* ── Brand label content (bottom-left) ── */
 .cnc-clients-card-content {
     position: absolute;
