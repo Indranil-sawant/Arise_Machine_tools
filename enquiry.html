@@ -363,23 +363,68 @@
 
         <!-- Contact Form Section -->
         <section class="cnc-enquiry-form-container">
-            <h2 class="cnc-enquiry-form-title">More Question? Contact Us...</h2>
-            <form>
-                <div class="cnc-enquiry-form-grid">
-                    <div class="cnc-enquiry-input-group">
-                        <input type="text" class="cnc-enquiry-input" placeholder="Full Name">
-                    </div>
-                    <div class="cnc-enquiry-input-group">
-                        <input type="email" class="cnc-enquiry-input" placeholder="Email Address">
-                    </div>
-                    <div class="cnc-enquiry-input-group full-width">
-                        <textarea class="cnc-enquiry-textarea" placeholder="Your Message..."></textarea>
+            <!-- Temporary Notice (Visible while online enquiries are paused) -->
+            <div id="cnc-enquiry-closure-notice" class="cnc-enquiry-disabled-notice" style="display: block;">
+                <div class="cnc-enquiry-notice-badge">
+                    <i class="fas fa-pause-circle"></i> Service Update
+                </div>
+                <h2 class="cnc-enquiry-notice-title">Enquiries Temporarily Unavailable</h2>
+                <p class="cnc-enquiry-notice-desc">
+                    We're temporarily pausing new enquiries while we improve our enquiry system. We apologise for the inconvenience and appreciate your patience. Please check back soon.
+                </p>
+
+                <div class="cnc-enquiry-notice-channels">
+                    <h4 class="cnc-enquiry-channels-title">Direct Contact Channels</h4>
+                    <p class="cnc-enquiry-channels-hint">For urgent requirements or component quotes, reach us directly via:</p>
+                    <div class="cnc-enquiry-channels-grid">
+                        <a href="mailto:helpdeskarisemachinetools@gmail.com" class="cnc-enquiry-channel-card">
+                            <div class="cnc-enquiry-channel-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="cnc-enquiry-channel-info">
+                                <span class="cnc-enquiry-channel-label">Email Us</span>
+                                <span class="cnc-enquiry-channel-val">helpdeskarisemachinetools@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="tel:+918862065495" class="cnc-enquiry-channel-card">
+                            <div class="cnc-enquiry-channel-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="cnc-enquiry-channel-info">
+                                <span class="cnc-enquiry-channel-label">Call Sales Support</span>
+                                <span class="cnc-enquiry-channel-val">+91 88620 65495</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/918862065495?text=Hello%20Arise%20Machine%20Tools%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20CNC%20products." target="_blank" rel="noopener noreferrer" class="cnc-enquiry-channel-card whatsapp">
+                            <div class="cnc-enquiry-channel-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="cnc-enquiry-channel-info">
+                                <span class="cnc-enquiry-channel-label">WhatsApp</span>
+                                <span class="cnc-enquiry-channel-val">Chat with sales team</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <button type="submit" class="cnc-enquiry-submit-btn">
-                    Send Message <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
+            </div>
+
+            <!-- =========================================================================
+                 ORIGINAL ENQUIRY FORM (Preserved for future restoration)
+                 To reactivate: Set LEAD_FORM_ENABLED = true in the script block below.
+                 ========================================================================= -->
+            <div id="cnc-enquiry-form-wrapper" style="display: none;">
+                <h2 class="cnc-enquiry-form-title">More Question? Contact Us...</h2>
+                <form id="cncEnquiryForm" onsubmit="return false;">
+                    <div class="cnc-enquiry-form-grid">
+                        <div class="cnc-enquiry-input-group">
+                            <input type="text" class="cnc-enquiry-input" placeholder="Full Name" disabled>
+                        </div>
+                        <div class="cnc-enquiry-input-group">
+                            <input type="email" class="cnc-enquiry-input" placeholder="Email Address" disabled>
+                        </div>
+                        <div class="cnc-enquiry-input-group full-width">
+                            <textarea class="cnc-enquiry-textarea" placeholder="Your Message..." disabled></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="cnc-enquiry-submit-btn" disabled>
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
         </section>
 
     </div>
@@ -518,6 +563,47 @@
                 });
             });
         });
+    </script>
+    <!-- Lead Generation Feature Flag Management -->
+    <script>
+        /**
+         * LEAD GENERATION FEATURE FLAG
+         * =========================================================================
+         * Set to `false` to keep enquiries temporarily paused.
+         * Set to `true` to reactivate the online enquiry form.
+         * =========================================================================
+         */
+        const LEAD_FORM_ENABLED = false;
+
+        function initEnquiryLeadState() {
+            const formWrapper = document.getElementById('cnc-enquiry-form-wrapper');
+            const noticeBox = document.getElementById('cnc-enquiry-closure-notice');
+            const form = document.getElementById('cncEnquiryForm');
+
+            if (!LEAD_FORM_ENABLED) {
+                if (formWrapper) formWrapper.style.display = 'none';
+                if (noticeBox) noticeBox.style.display = 'block';
+                if (form) {
+                    form.querySelectorAll('input, textarea, button').forEach(el => {
+                        el.setAttribute('disabled', 'disabled');
+                    });
+                }
+            } else {
+                if (formWrapper) formWrapper.style.display = 'block';
+                if (noticeBox) noticeBox.style.display = 'none';
+                if (form) {
+                    form.querySelectorAll('input, textarea, button').forEach(el => {
+                        el.removeAttribute('disabled');
+                    });
+                }
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initEnquiryLeadState);
+        } else {
+            initEnquiryLeadState();
+        }
     </script>
     <!-- Global Navbar Search Script -->
     <script src="js/arise-global-search.js"></script>

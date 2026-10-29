@@ -61,7 +61,23 @@
 </head>
 
 <script>
-    function handleCncSubmit() {
+    /**
+     * LEAD GENERATION FEATURE FLAG
+     * =========================================================================
+     * TEMPORARY MEASURE: Anti-Spam Lead Generation Pause
+     * - To keep lead form disabled (temporary notice visible): LEAD_FORM_ENABLED = false
+     * - To reactivate the lead form (original form visible & active): LEAD_FORM_ENABLED = true
+     * =========================================================================
+     */
+    const LEAD_FORM_ENABLED = false;
+
+    function handleCncSubmit(e) {
+        if (!LEAD_FORM_ENABLED) {
+            if (e && e.preventDefault) e.preventDefault();
+            console.warn("Lead form submissions are currently paused.");
+            return false;
+        }
+
         const form = document.getElementById("cnc-contact-form");
         const btn = form.querySelector(".cnc-form-submit-btn");
         const text = btn.querySelector(".btn-text");
@@ -87,8 +103,43 @@
 
     function showCncToast() {
         const toast = document.getElementById("cnc-toast");
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 3000);
+        if (toast) {
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+    }
+
+    // Synchronize form elements and notice display based on LEAD_FORM_ENABLED
+    function initLeadFormState() {
+        const formContainer = document.getElementById("cnc-form-container");
+        const noticeBox = document.getElementById("cnc-closure-notice");
+        const form = document.getElementById("cnc-contact-form");
+
+        if (!LEAD_FORM_ENABLED) {
+            if (formContainer) formContainer.style.display = "none";
+            if (noticeBox) noticeBox.style.display = "block";
+            if (form) {
+                // Ensure all inputs & submit buttons are deactivated in DOM
+                form.querySelectorAll("input, textarea, button").forEach(el => {
+                    el.setAttribute("disabled", "disabled");
+                });
+            }
+        } else {
+            if (formContainer) formContainer.style.display = "block";
+            if (noticeBox) noticeBox.style.display = "none";
+            if (form) {
+                // Restore inputs & submit button functionality
+                form.querySelectorAll("input, textarea, button").forEach(el => {
+                    el.removeAttribute("disabled");
+                });
+            }
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initLeadFormState);
+    } else {
+        initLeadFormState();
     }
 </script>
 
@@ -392,60 +443,109 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Contact Form -->
+                <!-- Right Column: Contact Form / Temporary Notice -->
                 <div class="cnc-contact-form-wrapper">
-                    <h2 class="cnc-contact-form-title">Send Us a Message</h2>
 
-                    <form id="cnc-contact-form"
-                        action="https://script.google.com/macros/s/AKfycbwhnZqBTVzkMQMtyp8gaXOOzT0zmAzJY8MZPM2FSKf70TRPfH9IcIBZzCWdTChaUK7d1g/exec"
-                        method="POST" target="hidden_iframe" onsubmit="return handleCncSubmit();">
-
-                        <div class="cnc-contact-form-grid">
-
-                            <div class="cnc-form-group">
-                                <label class="cnc-form-label">Your Name</label>
-                                <input type="text" name="name" class="cnc-form-input" required>
-                            </div>
-
-                            <div class="cnc-form-group">
-                                <label class="cnc-form-label">Your Email</label>
-                                <input type="email" name="email" class="cnc-form-input" required>
-                            </div>
-
-                            <div class="cnc-form-group">
-                                <label class="cnc-form-label">Phone Number</label>
-                                <input type="tel" name="phone" class="cnc-form-input">
-                            </div>
-
-                            <div class="cnc-form-group">
-                                <label class="cnc-form-label">Subject</label>
-                                <input type="text" name="subject" class="cnc-form-input">
-                            </div>
-
-                            <div class="cnc-form-group full-width">
-                                <label class="cnc-form-label">Message</label>
-                                <textarea name="message" class="cnc-form-textarea" required></textarea>
-                            </div>
-
-                            <!-- Honeypot -->
-                            <input type="text" name="company" style="display:none">
-
-                            <div class="cnc-form-group full-width">
-                                <button type="submit" class="cnc-form-submit-btn">
-                                    <span class="btn-text">Send Message</span>
-                                    <span class="btn-loader" style="display:none">Sending…</span>
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-
+                    <!-- Temporary Notice (Displayed while lead enquiries are temporarily paused) -->
+                    <div id="cnc-closure-notice" class="cnc-lead-disabled-notice" style="display: block;">
+                        <div class="cnc-notice-badge">
+                            <i class="fas fa-pause-circle"></i> Service Update
                         </div>
-                    </form>
+                        <h2 class="cnc-notice-title">Enquiries Temporarily Unavailable</h2>
+                        <p class="cnc-notice-description">
+                            We're temporarily pausing new enquiries while we improve our enquiry system. We apologise for the inconvenience and appreciate your patience. Please check back soon.
+                        </p>
 
-                    <iframe name="hidden_iframe" style="display:none;"></iframe>
+                        <div class="cnc-notice-divider"></div>
 
-                    <!-- Toast -->
-                    <div id="cnc-toast" class="cnc-toast">
-                        ✅ Thank you! Your message has been sent.
+                        <div class="cnc-notice-alternative">
+                            <h4 class="cnc-notice-alt-title">Direct Contact Channels</h4>
+                            <p class="cnc-notice-alt-text">For urgent enquiries or business discussions, our team is directly available via:</p>
+                            <div class="cnc-notice-channel-list">
+                                <a href="mailto:helpdeskarisemachinetools@gmail.com" class="cnc-notice-channel-item">
+                                    <div class="cnc-channel-icon"><i class="fas fa-envelope"></i></div>
+                                    <div class="cnc-channel-info">
+                                        <span class="cnc-channel-label">Email Us</span>
+                                        <span class="cnc-channel-val">helpdeskarisemachinetools@gmail.com</span>
+                                    </div>
+                                </a>
+                                <a href="tel:+918862065495" class="cnc-notice-channel-item">
+                                    <div class="cnc-channel-icon"><i class="fas fa-phone-alt"></i></div>
+                                    <div class="cnc-channel-info">
+                                        <span class="cnc-channel-label">Call Us</span>
+                                        <span class="cnc-channel-val">+91 88620 65495</span>
+                                    </div>
+                                </a>
+                                <a href="https://wa.me/918862065495?text=Hello%20Arise%20Machine%20Tools%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20CNC%20products." target="_blank" rel="noopener noreferrer" class="cnc-notice-channel-item cnc-channel-wa">
+                                    <div class="cnc-channel-icon"><i class="fab fa-whatsapp"></i></div>
+                                    <div class="cnc-channel-info">
+                                        <span class="cnc-channel-label">WhatsApp</span>
+                                        <span class="cnc-channel-val">Chat with our sales team</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =========================================================================
+                         ORIGINAL LEAD GENERATION FORM (Preserved for future restoration)
+                         To reactivate: Set LEAD_FORM_ENABLED = true in the script block above.
+                         All fields, Google Apps Script endpoint, honeypot & logic preserved.
+                         ========================================================================= -->
+                    <div id="cnc-form-container" style="display: none;">
+                        <h2 class="cnc-contact-form-title">Send Us a Message</h2>
+
+                        <form id="cnc-contact-form"
+                            action="https://script.google.com/macros/s/AKfycbwhnZqBTVzkMQMtyp8gaXOOzT0zmAzJY8MZPM2FSKf70TRPfH9IcIBZzCWdTChaUK7d1g/exec"
+                            method="POST" target="hidden_iframe" onsubmit="return handleCncSubmit(event);">
+
+                            <div class="cnc-contact-form-grid">
+
+                                <div class="cnc-form-group">
+                                    <label class="cnc-form-label">Your Name</label>
+                                    <input type="text" name="name" class="cnc-form-input" required disabled>
+                                </div>
+
+                                <div class="cnc-form-group">
+                                    <label class="cnc-form-label">Your Email</label>
+                                    <input type="email" name="email" class="cnc-form-input" required disabled>
+                                </div>
+
+                                <div class="cnc-form-group">
+                                    <label class="cnc-form-label">Phone Number</label>
+                                    <input type="tel" name="phone" class="cnc-form-input" disabled>
+                                </div>
+
+                                <div class="cnc-form-group">
+                                    <label class="cnc-form-label">Subject</label>
+                                    <input type="text" name="subject" class="cnc-form-input" disabled>
+                                </div>
+
+                                <div class="cnc-form-group full-width">
+                                    <label class="cnc-form-label">Message</label>
+                                    <textarea name="message" class="cnc-form-textarea" required disabled></textarea>
+                                </div>
+
+                                <!-- Honeypot -->
+                                <input type="text" name="company" style="display:none" disabled>
+
+                                <div class="cnc-form-group full-width">
+                                    <button type="submit" class="cnc-form-submit-btn" disabled>
+                                        <span class="btn-text">Send Message</span>
+                                        <span class="btn-loader" style="display:none">Sending…</span>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+                        <!-- Toast -->
+                        <div id="cnc-toast" class="cnc-toast">
+                            ✅ Thank you! Your message has been sent.
+                        </div>
                     </div>
                 </div>
 

@@ -1330,12 +1330,43 @@
           <span id="ariseProductName" class="arise-product-name-text">Product Name</span>
         </div>
 
-        <!-- Form -->
-        <form id="ariseBrochureForm" class="arise-brochure-form" novalidate>
+        <!-- Temporary Notice (Active when LEAD_FORM_ENABLED = false) -->
+        <div id="ariseBrochureNotice" class="arise-brochure-notice-box" style="display: block;">
+          <div class="arise-notice-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>Service Update</span>
+          </div>
+          <h3 class="arise-notice-title">Enquiries Temporarily Unavailable</h3>
+          <p class="arise-notice-desc">
+            We're temporarily pausing new enquiries while we improve our enquiry system. We apologise for the inconvenience and appreciate your patience. Please check back soon.
+          </p>
+          <div class="arise-notice-download-box">
+            <p class="arise-notice-download-note">You can still download the technical brochure directly:</p>
+            <button type="button" class="arise-direct-download-btn" id="ariseDirectDownloadBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Brochure PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- =========================================================================
+             ORIGINAL BROCHURE LEAD FORM (Preserved for future restoration)
+             To reactivate: Set LEAD_FORM_ENABLED = true in the script block below.
+             All input fields, validations, and Google Sheets integrations are intact.
+             ========================================================================= -->
+        <form id="ariseBrochureForm" class="arise-brochure-form" novalidate style="display: none;">
           <div class="arise-brochure-form-group">
             <label for="ariseName" class="arise-brochure-label">Full Name <span class="arise-required">*</span></label>
             <input type="text" id="ariseName" name="name" class="arise-brochure-input"
-              placeholder="Enter your full name" required autocomplete="name" />
+              placeholder="Enter your full name" required autocomplete="name" disabled />
             <span class="arise-brochure-error" id="ariseNameError"></span>
           </div>
 
@@ -1343,7 +1374,7 @@
             <label for="ariseEmail" class="arise-brochure-label">Business Email <span
                 class="arise-required">*</span></label>
             <input type="email" id="ariseEmail" name="email" class="arise-brochure-input"
-              placeholder="your.name@company.com" required autocomplete="email" />
+              placeholder="your.name@company.com" required autocomplete="email" disabled />
             <span class="arise-brochure-error" id="ariseEmailError"></span>
           </div>
 
@@ -1351,7 +1382,7 @@
             <label for="arisePhone" class="arise-brochure-label">Phone Number <span
                 class="arise-required">*</span></label>
             <input type="tel" id="arisePhone" name="phone" class="arise-brochure-input"
-              placeholder="Enter your phone number" required autocomplete="tel" />
+              placeholder="Enter your phone number" required autocomplete="tel" disabled />
             <span class="arise-brochure-error" id="arisePhoneError"></span>
           </div>
 
@@ -1364,7 +1395,7 @@
           </p>
 
           <!-- Submit Button -->
-          <button type="submit" class="arise-brochure-submit-btn" id="ariseSubmitBtn">
+          <button type="submit" class="arise-brochure-submit-btn" id="ariseSubmitBtn" disabled>
             <span class="arise-btn-text">Download Brochure</span>
             <span class="arise-btn-loader" style="display: none;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1615,6 +1646,91 @@
       cursor: not-allowed;
     }
 
+    /* Temporary Closure Notice */
+    .arise-brochure-notice-box {
+      text-align: center;
+      padding: 6px 0 0;
+      animation: ariseNoticeFadeIn 0.3s ease-out;
+    }
+
+    .arise-notice-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .arise-notice-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+    }
+
+    .arise-notice-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0 0 18px 0;
+    }
+
+    .arise-notice-download-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 8px;
+    }
+
+    .arise-notice-download-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #64748b;
+      margin: 0 0 12px 0;
+    }
+
+    .arise-direct-download-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+    }
+
+    .arise-direct-download-btn:hover {
+      background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+    }
+
+    @keyframes ariseNoticeFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Responsive */
     @media (max-width: 640px) {
       .arise-brochure-modal-content {
@@ -1636,12 +1752,23 @@
     (function () {
       'use strict';
 
+      /**
+       * LEAD GENERATION FEATURE FLAG
+       * =========================================================================
+       * Set to `false` to pause lead collection and stop automated spam submissions.
+       * Set to `true` to reactivate the brochure lead gate form.
+       * =========================================================================
+       */
+      const LEAD_FORM_ENABLED = false;
+
       // ========================================
       // CONFIGURATION
       // ========================================
       const ARISE_CONFIG = {
         modal: document.getElementById('ariseBrochureModal'),
         form: document.getElementById('ariseBrochureForm'),
+        notice: document.getElementById('ariseBrochureNotice'),
+        directDownloadBtn: document.getElementById('ariseDirectDownloadBtn'),
         closeBtn: document.getElementById('ariseModalClose'),
         submitBtn: document.getElementById('ariseSubmitBtn'),
         nameInput: document.getElementById('ariseName'),
@@ -1656,6 +1783,32 @@
 
       let currentBrochureUrl = '';
       let currentProductName = '';
+
+      // Sync form visibility & input enabled state based on feature flag
+      function syncLeadFormState() {
+        if (!LEAD_FORM_ENABLED) {
+          if (ARISE_CONFIG.form) {
+            ARISE_CONFIG.form.style.display = 'none';
+            ARISE_CONFIG.form.querySelectorAll('input, button').forEach(el => {
+              el.setAttribute('disabled', 'disabled');
+            });
+          }
+          if (ARISE_CONFIG.notice) {
+            ARISE_CONFIG.notice.style.display = 'block';
+          }
+        } else {
+          if (ARISE_CONFIG.form) {
+            ARISE_CONFIG.form.style.display = 'block';
+            ARISE_CONFIG.form.querySelectorAll('input, button').forEach(el => {
+              el.removeAttribute('disabled');
+            });
+          }
+          if (ARISE_CONFIG.notice) {
+            ARISE_CONFIG.notice.style.display = 'none';
+          }
+        }
+      }
+      syncLeadFormState();
 
       // ========================================
       // VALIDATION FUNCTIONS
@@ -1720,7 +1873,9 @@
 
         ARISE_CONFIG.modal.classList.add('arise-active');
         ARISE_CONFIG.modal.setAttribute('aria-hidden', 'false');
-        ARISE_CONFIG.nameInput.focus();
+        if (LEAD_FORM_ENABLED && ARISE_CONFIG.nameInput) {
+          ARISE_CONFIG.nameInput.focus();
+        }
         document.body.style.overflow = 'hidden';
       }
 
@@ -1760,6 +1915,11 @@
       // GOOGLE SHEETS SUBMISSION
       // ========================================
       function submitToGoogleSheets(name, email, phone, product) {
+        if (!LEAD_FORM_ENABLED) {
+          console.warn('Lead form submissions are currently paused.');
+          return Promise.resolve(false);
+        }
+
         // ⚠️ IMPORTANT: Replace with your actual Google Apps Script URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqLX-KktEVE7Z7lMbibbB36VHwhUw1XtvcR23SbFY_TpCOduvkLxjWpi_Gz3xrqSq79A/exec';
 
@@ -1792,6 +1952,11 @@
       // ========================================
       ARISE_CONFIG.form.addEventListener('submit', function (e) {
         e.preventDefault();
+
+        if (!LEAD_FORM_ENABLED) {
+          console.warn('Lead form submissions are currently paused.');
+          return;
+        }
 
         // Get values
         const name = ARISE_CONFIG.nameInput.value;
@@ -1878,6 +2043,14 @@
 
       // Close button
       ARISE_CONFIG.closeBtn.addEventListener('click', closeModal);
+
+      // Direct brochure download (active when leads are paused)
+      if (ARISE_CONFIG.directDownloadBtn) {
+        ARISE_CONFIG.directDownloadBtn.addEventListener('click', function () {
+          triggerDownload(currentBrochureUrl, `${currentProductName.replace(/\s+/g, '_')}_Brochure.pdf`);
+          setTimeout(closeModal, 600);
+        });
+      }
 
       // Click outside modal
       ARISE_CONFIG.modal.addEventListener('click', function (e) {
