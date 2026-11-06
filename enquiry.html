@@ -58,6 +58,8 @@
     <link href="css/cnc-footer-premium.css" rel="stylesheet">
     <link href="css/cnc-enquiry-premium.css" rel="stylesheet">
     <link rel="stylesheet" href="css/optimization-premium.css">
+    <!-- Cloudflare Turnstile API -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -363,8 +365,8 @@
 
         <!-- Contact Form Section -->
         <section class="cnc-enquiry-form-container">
-            <!-- Temporary Notice (Visible while online enquiries are paused) -->
-            <div id="cnc-enquiry-closure-notice" class="cnc-enquiry-disabled-notice" style="display: block;">
+            <!-- Temporary Notice (Hidden while online enquiries are active) -->
+            <div id="cnc-enquiry-closure-notice" class="cnc-enquiry-disabled-notice" style="display: none;">
                 <div class="cnc-enquiry-notice-badge">
                     <i class="fas fa-pause-circle"></i> Service Update
                 </div>
@@ -402,28 +404,41 @@
                 </div>
             </div>
 
-            <!-- =========================================================================
-                 ORIGINAL ENQUIRY FORM (Preserved for future restoration)
-                 To reactivate: Set LEAD_FORM_ENABLED = true in the script block below.
-                 ========================================================================= -->
-            <div id="cnc-enquiry-form-wrapper" style="display: none;">
-                <h2 class="cnc-enquiry-form-title">More Question? Contact Us...</h2>
-                <form id="cncEnquiryForm" onsubmit="return false;">
+            <!-- Online Enquiry Form -->
+            <div id="cnc-enquiry-form-wrapper" style="display: block;">
+                <h2 class="cnc-enquiry-form-title">More Questions? Contact Us...</h2>
+                <form id="cncEnquiryForm"
+                    action="https://script.google.com/macros/s/AKfycbzot1p8PAH0siQaj-XEFzQ0UKIwSNcTnvAJmdpTcegeVW5qkWOgEtn9jaJXQg47ZoGXmg/exec"
+                    method="POST" target="hidden_enquiry_iframe" onsubmit="return handleEnquirySubmit(event);">
+                    <input type="hidden" name="subject" value="General Product & Tooling Enquiry">
+                    <!-- Honeypot -->
+                    <input type="text" name="company" style="display:none">
+
                     <div class="cnc-enquiry-form-grid">
                         <div class="cnc-enquiry-input-group">
-                            <input type="text" class="cnc-enquiry-input" placeholder="Full Name" disabled>
+                            <input type="text" name="name" class="cnc-enquiry-input" placeholder="Full Name" required>
                         </div>
                         <div class="cnc-enquiry-input-group">
-                            <input type="email" class="cnc-enquiry-input" placeholder="Email Address" disabled>
+                            <input type="email" name="email" class="cnc-enquiry-input" placeholder="Email Address" required>
                         </div>
                         <div class="cnc-enquiry-input-group full-width">
-                            <textarea class="cnc-enquiry-textarea" placeholder="Your Message..." disabled></textarea>
+                            <textarea name="message" class="cnc-enquiry-textarea" placeholder="Your Message..." required></textarea>
+                        </div>
+
+                        <!-- Cloudflare Turnstile Verification -->
+                        <div class="cnc-enquiry-input-group full-width" style="display: flex; justify-content: flex-start; margin: 10px 0;">
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAAF13jHNBHDVhflGp" data-theme="light"></div>
                         </div>
                     </div>
-                    <button type="submit" class="cnc-enquiry-submit-btn" disabled>
+                    <button type="submit" class="cnc-enquiry-submit-btn">
                         Send Message <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
+
+                <iframe name="hidden_enquiry_iframe" style="display:none;"></iframe>
+                <div id="cnc-enquiry-toast" style="display:none; margin-top:15px; padding:12px 20px; background:#10b981; color:#fff; border-radius:8px; font-weight:600; text-align:center;">
+                    ✅ Thank you! Your enquiry has been sent successfully.
+                </div>
             </div>
         </section>
 
@@ -564,16 +579,42 @@
             });
         });
     </script>
-    <!-- Lead Generation Feature Flag Management -->
+    <!-- Lead Generation Feature Flag Management & Submission Handler -->
     <script>
-        /**
-         * LEAD GENERATION FEATURE FLAG
-         * =========================================================================
-         * Set to `false` to keep enquiries temporarily paused.
-         * Set to `true` to reactivate the online enquiry form.
-         * =========================================================================
-         */
-        const LEAD_FORM_ENABLED = false;
+        const LEAD_FORM_ENABLED = true;
+
+        function handleEnquirySubmit(e) {
+            if (!LEAD_FORM_ENABLED) {
+                if (e && e.preventDefault) e.preventDefault();
+                return false;
+            }
+
+            const form = document.getElementById("cncEnquiryForm");
+            const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+            if (!token) {
+                if (e && e.preventDefault) e.preventDefault();
+                alert("Please complete the security verification.");
+                return false;
+            }
+
+            const btn = form.querySelector(".cnc-enquiry-submit-btn");
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const toast = document.getElementById("cnc-enquiry-toast");
+                if (toast) {
+                    toast.style.display = "block";
+                    setTimeout(() => { toast.style.display = "none"; }, 3500);
+                }
+                form.reset();
+                if (window.turnstile) {
+                    try { turnstile.reset(); } catch (err) {}
+                }
+                btn.disabled = false;
+            }, 1500);
+
+            return true;
+        }
 
         function initEnquiryLeadState() {
             const formWrapper = document.getElementById('cnc-enquiry-form-wrapper');

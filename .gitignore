@@ -1,0 +1,8 @@
+# Secrets and API Keys
+cloudfare.txt
+code.gs
+*.key
+.env*
+
+# VS Code history
+.history/

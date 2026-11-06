@@ -284,6 +284,8 @@
     }
   </style>
   <link rel="stylesheet" href="css/optimization-premium.css">
+  <!-- Cloudflare Turnstile API -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 
@@ -1331,7 +1333,7 @@
         </div>
 
         <!-- Temporary Notice (Active when LEAD_FORM_ENABLED = false) -->
-        <div id="ariseBrochureNotice" class="arise-brochure-notice-box" style="display: block;">
+        <div id="ariseBrochureNotice" class="arise-brochure-notice-box" style="display: none;">
           <div class="arise-notice-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
@@ -1362,11 +1364,11 @@
              To reactivate: Set LEAD_FORM_ENABLED = true in the script block below.
              All input fields, validations, and Google Sheets integrations are intact.
              ========================================================================= -->
-        <form id="ariseBrochureForm" class="arise-brochure-form" novalidate style="display: none;">
+        <form id="ariseBrochureForm" class="arise-brochure-form" novalidate style="display: block;">
           <div class="arise-brochure-form-group">
             <label for="ariseName" class="arise-brochure-label">Full Name <span class="arise-required">*</span></label>
             <input type="text" id="ariseName" name="name" class="arise-brochure-input"
-              placeholder="Enter your full name" required autocomplete="name" disabled />
+              placeholder="Enter your full name" required autocomplete="name" />
             <span class="arise-brochure-error" id="ariseNameError"></span>
           </div>
 
@@ -1374,7 +1376,7 @@
             <label for="ariseEmail" class="arise-brochure-label">Business Email <span
                 class="arise-required">*</span></label>
             <input type="email" id="ariseEmail" name="email" class="arise-brochure-input"
-              placeholder="your.name@company.com" required autocomplete="email" disabled />
+              placeholder="your.name@company.com" required autocomplete="email" />
             <span class="arise-brochure-error" id="ariseEmailError"></span>
           </div>
 
@@ -1382,9 +1384,12 @@
             <label for="arisePhone" class="arise-brochure-label">Phone Number <span
                 class="arise-required">*</span></label>
             <input type="tel" id="arisePhone" name="phone" class="arise-brochure-input"
-              placeholder="Enter your phone number" required autocomplete="tel" disabled />
+              placeholder="Enter your phone number" required autocomplete="tel" />
             <span class="arise-brochure-error" id="arisePhoneError"></span>
           </div>
+
+          <!-- Honeypot (anti-spam) -->
+          <input type="text" name="company" style="display:none;" tabindex="-1" autocomplete="off" />
 
           <!-- Privacy Notice -->
           <p class="arise-brochure-privacy">
@@ -1394,8 +1399,13 @@
             <span>We respect your privacy. Your information will never be shared.</span>
           </p>
 
+          <!-- Cloudflare Turnstile Verification -->
+          <div style="display: flex; justify-content: center; margin: 15px 0;">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAF13jHNBHDVhflGp" data-theme="light"></div>
+          </div>
+
           <!-- Submit Button -->
-          <button type="submit" class="arise-brochure-submit-btn" id="ariseSubmitBtn" disabled>
+          <button type="submit" class="arise-brochure-submit-btn" id="ariseSubmitBtn">
             <span class="arise-btn-text">Download Brochure</span>
             <span class="arise-btn-loader" style="display: none;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1759,7 +1769,7 @@
        * Set to `true` to reactivate the brochure lead gate form.
        * =========================================================================
        */
-      const LEAD_FORM_ENABLED = false;
+      const LEAD_FORM_ENABLED = true;
 
       // ========================================
       // CONFIGURATION
@@ -1887,6 +1897,9 @@
         // Reset form after animation
         setTimeout(() => {
           ARISE_CONFIG.form.reset();
+          if (window.turnstile) {
+            try { turnstile.reset(); } catch(e) {}
+          }
           hideError(ARISE_CONFIG.nameError);
           hideError(ARISE_CONFIG.emailError);
           ARISE_CONFIG.nameInput.classList.remove('arise-error');
@@ -1921,7 +1934,17 @@
         }
 
         // ⚠️ IMPORTANT: Replace with your actual Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqLX-KktEVE7Z7lMbibbB36VHwhUw1XtvcR23SbFY_TpCOduvkLxjWpi_Gz3xrqSq79A/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzot1p8PAH0siQaj-XEFzQ0UKIwSNcTnvAJmdpTcegeVW5qkWOgEtn9jaJXQg47ZoGXmg/exec';
+
+        // Cloudflare Turnstile token verification check
+        const turnstileToken = ARISE_CONFIG.form ? (ARISE_CONFIG.form.querySelector('[name="cf-turnstile-response"]')?.value || '') : '';
+        if (!turnstileToken) {
+          alert('Please complete the security verification.');
+          return Promise.resolve(false);
+        }
+
+        // Anti-spam honeypot check
+        const honeypotVal = ARISE_CONFIG.form ? (ARISE_CONFIG.form.querySelector('input[name="company"]')?.value || '') : '';
 
         // Create form data
         const formData = new FormData();
@@ -1929,6 +1952,13 @@
         formData.append('email', email);
         formData.append('phone', phone);
         formData.append('product', product);
+        formData.append('subject', 'Brochure Download: ' + product);
+        formData.append('message', 'Brochure requested for product: ' + product);
+        formData.append('cf-turnstile-response', turnstileToken);
+        formData.append('turnstileToken', turnstileToken);
+        if (honeypotVal) {
+          formData.append('company', honeypotVal);
+        }
         formData.append('timestamp', new Date().toISOString());
 
         // Submit to Google Sheets

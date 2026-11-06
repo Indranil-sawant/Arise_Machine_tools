@@ -58,6 +58,8 @@
     <link href="css/cnc-footer-premium.css" rel="stylesheet">
     <link href="css/cnc-navbar-premium.css" rel="stylesheet">
     <link rel="stylesheet" href="css/optimization-premium.css">
+    <!-- Cloudflare Turnstile API -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <script>
@@ -69,7 +71,7 @@
      * - To reactivate the lead form (original form visible & active): LEAD_FORM_ENABLED = true
      * =========================================================================
      */
-    const LEAD_FORM_ENABLED = false;
+    const LEAD_FORM_ENABLED = true;
 
     function handleCncSubmit(e) {
         if (!LEAD_FORM_ENABLED) {
@@ -79,6 +81,13 @@
         }
 
         const form = document.getElementById("cnc-contact-form");
+        const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+        if (!token) {
+            if (e && e.preventDefault) e.preventDefault();
+            alert("Please complete the security verification.");
+            return false;
+        }
+
         const btn = form.querySelector(".cnc-form-submit-btn");
         const text = btn.querySelector(".btn-text");
         const loader = btn.querySelector(".btn-loader");
@@ -92,6 +101,9 @@
         setTimeout(() => {
             showCncToast();
             form.reset();
+            if (window.turnstile) {
+                try { turnstile.reset(); } catch(err) {}
+            }
 
             btn.disabled = false;
             text.style.display = "inline";
@@ -447,7 +459,7 @@
                 <div class="cnc-contact-form-wrapper">
 
                     <!-- Temporary Notice (Displayed while lead enquiries are temporarily paused) -->
-                    <div id="cnc-closure-notice" class="cnc-lead-disabled-notice" style="display: block;">
+                    <div id="cnc-closure-notice" class="cnc-lead-disabled-notice" style="display: none;">
                         <div class="cnc-notice-badge">
                             <i class="fas fa-pause-circle"></i> Service Update
                         </div>
@@ -492,45 +504,50 @@
                          To reactivate: Set LEAD_FORM_ENABLED = true in the script block above.
                          All fields, Google Apps Script endpoint, honeypot & logic preserved.
                          ========================================================================= -->
-                    <div id="cnc-form-container" style="display: none;">
+                    <div id="cnc-form-container" style="display: block;">
                         <h2 class="cnc-contact-form-title">Send Us a Message</h2>
 
                         <form id="cnc-contact-form"
-                            action="https://script.google.com/macros/s/AKfycbwhnZqBTVzkMQMtyp8gaXOOzT0zmAzJY8MZPM2FSKf70TRPfH9IcIBZzCWdTChaUK7d1g/exec"
+                            action="https://script.google.com/macros/s/AKfycbzot1p8PAH0siQaj-XEFzQ0UKIwSNcTnvAJmdpTcegeVW5qkWOgEtn9jaJXQg47ZoGXmg/exec"
                             method="POST" target="hidden_iframe" onsubmit="return handleCncSubmit(event);">
 
                             <div class="cnc-contact-form-grid">
 
                                 <div class="cnc-form-group">
                                     <label class="cnc-form-label">Your Name</label>
-                                    <input type="text" name="name" class="cnc-form-input" required disabled>
+                                    <input type="text" name="name" class="cnc-form-input" required>
                                 </div>
 
                                 <div class="cnc-form-group">
                                     <label class="cnc-form-label">Your Email</label>
-                                    <input type="email" name="email" class="cnc-form-input" required disabled>
+                                    <input type="email" name="email" class="cnc-form-input" required>
                                 </div>
 
                                 <div class="cnc-form-group">
                                     <label class="cnc-form-label">Phone Number</label>
-                                    <input type="tel" name="phone" class="cnc-form-input" disabled>
+                                    <input type="tel" name="phone" class="cnc-form-input">
                                 </div>
 
                                 <div class="cnc-form-group">
                                     <label class="cnc-form-label">Subject</label>
-                                    <input type="text" name="subject" class="cnc-form-input" disabled>
+                                    <input type="text" name="subject" class="cnc-form-input">
                                 </div>
 
                                 <div class="cnc-form-group full-width">
                                     <label class="cnc-form-label">Message</label>
-                                    <textarea name="message" class="cnc-form-textarea" required disabled></textarea>
+                                    <textarea name="message" class="cnc-form-textarea" required></textarea>
                                 </div>
 
                                 <!-- Honeypot -->
-                                <input type="text" name="company" style="display:none" disabled>
+                                <input type="text" name="company" style="display:none">
+
+                                <!-- Cloudflare Turnstile Verification -->
+                                <div class="cnc-form-group full-width" style="display: flex; justify-content: flex-start; margin-bottom: 10px;">
+                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAF13jHNBHDVhflGp" data-theme="light"></div>
+                                </div>
 
                                 <div class="cnc-form-group full-width">
-                                    <button type="submit" class="cnc-form-submit-btn" disabled>
+                                    <button type="submit" class="cnc-form-submit-btn">
                                         <span class="btn-text">Send Message</span>
                                         <span class="btn-loader" style="display:none">Sending…</span>
                                         <i class="fas fa-paper-plane"></i>
