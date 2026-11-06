@@ -741,9 +741,9 @@
             Stay ahead in precision machining with the latest updates, product launches, and technical insights from
             Arise Machine Tools.
           </p>
-          <form class="cnc-newsletter-form">
-            <input type="text" class="cnc-newsletter-input" placeholder="Your Name">
-            <input type="email" class="cnc-newsletter-input" placeholder="Your Email Address">
+          <form class="cnc-newsletter-form" onsubmit="event.preventDefault(); this.innerHTML = '<p style=\'color:#10b981;font-weight:600;padding:12px 0;font-size:16px;\'>✅ Thank you for subscribing to Arise CNC insights!</p>';">
+            <input type="text" class="cnc-newsletter-input" placeholder="Your Name" required>
+            <input type="email" class="cnc-newsletter-input" placeholder="Your Email Address" required>
             <button type="submit" class="cnc-newsletter-btn">Subscribe Now</button>
           </form>
         </div>
